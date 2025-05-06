@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="header.css">
     <link rel="stylesheet" type="text/css" href="main.css">
-    <title>Document</title>
+    <title>PoitiersSignGen</title>
 </head>
 <body>
     <div class="header">
         <div class="left-section">
-            <h2 id="subtitle_page_mode1">Verification de la signature</h2>
+			<img src="logo-up.png" alt="test" width="100px">
+            <h2 id="subtitle_page_mode1">PoitiersSignGen</h2>
         </div>
         <div class="right-section">
             <button id="btn_generator_page_mode1" onclick="location.href='https://upmail.univ-poitiers.fr/'">Zimbra</button>
@@ -23,9 +24,10 @@
     </div>
 
     <div class="main_signature">
+		<h4 id="titre" style="font-size: 32px; text-align: center; display: none;">Ajouter une signature à vos e-mails dans Zimbra : Tutoriel complet</h4>
         <pre id="signature_display"></pre>
         <button class="button" id="copy_button" style="display: none;">Copy</button>
-		<button class="button" id="index_button" onclick="location.href='index.html'">BACK</button>
+	
 		<div id="copy_message" style="display: none; color: green; margin-top: 10px;">Le texte a été copié !</div> 
 
     </div>
@@ -33,6 +35,9 @@
 	<div class="main_content">
 		<div class="subCard">
 			<h4 id="nom" style="font-size: 32px; text-align: center;">Ajouter une signature à vos e-mails dans Zimbra : Tutoriel complet</h4>
+			<img src="Tutoriel.png" alt="Ma signature">
+			<button class="button" id="index_button" onclick="location.href='index.html'">Back</button>
+
 		</div>
 		
 	</div>
@@ -42,6 +47,8 @@
         const signature = params.get('signature');
 
         if (signature) {
+			
+			document.getElementById('titre').style.display = 'inline-block';
             const decoded = decodeURIComponent(signature);
             document.getElementById('signature_display').textContent = decoded;
             
