@@ -30,7 +30,7 @@
             <h4 id="prenom">Prenom<span class="obligatoire"> *</span></h4>
             <input type="text" id="prenom_etu" name="prenom_etu" class="textField" placeholder="Prenom">
             <h4 id="groupe_td">Groupe de TD<span class="obligatoire"> *</span></h4>
-            <input type="number" id="groupe_td_etu" name="groupe_td_etu" class="textField" placeholder="ex: 2" max="99">
+            <input type="number" id="groupe_td_etu" name="groupe_td_etu" class="textField" placeholder="ex: 2" min="1" max="99">
             <h4 id="telephone">Telephone</h4>
             <input type="tel" id="telephone_etu" name="telephone_etu" class="textField" pattern="^([0-9]{2} ){4}[0-9]{2}$" placeholder="01 23 45 67 89" maxlength="14">
             <h4 id="formation">Formation<span class="obligatoire"> *</span></h4>
@@ -113,6 +113,9 @@
                 </select>
 
 
+
+                  
+                  
          
         </div>
         <div class="buttonCard">
