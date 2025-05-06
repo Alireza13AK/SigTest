@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
    
-    <link rel="stylesheet" type="text/css" href="header.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
     <title>Document</title>
 </head>
 <body>
@@ -26,13 +26,13 @@
     <div class="main_content">
         <div class="subCard">
             <h4 id="nom">Nom<span class="obligatoire"> *</span></h4>
-            <input type="text" id="no m_etu" name="nom_etu" class="textField" placeholder="Placeholder">
+            <input type="text" id="no m_etu" name="nom_etu" class="textField" placeholder="Nom de famille">
             <h4 id="prenom">Prenom<span class="obligatoire"> *</span></h4>
-            <input type="text" id="prenom_etu" name="prenom_etu" class="textField" placeholder="Placeholder">
+            <input type="text" id="prenom_etu" name="prenom_etu" class="textField" placeholder="Prenom">
             <h4 id="groupe_td">Groupe de TD<span class="obligatoire"> *</span></h4>
-            <input type="text" id="groupe_td_etu" name="groupe_td_etu" class="textField" placeholder="Placeholder">
+            <input type="number" id="groupe_td_etu" name="groupe_td_etu" class="textField" placeholder="ex: 2" max="99">
             <h4 id="telephone">Telephone</h4>
-            <input type="text" id="telephone_etu" name="telephone_etu" class="textField" placeholder="Placeholder">
+            <input type="tel" id="telephone_etu" name="telephone_etu" class="textField" pattern="^([0-9]{2} ){4}[0-9]{2}$" placeholder="01 23 45 67 89" maxlength="14">
             <h4 id="formation">Formation<span class="obligatoire"> *</span></h4>
                 <select id="formation_etu" class="select" name="formation_etu" required>
 
@@ -87,7 +87,6 @@
 
                 <h4 id="lieu">Lieu<span class="obligatoire"> *</span></h4>
                 <select id="lieu_etu" name="lieu_etu" class="textField" required>
-                  
                     <option value="Poitiers">Poitiers (campus principal)</option>
                     <option value="Châtellerault">Châtellerault</option>
                     <option value="Niort">Niort</option>
@@ -104,19 +103,16 @@
 
 
                 <h4 id="diplome">Diplôme<span class="obligatoire"> *</span></h4>
-                <select id="diplome_etu" name="diplome_etu" class="textField" required>
-                <option value="L1">Première année de Licence</option>
-                <option value="L2">Deuxième année de Licence</option>
-                <option value="L3">Troisième année de Licence</option>
-                <option value="M1">Master 1</option>
-                <option value="M2">Master 2</option>
+                    <select id="diplome_etu" name="diplome_etu" class="textField" required>
+                    <option value="L1">Bac +1</option>
+                    <option value="L2">Bac +2</option>
+                    <option value="L3">Bac +3</option>
+                    <option value="M1">Bac +4</option>
+                    <option value="M2">Bac +5</option>
                     <option value="Doc">Doctorant</option>
                 </select>
 
 
-
-                  
-                  
          
         </div>
         <div class="buttonCard">
