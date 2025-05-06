@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Fonction pour générer la signature
   const generateSignature = () => {
       signature = `${inputprenom.value} ${inputnom.value}\n`;
-      signature += `Groupe de TD: ${inputtd.value}\n`;
+      signature += `Groupe de TD N° ${inputtd.value}\n`;
       signature += `UFR: ${inputformation.options[inputformation.selectedIndex].text}\n`;
       signature += `Université de Poitiers\n`;
       
