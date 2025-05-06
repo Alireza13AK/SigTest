@@ -93,18 +93,38 @@ document.addEventListener('DOMContentLoaded', function () {
   const submitButton = document.getElementById('submit'); 
   let signature;
   
+  
   // Fonction pour générer la signature
-  const generateSignature = () => {
+  const inputnetudes = document.getElementById('diplome_etu');
+
+function niv_etudes(annee) {
+    switch (annee){
+        case "Bac +1":
+            return "L1";
+        case "Bac +2":
+            return "L2";
+        case "Bac +3":
+            return "L3";
+        case "Bac +4":
+            return "M1";
+        case "Bac +5":
+            return "M2";
+        case "Doctorant":
+            return "Doctorant";
+    }
+  }
+
+const generateSignature = () => {
       signature = `${inputprenom.value} ${inputnom.value}\n`;
-      signature += `Groupe de TD N° ${inputtd.value}\n`;
+      signature += `Groupe de TD N°${inputtd.value}\n`;
+      signature += `${niv_etudes(inputnetudes.options[inputnetudes.selectedIndex].text)}\n`;
       signature += `UFR: ${inputformation.options[inputformation.selectedIndex].text}\n`;
       signature += `Université de Poitiers\n`;
       
       // Ajouter le numéro de téléphone si renseigné
       if (inputtelephone.value.trim() !== '') {
-          signature += `Tel: ${inputtelephone.value}`;
+          signature += `Tel. : ${inputtelephone.value}`;
       }
-
    
 
      
