@@ -38,53 +38,113 @@
 
             <h4 id="formation">Formation<span class="obligatoire"> *</span></h4>
                 <select id="formation_etu" class="select" name="formation_etu" required>
+                    <optgroup label="DEUST">
+                        <option>DEUST Métiers de la forme – Angoulême</option>
+                        <option>DEUST Animation et gestion des activités physiques et sportives – Poitiers</option>
+                        <option>DEUST Animation – parcours Activités aquatiques – Poitiers</option>
+                        <option>DEUST Animation – parcours Pleine nature – Poitiers</option>
+                        <option>DEUST Préparateur/technicien en pharmacie – CFA/Poitiers (distanciel)</option>
+                    </optgroup>
 
-             <optgroup label="Licence">
-        <option value="licence-droit">Licence Droit</option>
-        <option value="licence-aes">Licence Administration Économique et Sociale (AES)</option>
-        <option value="licence-lea">Licence Langues Étrangères Appliquées (LEA)</option>
-        <option value="licence-llcer-anglais">Licence LLCER Anglais</option>
-        <option value="licence-llcer-espagnol">Licence LLCER Espagnol</option>
-        <option value="licence-sciences-du-langage">Licence Sciences du Langage</option>
-        <!-- Ajoutez d'autres licences ici -->
-            </optgroup>
-            <optgroup label="Licence Professionnelle">
-        <option value="lp-droit-prive">LP Activités Juridiques : Métiers du Droit Privé</option>
-        <option value="lp-notariat">LP Métiers du Notariat</option>
-        <option value="lp-commerce-distribution">LP Commerce et Distribution</option>
-        <option value="lp-assurance-banque-finance">LP Assurance, Banque, Finance : Chargé de Clientèle</option>
-        <option value="lp-securite-biens-personnes">LP Sécurité des Biens et des Personnes</option>
-        <option value="lp-mecatronique-robotique">LP Métiers de l'Industrie : Mécatronique, Robotique</option>
-        <!-- Ajoutez d'autres licences professionnelles ici -->
-            </optgroup>
-            <optgroup label="Master">
-        <option value="master-droit-affaires">Master Droit des Affaires</option>
-        <option value="master-droit-public">Master Droit Public</option>
-        <option value="master-science-politique">Master Science Politique</option>
-        <option value="master-communication-organisations">Master Communication des Organisations</option>
-        <option value="master-gestion-ressources-humaines">Master Gestion des Ressources Humaines</option>
-        <option value="master-intelligence-economique">Master Intelligence Économique</option>
-        <!-- Ajoutez d'autres masters ici -->
-            </optgroup>
-            <optgroup label="BUT (Bachelor Universitaire de Technologie)">
-        <option value="but-hse">BUT Hygiène, Sécurité, Environnement</option>
-        <option value="but-multimedia-internet">BUT Métiers du Multimédia et de l'Internet</option>
-        <option value="but-mesures-physiques">BUT Mesures Physiques</option>
-        <option value="but-qlio">BUT Qualité, Logistique Industrielle et Organisation</option>
-        <option value="but-reseaux-telecommunications">BUT Réseaux et Télécommunications</option>
-        <option value="but-science-donnees">BUT Science des Données</option>
-        <option value="but-techniques-commercialisation">BUT Techniques de Commercialisation</option>
-        <!-- Ajoutez d'autres BUT ici -->
-            </optgroup>
-            <optgroup label="Diplôme d'Université (DU)">
-        <option value="du-droit-francais">DU Certificat de Droit Français</option>
-        <option value="du-conseiller-sante-sexuelle">DU Conseiller en Santé Sexuelle</option>
-        <option value="du-preparation-mentale">DU Préparation Mentale Intégrée</option>
-        <option value="du-art-therapie">DU Art-Thérapie</option>
-        <option value="du-nutrition-dietetique">DU Nutrition et Diététique Clinique et Thérapeutique</option>
-        <option value="du-prise-en-charge-douleur">DU Prise en Charge de la Douleur</option>
-        <!-- Ajoutez d'autres DU ici -->
-            </optgroup>
+                    <!-- Licences - Sciences juridiques, économiques et de gestion -->
+                    <optgroup label="Licences – Droit, Économie et Gestion">
+                        <option>Licence AES – Poitiers</option>
+                        <option>Licence Droit – Poitiers</option>
+                        <option>Licence Droit – Angoulême</option>
+                        <option>Licence Droit – Niort</option>
+                        <option>Double licence Droit-Philosophie – Poitiers</option>
+                        <option>Double licence Droit-LEA – Poitiers</option>
+                        <option>Licence Droit avec accès Santé – Poitiers</option>
+                        <option>Licence Économie Gestion – Poitiers</option>
+                        <option>Licence Économie Gestion avec accès Santé – Poitiers</option>
+                    </optgroup>
+
+                    <!-- Licences - Lettres, Langues, Arts -->
+                    <optgroup label="Licences – Lettres, Langues, Arts">
+                        <option>Licence Arts du spectacle – Poitiers</option>
+                        <option>Licence Géographie et aménagement – Poitiers</option>
+                        <option>Licence Histoire – Poitiers</option>
+                        <option>Licence Histoire de l’art et archéologie – Poitiers</option>
+                        <option>Licence LEA – Poitiers</option>
+                        <option>Licence LLCER Anglais – Poitiers</option>
+                        <option>Licence LLCER Anglais avec accès Santé – Poitiers</option>
+                        <option>Licence LLCER Espagnol – Poitiers</option>
+                        <option>Licence LLCER Espagnol avec accès Santé – Poitiers</option>
+                        <option>Licence Lettres – Poitiers</option>
+                        <option>Parcours Sciences politiques (Lettres) – Poitiers</option>
+                        <option>Licence Lettres avec accès Santé – Poitiers</option>
+                        <option>Licence Musicologie – Poitiers</option>
+                        <option>Licence Philosophie – Poitiers</option>
+                        <option>Licence Psychologie – Poitiers</option>
+                        <option>Licence Sciences du langage – Poitiers</option>
+                        <option>Licence Sciences du langage avec accès Santé – Poitiers</option>
+                        <option>PPPE – Poitiers</option>
+                        <option>Licence Sociologie – Poitiers</option>
+                    </optgroup>
+
+                    <!-- Licences - Sciences et technologies -->
+                    <optgroup label="Licences – Sciences et technologies">
+                        <option>Licence Chimie – Poitiers</option>
+                        <option>Licence Chimie avec accès Santé – Poitiers</option>
+                        <option>CMI Chimie – Poitiers</option>
+                        <option>Licence Informatique – Poitiers</option>
+                        <option>CMI Informatique – Poitiers</option>
+                        <option>Licence Mathématiques – Poitiers</option>
+                        <option>Licence Mathématiques avec accès Santé – Poitiers</option>
+                        <option>Licence Physique – Poitiers</option>
+                        <option>Parcours renforcé Physique – Poitiers</option>
+                        <option>Licence Physique avec accès Santé – Poitiers</option>
+                        <option>Licence Sciences de la terre – Poitiers</option>
+                        <option>CMI Géosciences appliquées – Poitiers</option>
+                        <option>Licence Sciences pour l’ingénieur – Poitiers</option>
+                        <option>Licence Sciences pour l’ingénieur avec accès Santé – Poitiers</option>
+                    </optgroup>
+
+                    <!-- Licences – Sciences de la vie et sport -->
+                    <optgroup label="Licences – Sciences de la vie, sport et santé">
+                        <option>Licence Sciences de la vie – Poitiers</option>
+                        <option>Licence Sciences de la vie avec accès Santé – Poitiers</option>
+                        <option>CMI Biologie-santé – Poitiers</option>
+                        <option>Licence STAPS – Poitiers</option>
+                        <option>Licence STAPS – Angoulême</option>
+                        <option>Licence STAPS avec accès santé – Poitiers</option>
+                    </optgroup>
+
+                    <!-- Certificat -->
+                    <optgroup label="Certificat">
+                        <option>Certificat de capacité d’orthophonie – Poitiers</option>
+                    </optgroup>
+
+                    <!-- LAS – Accès santé -->
+                    <optgroup label="Licences avec accès santé (LAS)">
+                        <option>LAS Médecine – Poitiers</option>
+                        <option>LAS Maïeutique – Poitiers</option>
+                        <option>LAS Odontologie – Poitiers</option>
+                        <option>LAS Pharmacie – Poitiers</option>
+                        <option>LAS Masso-kinésithérapie – Poitiers</option>
+                    </optgroup>
+
+                    <!-- BUT -->
+                    <optgroup label="BUT – Sciences et technologies">
+                        <option>BUT Chimie – Poitiers</option>
+                        <option>BUT Génie électrique et informatique industrielle – Poitiers</option>
+                        <option>BUT Génie électrique et informatique industrielle – Angoulême</option>
+                        <option>BUT Génie mécanique et productique – Angoulême</option>
+                        <option>BUT Métiers de la transition énergétique – Poitiers</option>
+                        <option>BUT HSE – Niort</option>
+                        <option>BUT Mesures physiques – Châtellerault</option>
+                        <option>BUT MMI – Angoulême</option>
+                        <option>BUT QLIO – Angoulême</option>
+                        <option>BUT Réseaux et télécommunications – Châtellerault</option>
+                        <option>BUT Science des Données – Niort</option>
+                    </optgroup>
+
+                    <optgroup label="BUT – Gestion, commerce, économie">
+                        <option>BUT GEA – Poitiers</option>
+                        <option>BUT GEA – Niort</option>
+                        <option>BUT Techniques de commercialisation – Angoulême</option>
+                        <option>BUT Techniques de commercialisation – Châtellerault</option>
+                    </optgroup>
                 </select>
 
                 <h4 id="diplome">Niveau d'études<span class="obligatoire"> *</span></h4>
@@ -97,7 +157,8 @@
                     <option value="Doc">Doctorant</option>
                 </select>
 
-                <h4 id="lieu">Lieu<span class="obligatoire"> *</span></h4>
+            <!--
+            <h4 id="lieu">Lieu<span class="obligatoire"> *</span></h4>
                 <select id="lieu_etu" name="lieu_etu" class="textField" required>
                   
                     <option value="Poitiers">Poitiers (campus principal)</option>
@@ -113,6 +174,8 @@
                     <option value="ENSI Poitiers">ENSI Poitiers</option>
                     <option value="ESAIP">ESAIP Niort</option>
                 </select>
+            -->
+
 
                 <h4 id="composante">Composantes<span class="obligatoire"> *</span></h4>
                 <label>

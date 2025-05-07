@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('prenom_etu'),
       document.getElementById('groupe_td_etu'),
       document.getElementById('formation_etu'),
-      document.getElementById('lieu_etu'),
+      //document.getElementById('lieu_etu'),
       document.getElementById('composante_etu'),
       document.getElementById('diplome_etu')
   ];
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const inputtd = document.getElementById('groupe_td_etu');
   const inputformation = document.getElementById('formation_etu');
   const inputnetudes = document.getElementById('diplome_etu');
-  const inputlieu = document.getElementById('lieu_etu');
+  //const inputlieu = document.getElementById('lieu_etu');
   const inputcomposante = document.getElementById('composante_etu');
   const inputtelephone = document.getElementById('telephone_etu');
   const submitButton = document.getElementById('submit'); 
@@ -88,11 +88,21 @@ function niv_etudes(annee) {
 
     const generateSignature = () => {
         const prenomFormate = inputprenom.value.charAt(0).toUpperCase() + inputprenom.value.slice(1).toLowerCase();
+
+        const parts = inputformation.value.split("–");
+        const result = parts.pop().trim();
+
         signature = `${prenomFormate} ${(inputnom.value).toUpperCase()}\n`;
         signature += `Groupe de TD N°${inputtd.value}\n`;
-        signature += `${niv_etudes(inputnetudes.options[inputnetudes.selectedIndex].text)} ${inputformation.options[inputformation.selectedIndex].text}\n`;
-        signature += `${inputcomposante.value} \n`;
-        signature += `${inputlieu.options[inputlieu.selectedIndex].text}\n`;
+        const formation= `${niv_etudes(inputnetudes.options[inputnetudes.selectedIndex].text)} ${inputformation.options[inputformation.selectedIndex].text}`;
+        const partsf = formation.split("–").map(part => part.trim());
+        partsf.pop();
+        const resultf = partsf.join(" – ");
+
+        signature += resultf + `\n`;
+        signature += `${inputcomposante.value}\n`;
+        //signature += `${inputlieu.options[inputlieu.selectedIndex].text}\n`;
+        signature += result + `\n`;
       
       // Ajouter le numéro de téléphone si renseigné
       if (inputtelephone.value.trim() !== '') {
@@ -124,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const inputtd = document.getElementById('groupe_td_etu');
     const inputformation = document.getElementById('formation_etu');
     const inputnivetudes = document.getElementById('diplome_etu');
-    const inputlieu = document.getElementById('lieu_etu');
+    //const inputlieu = document.getElementById('lieu_etu');
     const inputcomposante = document.getElementById('composante_etu');
     const inputtelephone = document.getElementById('telephone_etu');
     const resetButton = document.getElementById('reset'); 
@@ -135,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
         inputtd.value = '';
         inputformation.selectedIndex = 0;
         inputnivetudes.selectedIndex = 0;
-        inputlieu.selectedIndex = 0;
+        //inputlieu.selectedIndex = 0;
         inputcomposante.selectedIndex = 0;
         inputtelephone.value = '';
 
