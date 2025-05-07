@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('groupe_td_etu'),
       document.getElementById('formation_etu'),
       document.getElementById('lieu_etu'),
+      document.getElementById('composante_etu'),
       document.getElementById('diplome_etu')
   ];
   
@@ -57,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const inputformation = document.getElementById('formation_etu');
   const inputnetudes = document.getElementById('diplome_etu');
   const inputlieu = document.getElementById('lieu_etu');
+  const inputcomposante = document.getElementById('composante_etu');
   const inputtelephone = document.getElementById('telephone_etu');
   const submitButton = document.getElementById('submit'); 
 
@@ -89,7 +91,7 @@ function niv_etudes(annee) {
         signature = `${prenomFormate} ${(inputnom.value).toUpperCase()}\n`;
         signature += `Groupe de TD N°${inputtd.value}\n`;
         signature += `${niv_etudes(inputnetudes.options[inputnetudes.selectedIndex].text)} ${inputformation.options[inputformation.selectedIndex].text}\n`;
-        signature += `UFR: \n`;
+        signature += `${inputcomposante.value} \n`;
         signature += `${inputlieu.options[inputlieu.selectedIndex].text}\n`;
       
       // Ajouter le numéro de téléphone si renseigné
@@ -123,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const inputformation = document.getElementById('formation_etu');
     const inputnivetudes = document.getElementById('diplome_etu');
     const inputlieu = document.getElementById('lieu_etu');
+    const inputcomposante = document.getElementById('composante_etu');
     const inputtelephone = document.getElementById('telephone_etu');
     const resetButton = document.getElementById('reset'); 
 
@@ -133,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
         inputformation.selectedIndex = 0;
         inputnivetudes.selectedIndex = 0;
         inputlieu.selectedIndex = 0;
+        inputcomposante.selectedIndex = 0;
         inputtelephone.value = '';
 
         //faire disparaitre le bouton vérification

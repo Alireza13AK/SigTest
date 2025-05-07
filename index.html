@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
    
@@ -114,9 +114,31 @@
                     <option value="ESAIP">ESAIP Niort</option>
                 </select>
 
-            <h4 id="telephone">Telephone</h4>
-            <input type="text" pattern="\d{2}" id="telephone_etu" name="groupe_td_etu" class="textField" placeholder="XX XX XX XX XX " maxlength="10" minlength="0" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)">
+                <h4 id="composante">Composantes<span class="obligatoire"> *</span></h4>
+                <label>
+                <select id="composante_etu" name="composante_etu" class="textField" required>
 
+                    <option value="Institut National Supérieur du Professorat et de l'Éducation">Institut National Supérieur du Professorat et de l'Éducation</option>
+                    <option value="Institut de Préparation à l'Administration Générale">Institut de Préparation à l'Administration Générale</option>
+                    <option value="École Nationale Supérieure d’Ingénieurs de Poitiers">École Nationale Supérieure d’Ingénieurs de Poitiers</option>
+                    <option value="Institut d'Administration des Entreprises">Institut d'Administration des Entreprises</option>
+                    <option value="Institut des Risques Industriels, Assurantiels et Financiers">Institut des Risques Industriels, Assurantiels et Financiers</option>
+                    <option value="IUT DE Poitiers / Niort / Châtellerault">IUT DE Poitiers / Niort / Châtellerault</option>
+                    <option value="IUT d’Angoulême">IUT d’Angoulême</option>
+                    <option value="UFR Sciences Fondamentales Appliquées">UFR Sciences Fondamentales Appliquées</option>
+                    <option value="UFR sciences sport">UFR des sciences du sport</option>
+                    <option value="UFR Droit et sciences sociales">UFR Droit et sciences sociales</option>
+                    <option value="UFR Sciences Économiques">UFR Sciences Économiques</option>
+                    <option value="UFR Lettres et Langues">UFR Lettres et Langues</option>
+                    <option value="UFR Médecine et Pharmacie">UFR Médecine et Pharmacie</option>
+
+                </select>
+                </label>
+
+            <h4 id="telephone">Telephone</h4>
+            <label>
+                <input type="text" pattern="\d{2}" id="telephone_etu" name="groupe_td_etu" class="textField" placeholder="XX XX XX XX XX " maxlength="10" minlength="0" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)">
+            </label>
 
 
                   
