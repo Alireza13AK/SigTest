@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   ];
   
   const button = document.getElementById('submit');
+  
 
   // Fonction pour vérifier si tous les champs obligatoires sont remplis
   function checkFormCompletion() {
