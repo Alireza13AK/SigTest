@@ -24,7 +24,7 @@
     </div>
 
     <div class="main_signature">
-		<h4 id="titre" style="font-size: 32px; text-align: center; display: none;">Ajouter une signature à vos e-mails dans Zimbra : Tutoriel complet</h4>
+		<h4 id="titre" style="font-size: 32px; text-align: center; display: none;">Voici votre signature générée:</h4>
         <pre id="signature_display"></pre>
         <button class="button" id="copy_button" style="display: none;">Copy</button>
 	
@@ -47,8 +47,9 @@
         const signature = params.get('signature');
 
         if (signature) {
-			
+
 			document.getElementById('titre').style.display = 'inline-block';
+
             const decoded = decodeURIComponent(signature);
             document.getElementById('signature_display').textContent = decoded;
             

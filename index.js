@@ -145,3 +145,27 @@ const generateSignature = () => {
 
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const inputnom = document.getElementById('nom_etu');
+    const inputprenom = document.getElementById('prenom_etu');
+    const inputtd = document.getElementById('groupe_td_etu');
+    const inputformation = document.getElementById('formation_etu');
+    const inputnivetudes = document.getElementById('diplome_etu');
+    const inputlieu = document.getElementById('lieu_etu');
+    const inputtelephone = document.getElementById('telephone_etu');
+    const resetButton = document.getElementById('reset'); 
+
+    function resetSignature() {
+        inputnom.value = '';
+        inputprenom.value = '';
+        inputtd.value = '';
+        inputformation.selectedIndex = 0;
+        inputnivetudes.selectedIndex = 0;
+        inputlieu.selectedIndex = 0;
+        inputtelephone.value = '';
+    }
+
+    resetButton.addEventListener('click', function () {
+        resetSignature();
+    });
+});
