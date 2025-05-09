@@ -24,6 +24,12 @@ body {
     color: #f00;
 }
 
+.alert {
+    padding: 20px;
+    background-color: #f4d336;
+    color: white;
+}
+
 .main_content {
     max-width: 1200px;
     margin: 2rem auto;

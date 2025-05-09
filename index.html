@@ -202,6 +202,9 @@
             <label>
                 <input type="text" pattern="^$|\d{10}" title="10 chiffres exactement ou vide" id="telephone_etu" name="groupe_td_etu" class="textField" placeholder="XX XX XX XX XX " maxlength="10" minlength="10" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)">
             </label>
+            <div class="alert" style="display: none;" id="alerte">
+                <strong>Attention!</strong> Le numéro de téléphone doit contenir exactement 10 chiffres ou être vide.
+            </div>
 
 
                   

@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
   ];
   
   const button = document.getElementById('submit');
-  
 
   // Fonction pour vérifier si tous les champs obligatoires sont remplis
   function checkFormCompletion() {
@@ -61,33 +60,35 @@ document.addEventListener('DOMContentLoaded', function () {
   //const inputlieu = document.getElementById('lieu_etu');
   const inputcomposante = document.getElementById('composante_etu');
   const inputtelephone = document.getElementById('telephone_etu');
-  const submitButton = document.getElementById('submit'); 
+  const submitButton = document.getElementById('submit');
+  const alertmess = document.getElementById('alerte');
 
 
   // Fonction pour générer la signature
 
 
-function niv_etudes(annee) {
-    switch (annee){
-        case "Bac +1":
-            return "L1";
-        case "Bac +2":
-            return "L2";
-        case "Bac +3":
-            return "L3";
-        case "Bac +4":
-            return "M1";
-        case "Bac +5":
-            return "M2";
-        case "Doctorant":
-            return "Doctorant";
+    function niv_etudes(annee) {
+        switch (annee){
+            case "Bac +1":
+                return "L1";
+            case "Bac +2":
+                return "L2";
+            case "Bac +3":
+                return "L3";
+            case "Bac +4":
+                return "M1";
+            case "Bac +5":
+                return "M2";
+            case "Doctorant":
+                return "Doctorant";
+        }
     }
-  }
 
 
     let signature;
 
     const generateSignature = () => {
+        alertmess.style.display = 'none';
         const prenomFormate = inputprenom.value.charAt(0).toUpperCase() + inputprenom.value.slice(1).toLowerCase();
 
         const parts = inputformation.value.split("–");
@@ -116,6 +117,16 @@ function niv_etudes(annee) {
   
   // Lorsque l'utilisateur clique sur le bouton "Verification", générer la signature
   submitButton.addEventListener('click', function() {
+
+      const phoneValue = inputtelephone.value.trim();
+
+      if (phoneValue !== '' && phoneValue.length !== 10) {
+          event.preventDefault(); // Empêche l'action par défaut (soumission ou suite du traitement)
+          alertmess.style.display = 'inline-block';
+
+
+          return;
+      }
       generateSignature();
 
          // On récupère la signature générée
@@ -138,9 +149,11 @@ document.addEventListener('DOMContentLoaded', function () {
     //const inputlieu = document.getElementById('lieu_etu');
     const inputcomposante = document.getElementById('composante_etu');
     const inputtelephone = document.getElementById('telephone_etu');
-    const resetButton = document.getElementById('reset'); 
+    const resetButton = document.getElementById('reset');
+    const alertmess = document.getElementById('alerte');
 
     function resetSignature() {
+        alertmess.style.display = 'none';
         inputnom.value = '';
         inputprenom.value = '';
         inputtd.value = '';
