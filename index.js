@@ -163,8 +163,6 @@ document.addEventListener('DOMContentLoaded', function () {
         inputcomposante.selectedIndex = 0;
         inputtelephone.value = '';
 
-        //faire disparaitre le bouton vérification
-
     }
 
     resetButton.addEventListener('click', function () {
