@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const inputprenom = document.getElementById('prenom_etu');
   const inputtd = document.getElementById('groupe_td_etu');
   const inputformation = document.getElementById('formation_etu');
+  const inputautreformation = document.getElementById("autre_formation_etu");
   const inputnetudes = document.getElementById('diplome_etu');
   //const inputlieu = document.getElementById('lieu_etu');
   const inputcomposante = document.getElementById('composante_etu');
@@ -63,6 +64,53 @@ document.addEventListener('DOMContentLoaded', function () {
   const submitButton = document.getElementById('submit');
   const alertmess = document.getElementById('alerte');
 
+    inputtelephone.addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, '');
+        value = value.substring(0, 10);
+
+        // Ajoute un espace toutes les 2 chiffres
+        e.target.value = value.match(/.{1,2}/g)?.join(' ') || '';
+    });
+
+    inputformation.addEventListener('change', function () {
+        const select = this;
+        const selectedIndex = select.selectedIndex;
+        const lastIndex = select.options.length - 1;
+        const titre_composante = document.getElementById("composante");
+        const titre_autreformation = document.getElementById("autre_formation");
+
+
+        function auto_choix(formation) {
+            switch (formation){
+                case "":
+                    return "";
+
+            }
+        }
+
+        if (selectedIndex === lastIndex) {
+            inputcomposante.style.display = 'block';
+            inputcomposante.required = false;
+            titre_composante.style.display = 'block';
+            titre_autreformation.style.display = 'block';
+            inputautreformation.style.display = 'block';
+
+        }
+        else {
+            inputcomposante.style.display = 'none';
+            inputcomposante.required = false;
+            inputcomposante.selectedIndex = 0;
+            titre_composante.style.display = 'none';
+            titre_autreformation.style.display = 'none';
+            inputautreformation.style.display = 'none';
+
+            auto_choix(inputcomposante.value);
+
+
+            // à modifier car on veut un switch case pour chaque formation
+
+        }
+    });
 
   // Fonction pour générer la signature
 
@@ -91,26 +139,32 @@ document.addEventListener('DOMContentLoaded', function () {
         alertmess.style.display = 'none';
         const prenomFormate = inputprenom.value.charAt(0).toUpperCase() + inputprenom.value.slice(1).toLowerCase();
 
-        const parts = inputformation.value.split("–");
-        const result = parts.pop().trim();
+        //const parts = inputformation.value.split("–");
+        //const result = parts.pop().trim();
 
         signature = `${prenomFormate} ${(inputnom.value).toUpperCase()}\n`;
         signature += `Groupe de TD N°${inputtd.value}\n`;
-        const formation= `${niv_etudes(inputnetudes.options[inputnetudes.selectedIndex].text)} ${inputformation.options[inputformation.selectedIndex].text}`;
-        const partsf = formation.split("–").map(part => part.trim());
-        partsf.pop();
-        const resultf = partsf.join(" – ");
 
-        signature += resultf + `\n`;
+        if (inputautreformation.value){
+            signature += `${niv_etudes(inputnetudes.options[inputnetudes.selectedIndex].text)} ` + `${inputautreformation.value}\n`;
+        }
+        else {
+            const formation = `${niv_etudes(inputnetudes.options[inputnetudes.selectedIndex].text)} ${inputformation.options[inputformation.selectedIndex].text}`;
+            const partsf = formation.split("–").map(part => part.trim());
+            partsf.pop();
+            const resultf = partsf.join(" – ");
+            signature += resultf + `\n`;
+        }
+
         signature += `${inputcomposante.value}\n`;
         //signature += `${inputlieu.options[inputlieu.selectedIndex].text}\n`;
-        signature += result + `\n`;
+        signature += 'Université de Poitiers\n';
       
       // Ajouter le numéro de téléphone si renseigné
       if (inputtelephone.value.trim() !== '') {
-          signature += `Tel. : ${inputtelephone.value}`;
+          signature += `Tél. : ${inputtelephone.value}`;
       }
-   
+
 
      
   };
@@ -120,11 +174,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const phoneValue = inputtelephone.value.trim();
 
-      if (phoneValue !== '' && phoneValue.length !== 10) {
+      if (phoneValue !== '' && phoneValue.length !== 14) {
           event.preventDefault(); // Empêche l'action par défaut (soumission ou suite du traitement)
           alertmess.style.display = 'inline-block';
-
-
           return;
       }
       generateSignature();
@@ -136,6 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Redirection vers tutorial.html avec la signature en paramètre
     window.location.href = `tutorial.html?signature=${encodedSignature}`;
   });
+
 
 
 });
@@ -168,4 +221,5 @@ document.addEventListener('DOMContentLoaded', function () {
     resetButton.addEventListener('click', function () {
         resetSignature();
     });
+
 });

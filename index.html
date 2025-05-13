@@ -5,6 +5,7 @@
    
     <link rel="stylesheet" type="text/css" href="header.css">
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="footer.css">
     <script src="index.js"></script>
     <title>PoitiersSignGen</title>
 </head>
@@ -145,7 +146,14 @@
                         <option>BUT Techniques de commercialisation – Angoulême</option>
                         <option>BUT Techniques de commercialisation – Châtellerault</option>
                     </optgroup>
+                    <optgroup label="Autres">
+                        <option>Autre formation</option>
+                    </optgroup>
                 </select>
+                <h4 id="autre_formation" style="display: none">Autre formation<span class="obligatoire"> *</span></h4>
+            <label>
+                <input id="autre_formation_etu" type="text" class="textField" placeholder="Tapez votre formation" style="display: none">
+            </label>
 
                 <h4 id="diplome">Niveau d'études<span class="obligatoire"> *</span></h4>
                 <select id="diplome_etu" name="diplome_etu" class="textField" required>
@@ -177,9 +185,9 @@
             -->
 
 
-                <h4 id="composante">Composantes<span class="obligatoire"> *</span></h4>
+                <h4 id="composante" style="display: none">Composantes<span class="obligatoire"> *</span></h4>
                 <label>
-                <select id="composante_etu" name="composante_etu" class="textField" required>
+                <select id="composante_etu" name="composante_etu" class="textField" style="display: none">
 
                     <option value="Institut National Supérieur du Professorat et de l'Éducation">Institut National Supérieur du Professorat et de l'Éducation</option>
                     <option value="Institut de Préparation à l'Administration Générale">Institut de Préparation à l'Administration Générale</option>
@@ -200,7 +208,7 @@
 
             <h4 id="telephone">Telephone</h4>
             <label>
-                <input type="text" pattern="^$|\d{10}" title="10 chiffres exactement ou vide" id="telephone_etu" name="groupe_td_etu" class="textField" placeholder="XX XX XX XX XX " maxlength="10" minlength="10" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)">
+                <input type="text" pattern="^$|\d{10}" title="10 chiffres exactement ou vide" id="telephone_etu" name="groupe_td_etu" class="textField" placeholder="XX XX XX XX XX" maxlength="14" minlength="14" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)">
             </label>
             <div class="alert" style="display: none;" id="alerte">
                 <strong>Attention!</strong> Le numéro de téléphone doit contenir exactement 10 chiffres ou être vide.
@@ -216,6 +224,24 @@
             <button class="button" type="reset" id="reset">Reset</button>
         </div>
     </div>
+
+    <footer class="ametys-footer"><div class="container"><div class="ametys-footer-inner"><div class="ametys-footer-left"><div class="ametys-footer-address"><p class="ametys-footer-address-name">Université de Poitiers</p><p class="ametys-footer-address-location">
+        15 rue de l'Hôtel Dieu<br>
+        TSA 71117<br>
+        86073 POITIERS Cedex 9<br>
+        France
+    </p><p class="ametys-footer-address-tel"><span class="fas fa-phone"></span>
+        (33) (0)5 49 45 30 00
+    </p><p>
+        Le "15 rue de l'Hôtel Dieu à Poitiers"<br>
+        correspond à l'administration de l'université.<br>
+        Aucun cours n'y est dispensé.
+    </p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </footer>
 
    
 </body>
