@@ -29,16 +29,26 @@
     <div class="main_content">
         <div class="subCard">
             <h4 id="prenom">Prenom<span class="obligatoire"> *</span></h4>
+            <label>
             <input type="text" id="prenom_etu" name="prenom_etu" class="textField" placeholder="Votre prenom">
+            </label>
 
             <h4 id="nom">Nom<span class="obligatoire"> *</span></h4>
+            <label>
             <input type="text" id="nom_etu" name="nom_etu" class="textField" placeholder="Votre nom">
+            </label>
             
             <h4 id="groupe_td">Groupe de TD<span class="obligatoire"> *</span></h4>
+            <label>
             <input type="text" pattern="[1-9][0-9]?" id="groupe_td_etu" name="groupe_td_etu" class="textField" placeholder="Entre 1 et 99" maxlength="2" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 2); if (this.value === '0') this.value = '';">
+            </label>
 
             <h4 id="formation">Formation<span class="obligatoire"> *</span></h4>
+            <label>
                 <select id="formation_etu" class="select" name="formation_etu" required>
+                    <optgroup label="Autres">
+                        <option>Autre formation</option>
+                    </optgroup>
                     <optgroup label="DEUST">
                         <option>DEUST Métiers de la forme – Angoulême</option>
                         <option>DEUST Animation et gestion des activités physiques et sportives – Poitiers</option>
@@ -146,16 +156,19 @@
                         <option>BUT Techniques de commercialisation – Angoulême</option>
                         <option>BUT Techniques de commercialisation – Châtellerault</option>
                     </optgroup>
-                    <optgroup label="Autres">
-                        <option>Autre formation</option>
-                    </optgroup>
+
                 </select>
-                <h4 id="autre_formation" style="display: none">Autre formation<span class="obligatoire"> *</span></h4>
-            <label>
-                <input id="autre_formation_etu" type="text" class="textField" placeholder="Tapez votre formation" style="display: none">
             </label>
+                <h4 id="autre_formation" style="display: block">Autre formation<span class="obligatoire"> *</span></h4>
+            <label>
+                <input id="autre_formation_etu" type="text" class="textField" placeholder="Tapez votre formation" style="display: block">
+            </label>
+            <div class="alert" style="display: none;" id="alerteautre">
+                <strong>Attention!</strong> Vous devez compléter ce champ!
+            </div>
 
                 <h4 id="diplome">Niveau d'études<span class="obligatoire"> *</span></h4>
+            <label>
                 <select id="diplome_etu" name="diplome_etu" class="textField" required>
                     <option value="L1">Bac +1</option>
                     <option value="L2">Bac +2</option>
@@ -164,6 +177,7 @@
                     <option value="M2">Bac +5</option>
                     <option value="Doc">Doctorant</option>
                 </select>
+            </label>
 
             <!--
             <h4 id="lieu">Lieu<span class="obligatoire"> *</span></h4>
@@ -185,9 +199,9 @@
             -->
 
 
-                <h4 id="composante" style="display: none">Composantes<span class="obligatoire"> *</span></h4>
+                <h4 id="composante" style="display: block">Composantes<span class="obligatoire"> *</span></h4>
                 <label>
-                <select id="composante_etu" name="composante_etu" class="textField" style="display: none">
+                <select id="composante_etu" name="composante_etu" class="textField" style="display: block">
 
                     <option value="Institut National Supérieur du Professorat et de l'Éducation">Institut National Supérieur du Professorat et de l'Éducation</option>
                     <option value="Institut de Préparation à l'Administration Générale">Institut de Préparation à l'Administration Générale</option>
@@ -210,7 +224,7 @@
             <label>
                 <input type="text" pattern="^$|\d{10}" title="10 chiffres exactement ou vide" id="telephone_etu" name="groupe_td_etu" class="textField" placeholder="XX XX XX XX XX" maxlength="14" minlength="14" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)">
             </label>
-            <div class="alert" style="display: none;" id="alerte">
+            <div class="alert" style="display: none;" id="alertephone">
                 <strong>Attention!</strong> Le numéro de téléphone doit contenir exactement 10 chiffres ou être vide.
             </div>
 
@@ -224,6 +238,26 @@
             <button class="button" type="reset" id="reset">Reset</button>
         </div>
     </div>
+
+    <footer id="social-footer" class="site-social-footer">
+
+
+        <div id="social-nav">
+
+
+            <ul>
+                <li>La vie étudiante continue sur les réseaux sociaux !</li>
+                <li><a target="_blank" href="https://www.facebook.com/univpoitiers/" title="Notre compte Facebook"><i aria-hidden="true" class="fa-brands fa-facebook"></i></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/univ_poitiers/" title="Notre compte Instagram"><i aria-hidden="true" class="fa-brands fa-instagram"></i></a></li>
+                <li><a target="_blank" href="https://twitter.com/#!/univpoitiers" title="Notre compte Twitter"><i aria-hidden="true" class="fa-brands fa-twitter"></i></a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/school/45459/" title="Notre compte Linkedin"><i aria-hidden="true" class="fa-brands fa-linkedin"></i></a></li>
+                <li><a target="_blank" href="https://www.youtube.com/user/UniversitePoitiers" title="Notre compte Youtube"><i aria-hidden="true" class="fa-brands fa-youtube"></i></a></li>
+            </ul>
+
+
+        </div>
+
+    </footer>
 
     <footer class="ametys-footer"><div class="container"><div class="ametys-footer-inner"><div class="ametys-footer-left"><div class="ametys-footer-address"><p class="ametys-footer-address-name">Université de Poitiers</p><p class="ametys-footer-address-location">
         15 rue de l'Hôtel Dieu<br>

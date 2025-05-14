@@ -1,225 +1,175 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Sélectionner tous les champs obligatoires
-  const requiredFields = [
-      document.getElementById('nom_etu'),
-      document.getElementById('prenom_etu'),
-      document.getElementById('groupe_td_etu'),
-      document.getElementById('formation_etu'),
-      //document.getElementById('lieu_etu'),
-      document.getElementById('composante_etu'),
-      document.getElementById('diplome_etu')
-  ];
-  
-  const button = document.getElementById('submit');
 
-  // Fonction pour vérifier si tous les champs obligatoires sont remplis
-  function checkFormCompletion() {
-      let allFilled = true;
-
-      // Vérifier si chaque champ obligatoire est rempli ou sélectionné
-      requiredFields.forEach(function(input) {
-          if ((input.tagName === "INPUT" && input.value.trim() === '') || 
-              (input.tagName === "SELECT" && input.value === '')) {
-              allFilled = false;
-          }
-      });
-
-      // Afficher ou masquer le bouton de soumission en fonction de la validité du formulaire
-      if (allFilled) {
-          button.style.display = 'inline-block';
-      } else {
-          button.style.display = 'none';
-      }
-  }
-
-  // Ajouter un écouteur d'événement pour chaque champ obligatoire
-  requiredFields.forEach(function(input) {
-      input.addEventListener('input', checkFormCompletion);
-      input.addEventListener('change', checkFormCompletion); // Pour les champs select
-  });
-
-  // Vérifier l'état du formulaire dès le chargement
-  checkFormCompletion();
-
-    window.addEventListener('pageshow', function () {
-        checkFormCompletion(); // Revalide les champs après retour arrière
-    });
-
-    const resetButton = document.getElementById('reset');
-    resetButton.addEventListener('click', function () {
-        setTimeout(checkFormCompletion, 0); // attendre que le reset s'applique avant de vérifier
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-  const inputnom = document.getElementById('nom_etu');
-  const inputprenom = document.getElementById('prenom_etu');
-  const inputtd = document.getElementById('groupe_td_etu');
-  const inputformation = document.getElementById('formation_etu');
-  const inputautreformation = document.getElementById("autre_formation_etu");
-  const inputnetudes = document.getElementById('diplome_etu');
-  //const inputlieu = document.getElementById('lieu_etu');
-  const inputcomposante = document.getElementById('composante_etu');
-  const inputtelephone = document.getElementById('telephone_etu');
-  const submitButton = document.getElementById('submit');
-  const alertmess = document.getElementById('alerte');
-
-    inputtelephone.addEventListener('input', function (e) {
-        let value = e.target.value.replace(/\D/g, '');
-        value = value.substring(0, 10);
-
-        // Ajoute un espace toutes les 2 chiffres
-        e.target.value = value.match(/.{1,2}/g)?.join(' ') || '';
-    });
-
-    inputformation.addEventListener('change', function () {
-        const select = this;
-        const selectedIndex = select.selectedIndex;
-        const lastIndex = select.options.length - 1;
-        const titre_composante = document.getElementById("composante");
-        const titre_autreformation = document.getElementById("autre_formation");
-
-
-        function auto_choix(formation) {
-            switch (formation){
-                case "":
-                    return "";
-
-            }
-        }
-
-        if (selectedIndex === lastIndex) {
-            inputcomposante.style.display = 'block';
-            inputcomposante.required = false;
-            titre_composante.style.display = 'block';
-            titre_autreformation.style.display = 'block';
-            inputautreformation.style.display = 'block';
-
-        }
-        else {
-            inputcomposante.style.display = 'none';
-            inputcomposante.required = false;
-            inputcomposante.selectedIndex = 0;
-            titre_composante.style.display = 'none';
-            titre_autreformation.style.display = 'none';
-            inputautreformation.style.display = 'none';
-
-            auto_choix(inputcomposante.value);
-
-
-            // à modifier car on veut un switch case pour chaque formation
-
-        }
-    });
-
-  // Fonction pour générer la signature
-
-
-    function niv_etudes(annee) {
-        switch (annee){
-            case "Bac +1":
-                return "L1";
-            case "Bac +2":
-                return "L2";
-            case "Bac +3":
-                return "L3";
-            case "Bac +4":
-                return "M1";
-            case "Bac +5":
-                return "M2";
-            case "Doctorant":
-                return "Doctorant";
-        }
-    }
-
-
-    let signature;
-
-    const generateSignature = () => {
-        alertmess.style.display = 'none';
-        const prenomFormate = inputprenom.value.charAt(0).toUpperCase() + inputprenom.value.slice(1).toLowerCase();
-
-        //const parts = inputformation.value.split("–");
-        //const result = parts.pop().trim();
-
-        signature = `${prenomFormate} ${(inputnom.value).toUpperCase()}\n`;
-        signature += `Groupe de TD N°${inputtd.value}\n`;
-
-        if (inputautreformation.value){
-            signature += `${niv_etudes(inputnetudes.options[inputnetudes.selectedIndex].text)} ` + `${inputautreformation.value}\n`;
-        }
-        else {
-            const formation = `${niv_etudes(inputnetudes.options[inputnetudes.selectedIndex].text)} ${inputformation.options[inputformation.selectedIndex].text}`;
-            const partsf = formation.split("–").map(part => part.trim());
-            partsf.pop();
-            const resultf = partsf.join(" – ");
-            signature += resultf + `\n`;
-        }
-
-        signature += `${inputcomposante.value}\n`;
-        //signature += `${inputlieu.options[inputlieu.selectedIndex].text}\n`;
-        signature += 'Université de Poitiers\n';
-      
-      // Ajouter le numéro de téléphone si renseigné
-      if (inputtelephone.value.trim() !== '') {
-          signature += `Tél. : ${inputtelephone.value}`;
-      }
-
-
-     
-  };
-  
-  // Lorsque l'utilisateur clique sur le bouton "Verification", générer la signature
-  submitButton.addEventListener('click', function() {
-
-      const phoneValue = inputtelephone.value.trim();
-
-      if (phoneValue !== '' && phoneValue.length !== 14) {
-          event.preventDefault(); // Empêche l'action par défaut (soumission ou suite du traitement)
-          alertmess.style.display = 'inline-block';
-          return;
-      }
-      generateSignature();
-
-         // On récupère la signature générée
-         const encodedSig = encodeURIComponent(signature);
-         window.location.href = `tutorial.html?signature=${encodedSig}`;
-
-    // Redirection vers tutorial.html avec la signature en paramètre
-    window.location.href = `tutorial.html?signature=${encodedSignature}`;
-  });
-
-
-
-});
-
-document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
+    // === Sélection des éléments ===
     const inputnom = document.getElementById('nom_etu');
     const inputprenom = document.getElementById('prenom_etu');
     const inputtd = document.getElementById('groupe_td_etu');
     const inputformation = document.getElementById('formation_etu');
+    const inputautreformation = document.getElementById("autre_formation_etu");
     const inputnivetudes = document.getElementById('diplome_etu');
-    //const inputlieu = document.getElementById('lieu_etu');
     const inputcomposante = document.getElementById('composante_etu');
     const inputtelephone = document.getElementById('telephone_etu');
     const resetButton = document.getElementById('reset');
-    const alertmess = document.getElementById('alerte');
+    const submitButton = document.getElementById('submit');
+    const alertmess = document.getElementById('alerteautre');
+    const alertmess2 = document.getElementById('alertephone');
+    const titre_composante = document.getElementById("composante");
+    const titre_autreformation = document.getElementById("autre_formation");
 
-    function resetSignature() {
-        alertmess.style.display = 'none';
-        inputnom.value = '';
-        inputprenom.value = '';
-        inputtd.value = '';
-        inputformation.selectedIndex = 0;
-        inputnivetudes.selectedIndex = 0;
-        //inputlieu.selectedIndex = 0;
-        inputcomposante.selectedIndex = 0;
-        inputtelephone.value = '';
+    const requiredFields = [
+    inputnom,
+    inputprenom,
+    inputtd,
+    inputformation,
+    inputcomposante,
+    inputnivetudes
+    ];
 
-    }
+    // === Affichage conditionnel de l'autre formation ===
+    function autreFormCheck(event) {
+    const selectedIndex = inputformation.selectedIndex;
 
+    if (selectedIndex === 0) {
+    inputcomposante.style.display = 'block';
+    titre_composante.style.display = 'block';
+    inputautreformation.style.display = 'block';
+    titre_autreformation.style.display = 'block';
+} else {
+    inputcomposante.style.display = 'none';
+    titre_composante.style.display = 'none';
+    inputcomposante.selectedIndex = 0;
+
+    inputautreformation.style.display = 'none';
+    titre_autreformation.style.display = 'none';
+    inputautreformation.value = '';
+    alertmess.style.display = 'none';
+}
+}
+
+    // === Vérification des champs obligatoires ===
+    function checkFormCompletion() {
+    let allFilled = true;
+
+    requiredFields.forEach(function (input) {
+    if ((input.tagName === "INPUT" && input.value.trim() === '') ||
+    (input.tagName === "SELECT" && input.value === '')) {
+    allFilled = false;
+}
+});
+
+    submitButton.style.display = allFilled ? 'inline-block' : 'none';
+}
+
+    // === Génération de la signature ===
+    function niv_etudes(annee) {
+    switch (annee) {
+    case "Bac +1":
+        return "L1";
+    case "Bac +2":
+        return "L2";
+    case "Bac +3":
+        return "L3";
+    case "Bac +4":
+        return "M1";
+    case "Bac +5":
+        return "M2";
+    case "Doctorant":
+        return "Doctorant";
+}
+}
+
+    function generateSignature() {
+    alertmess.style.display = 'none';
+    const prenomFormate = inputprenom.value.charAt(0).toUpperCase() + inputprenom.value.slice(1).toLowerCase();
+    let signature = `${prenomFormate} ${inputnom.value.toUpperCase()}\n`;
+    signature += `Groupe de TD N°${inputtd.value}\n`;
+
+    if (inputformation.selectedIndex === 0 && inputautreformation.value.trim() !== '') {
+    signature += `${niv_etudes(inputnivetudes.options[inputnivetudes.selectedIndex].text)} ${inputautreformation.value}\n`;
+} else {
+    const formation = `${niv_etudes(inputnivetudes.options[inputnivetudes.selectedIndex].text)} ${inputformation.options[inputformation.selectedIndex].text}`;
+    const parts = formation.split("–").map(part => part.trim());
+    parts.pop(); // retirer ville
+    signature += parts.join(" – ") + '\n';
+}
+
+    signature += `${inputcomposante.value}\nUniversité de Poitiers\n`;
+
+    if (inputtelephone.value.trim() !== '') {
+    signature += `Tél. : ${inputtelephone.value}`;
+}
+
+    return signature;
+}
+
+    // === Gestion du bouton submit ===
+    submitButton.addEventListener('click', function (event) {
+    const autreValue = inputautreformation.value.trim();
+    const phoneValue = inputtelephone.value.trim();
+
+    // Vérifie si "Autre formation" est visible mais vide
+    if (inputformation.selectedIndex === 0 && autreValue === '') {
+    event.preventDefault();
+    alertmess.style.display = 'inline-block';
+    return;
+}
+
+    alertmess.style.display = 'none';
+
+    // Vérifie si le téléphone est mal formaté (10 chiffres = 14 caractères avec espaces)
+    if (phoneValue !== '' && phoneValue.length !== 14) {
+    event.preventDefault();
+    alertmess2.style.display = 'inline-block';
+    return;
+}
+
+    alertmess2.style.display = 'none';
+
+    const signature = generateSignature();
+    const encodedSig = encodeURIComponent(signature);
+    window.location.href = `tutorial.html?signature=${encodedSig}`;
+});
+
+    // === Auto-espace du téléphone ===
+    inputtelephone.addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '').substring(0, 10);
+    e.target.value = value.match(/.{1,2}/g)?.join(' ') || '';
+});
+
+    // === Remise à zéro du formulaire ===
     resetButton.addEventListener('click', function () {
-        resetSignature();
-    });
+    alertmess.style.display = 'none';
+    alertmess2.style.display = 'none';
 
+    inputnom.value = '';
+    inputprenom.value = '';
+    inputtd.value = '';
+    inputformation.selectedIndex = 0;
+    inputautreformation.value = '';
+    inputnivetudes.selectedIndex = 0;
+    inputcomposante.selectedIndex = 0;
+    inputtelephone.value = '';
+
+    autreFormCheck();
+    setTimeout(checkFormCompletion, 0); // attendre que les valeurs soient réinitialisées
+});
+
+    // === Écouteurs sur les champs obligatoires ===
+    requiredFields.forEach(function (input) {
+    input.addEventListener('input', checkFormCompletion);
+    input.addEventListener('change', checkFormCompletion);
+});
+
+    // === Écouteur pour changement de formation ===
+    inputformation.addEventListener('change', autreFormCheck);
+
+    // === Revalidation après retour arrière navigateur ===
+    window.addEventListener('pageshow', function () {
+    checkFormCompletion();
+    autreFormCheck();
+});
+
+    // === Initialisation ===
+    checkFormCompletion();
+    autreFormCheck();
 });
