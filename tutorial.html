@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="icon" type="image/png" href="https://www.univ-poitiers.fr/wp-content/themes/universite_poitiers/img/upwpa128.png">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.27.5/full/pyodide.js"></script>
     <title>PoitiersSignGen</title>
 </head>
 <body>
@@ -42,6 +43,8 @@
 			<h4 id="nom" style="font-size: 32px; text-align: center;">Ajouter une signature à vos e-mails dans Zimbra : Tutoriel complet</h4>
 			<img src="Tutoriel.png" alt="Ma signature">
 			<button class="button" id="index_button" onclick="history.back()">Back</button>
+            <button class="button" id="next_button" onclick="main()" style="float:right">Vérification</button>
+            <pre id="res_python">hhhhhhhhhhhhhhhhhhhhhh</pre>
 
 		</div>
 		
@@ -122,6 +125,25 @@
         </div>
 
     </footer>
+
+    <script type="text/javascript">
+        let pyodideReadyPromise;
+
+        async function main() {
+            if (!pyodideReadyPromise) {
+                pyodideReadyPromise = loadPyodide();
+            }
+            const python_test = document.getElementById('res_python');
+            let pyodide = await pyodideReadyPromise;
+
+            await pyodide.runPythonAsync(`
+            def calcule_somme(a, b):
+            return a + b
+            `);
+
+            python_test.value = pyodide.runPython("calcule_somme(1, 2)").toString();
+        }
+    </script>
 
     <script>
         const params = new URLSearchParams(window.location.search);
