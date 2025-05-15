@@ -137,11 +137,12 @@
             let pyodide = await pyodideReadyPromise;
 
             await pyodide.runPythonAsync(`
-            def calcule_somme(a, b):
-            return a + b
-            `);
+def calcule_somme(a, b):
+    return a + b
+        `);
 
-            python_test.value = pyodide.runPython("calcule_somme(1, 2)").toString();
+            const result = pyodide.runPython("calcule_somme(1, 2)");
+            python_test.textContent = result.toString();
         }
     </script>
 
