@@ -144,6 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
             titre_autreformation.style.display = 'block';
             inputcomposante.required = true;
             inputcomposante.selectedIndex = 0;
+            inputautreformation.required = true;
 
         } else {
             inputcomposante.style.display = 'none';
@@ -154,6 +155,8 @@ document.addEventListener('DOMContentLoaded', function () {
             titre_autreformation.style.display = 'none';
             inputautreformation.value = '';
             alertmess.style.display = 'none';
+            inputautreformation.required = false;
+            inputcomposante.required = false;
             //let valeurComp = composanteCheck(inputformation.options[inputformation.selectedIndex].text);
             //inputcomposante.required = false;
 
@@ -200,22 +203,27 @@ document.addEventListener('DOMContentLoaded', function () {
     function generateSignature() {
         alertmess.style.display = 'none';
 
-        const composanteValue = inputcomposante.options[compCheck(inputformation.options[inputformation.selectedIndex].text)].text;
-
         const prenomFormate = inputprenom.value.charAt(0).toUpperCase() + inputprenom.value.slice(1).toLowerCase();
         let signature = `${prenomFormate} ${inputnom.value.toUpperCase()}\n`;
         signature += `Groupe de TD N°${inputtd.value}\n`;
 
         if (inputformation.selectedIndex === 0 && inputautreformation.value.trim() !== '') {
             signature += `${niv_etudes(inputnivetudes.options[inputnivetudes.selectedIndex].text)} ${inputautreformation.value}\n`;
+            signature += `${inputcomposante.value}\nUniversité de Poitiers\n`;
         } else {
             const formation = `${niv_etudes(inputnivetudes.options[inputnivetudes.selectedIndex].text)} ${inputformation.options[inputformation.selectedIndex].text}`;
             const parts = formation.split("–").map(part => part.trim());
             parts.pop(); // retirer ville
             signature += parts.join(" – ") + '\n';
+            const composanteValue = inputcomposante.options[compCheck(inputformation.options[inputformation.selectedIndex].text)].text;
+            signature += `${composanteValue}\nUniversité de Poitiers\n`;
+
         }
 
-        signature += `${composanteValue}\nUniversité de Poitiers\n`;
+        if (inputformation.selectedIndex === 0 && inputautreformation.value.trim() !== '') {
+
+        }
+        else
 
         if (inputtelephone.value.trim() !== '') {
             signature += `Tél. : ${inputtelephone.value}`;
@@ -226,9 +234,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // === Gestion du bouton submit ===
     submitButton.addEventListener('click', function (event) {
-        console.log("Formation sélectionnée:", inputformation.options[inputformation.selectedIndex].text);
-        console.log("Composante détectée:", inputcomposante.options[compCheck(inputformation.options[inputformation.selectedIndex].text)].text);
-
         const autreValue = inputautreformation.value.trim();
         const phoneValue = inputtelephone.value.trim();
 
