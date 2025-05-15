@@ -24,8 +24,117 @@ document.addEventListener('DOMContentLoaded', function () {
         inputnivetudes
     ];
 
+    function compCheck(formation) {
+        switch (formation) {
+
+            // Sciences Humaines et Arts
+            case "Histoire – Poitiers":
+            case "Psychologie – Poitiers":
+            case "Géographie et aménagement – Poitiers":
+            case "Philosophie – Poitiers":
+            case "Musicologie – Poitiers":
+            case "Sociologie – Poitiers":
+            case "Histoire de l’art et archéologie – Poitiers":
+                return 13;
+
+            // Sciences Fondamentales et Appliquées
+            case "CMI Informatique – Poitiers":
+            case "CMI Géosciences appliquées – Poitiers":
+            case "Chimie – Poitiers":
+            case "Sciences pour l’ingénieur – Poitiers":
+            case "Physique – Poitiers":
+            case "Mathématiques – Poitiers":
+            case "CMI Biologie-santé – Poitiers":
+            case "Sciences de la vie – Poitiers":
+            case "Sciences de la terre – Poitiers":
+            case "CMI Chimie – Poitiers":
+            case "Informatique – Poitiers":
+                return 7;
+
+            // Lettres et langues
+            case "LLCER Anglais – Poitiers":
+            case "LLCER Anglais avec accès Santé – Poitiers":
+            case "LLCER Espagnol – Poitiers":
+            case "LLCER Espagnol avec accès Santé – Poitiers":
+            case "Lettres – Poitiers":
+            case "Arts du spectacle – Poitiers":
+            case "Sciences du langage – Poitiers":
+            case "Sciences du langage avec accès Santé – Poitiers":
+            case "LEA – Poitiers":
+                return 11;
+
+            // Droit et sciences sociales
+            case "Droit – Poitiers":
+            case "Droit – Angoulême":
+            case "Droit – Niort":
+            case "AES – Poitiers":
+                return 9;
+
+            // Faculté des sciences du sport
+            case "STAPS – Poitiers":
+            case "STAPS – Angoulême":
+            case "STAPS avec accès santé – Poitiers":
+            case "DEUST Animation et gestion des activités physiques et sportives – Poitiers":
+            case "DEUST Animation – parcours Activités aquatiques – Poitiers":
+            case "DEUST Animation – parcours Pleine nature – Poitiers":
+            case "DEUST Métiers de la forme – Angoulême":
+            case "DEUST Préparateur/technicien en pharmacie – CFA/Poitiers (distanciel)":
+                return 8;
+
+            // Sciences économiques, IAE
+            case "Économie Gestion – Poitiers":
+            case "Économie Gestion avec accès Santé – Poitiers":
+                return 5;
+
+            // Institut de préparation à l'administration générale
+            case "Administration publique – Poitiers":
+                return 0;
+
+            // IUT Poitiers-Châtellerault-Niort
+            case "BUT Mesures physiques – Châtellerault":
+            case "BUT Chimie – Poitiers":
+            case "BUT HSE – Niort":
+            case "BUT Réseaux et télécommunications – Châtellerault":
+            case "BUT Science des Données – Niort":
+            case "BUT Métiers de la transition énergétique – Poitiers":
+            case "BUT GEA – Poitiers":
+            case "BUT GEA – Niort":
+            case "BUT Génie mécanique et productique – Poitiers":
+            case "BUT Génie électrique et informatique industrielle – Poitiers":
+            case "BUT Techniques de commercialisation – Châtellerault":
+                return 5;
+
+            // IUT d'Angoulême
+            case "BUT MMI – Angoulême":
+            case "BUT QLIO – Angoulême":
+            case "BUT Génie mécanique et productique – Angoulême":
+            case "BUT Génie électrique et informatique industrielle – Angoulême":
+            case "BUT Techniques de commercialisation – Angoulême":
+                return 6;
+
+            // Double mentions
+            case "Double licence Droit-Philosophie – Poitiers":
+            case "Double licence Droit-LEA – Poitiers":
+                return 2;
+
+            // Santé
+            case "LAS Médecine – Poitiers":
+            case "LAS Maïeutique – Poitiers":
+            case "LAS Odontologie – Poitiers":
+            case "LAS Pharmacie – Poitiers":
+            case "LAS Masso-kinésithérapie – Poitiers":
+            case "Certificat de capacité d’orthophonie – Poitiers":
+                return 12;
+
+            // Défaut
+            default:
+                return "Autre";
+        }
+    }
+
+
     // === Affichage conditionnel de l'autre formation ===
-    function autreFormCheck(event) {
+    function autreFormCheck() {
         const selectedIndex = inputformation.selectedIndex;
 
         if (selectedIndex === 0) {
@@ -33,6 +142,9 @@ document.addEventListener('DOMContentLoaded', function () {
             titre_composante.style.display = 'block';
             inputautreformation.style.display = 'block';
             titre_autreformation.style.display = 'block';
+            inputcomposante.required = true;
+            inputcomposante.selectedIndex = 0;
+
         } else {
             inputcomposante.style.display = 'none';
             titre_composante.style.display = 'none';
@@ -42,6 +154,14 @@ document.addEventListener('DOMContentLoaded', function () {
             titre_autreformation.style.display = 'none';
             inputautreformation.value = '';
             alertmess.style.display = 'none';
+            //let valeurComp = composanteCheck(inputformation.options[inputformation.selectedIndex].text);
+            //inputcomposante.required = false;
+
+            inputcomposante.selectedIndex = compCheck(inputformation);
+            //inputcomposante.value = ;
+
+            console.log("Formation sélectionnée:", inputformation.options[inputformation.selectedIndex].text);
+            console.log("Composante détectée:", compCheck(inputformation.options[inputformation.selectedIndex].text));
         }
     }
 
@@ -79,6 +199,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function generateSignature() {
         alertmess.style.display = 'none';
+
+        const composanteValue = inputcomposante.options[compCheck(inputformation.options[inputformation.selectedIndex].text)].text;
+
         const prenomFormate = inputprenom.value.charAt(0).toUpperCase() + inputprenom.value.slice(1).toLowerCase();
         let signature = `${prenomFormate} ${inputnom.value.toUpperCase()}\n`;
         signature += `Groupe de TD N°${inputtd.value}\n`;
@@ -92,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
             signature += parts.join(" – ") + '\n';
         }
 
-        signature += `${inputcomposante.value}\nUniversité de Poitiers\n`;
+        signature += `${composanteValue}\nUniversité de Poitiers\n`;
 
         if (inputtelephone.value.trim() !== '') {
             signature += `Tél. : ${inputtelephone.value}`;
@@ -103,6 +226,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // === Gestion du bouton submit ===
     submitButton.addEventListener('click', function (event) {
+        console.log("Formation sélectionnée:", inputformation.options[inputformation.selectedIndex].text);
+        console.log("Composante détectée:", inputcomposante.options[compCheck(inputformation.options[inputformation.selectedIndex].text)].text);
+
         const autreValue = inputautreformation.value.trim();
         const phoneValue = inputtelephone.value.trim();
 
