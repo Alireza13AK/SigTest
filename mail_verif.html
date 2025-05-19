@@ -37,7 +37,7 @@
 
 <div class="main_content">
 
-    <h4 style="font-size: 32px; text-align: center;">Pour la vérification, veuillez mettre votre adresse mail étudiante.</h4>
+    <h4 style="font-size: 32px; text-align: center; color: #3498DB;">Pour la vérification, veuillez mettre votre adresse mail étudiante.</h4>
     <label>
         <input type="text" id="email_etu" name="email_etu" class="textField" size="30" placeholder="prenom.nom@etu.univ-poitiers.fr">
     </label>
@@ -46,8 +46,33 @@
     </div>
     <div class="buttonCard">
         <button class="button" id="verif_button" onclick="location.href = 'formulaire.html'" style="display: block">Suivant</button>
+         <button  class="button" id="fetchSignature">Exécuter Script</button>
+         <br>
+         
+        <p id="result"></p>
     </div>
 </div>
+
+      
+ 
+  <script>
+    document.getElementById('fetchSignature').addEventListener('click', () => {
+      const resultElement = document.getElementById('result');
+      resultElement.innerText = "Chargement...";
+
+      fetch('http://127.0.0.1:5000/zimbra-signature')
+        .then(response => response.json())
+        .then(data => {
+          console.log('Réponse reçue:', data);  //  vérifie dans la console navigateur
+          resultElement.innerText = data.signature || "Aucune signature trouvée.";
+        })
+        .catch(error => {
+          resultElement.innerText = "Erreur : " + error;
+          console.error(error);
+        });
+    });
+  </script>
+
 
 
 <footer id="social-footer" class="site-social-footer">
