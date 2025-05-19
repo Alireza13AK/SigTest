@@ -7,7 +7,9 @@
     <link rel="stylesheet" type="text/css" href="footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="icon" type="image/png" href="https://www.univ-poitiers.fr/wp-content/themes/universite_poitiers/img/upwpa128.png">
+    <!--
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.5/full/pyodide.js"></script>
+    -->
     <title>PoitiersSignGen</title>
 </head>
 <body>
@@ -43,8 +45,10 @@
 			<h4 id="nom" style="font-size: 32px; text-align: center;">Ajouter une signature à vos e-mails dans Zimbra : Tutoriel complet</h4>
 			<img src="Tutoriel.png" alt="Ma signature">
 			<button class="button" id="index_button" onclick="history.back()">Back</button>
-            <button class="button" id="next_button" onclick="main()" style="float:right">Vérification</button>
+            <button class="button" id="next_button" style="float:right">Vérification</button>
+            <!--
             <pre id="res_python">hhhhhhhhhhhhhhhhhhhhhh</pre>
+            -->
 
 		</div>
 		
@@ -125,7 +129,7 @@
         </div>
 
     </footer>
-
+<!--
     <script type="text/javascript">
         let pyodideReadyPromise;
 
@@ -145,6 +149,7 @@ def calcule_somme(a, b):
             python_test.textContent = result.toString();
         }
     </script>
+    -->
 
     <script>
         const params = new URLSearchParams(window.location.search);
@@ -177,6 +182,14 @@ def calcule_somme(a, b):
 			// Afficher le message que le texte a été copié
             const message = document.getElementById('copy_message');
             message.style.display = 'block';
+
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+
+            document.getElementById('next_button').addEventListener('click', () => {
+                const encodedSig = encodeURIComponent(signature);
+                window.location.href = `mail_verif.html?signature=${encodedSig}`;
+            });
 
         });
 
