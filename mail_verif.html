@@ -46,9 +46,9 @@
 
     </div>
     <div class="buttonCard">
-        <button class="button" id="verif_button" onclick="location.href = 'formulaire.html'" style="display: block">Suivant</button>
-         <button  class="button" id="fetchSignature">Exécuter Script</button>
-         <br>
+        <button class="button" id="verif_button" onclick="history.back()" style="display: block">Back</button>
+        <button class="button" id="fetchSignature">Exécuter Script</button>
+        <br>
          
         <p id="result"></p>
     </div>
@@ -184,7 +184,7 @@
 
     });
 
-    document.getElementById('verif_button').addEventListener('click', function (event) {
+    document.getElementById('fetchSignature').addEventListener('click', function (event) {
         const email = document.getElementById("email_etu").value;
 
         if (email.endsWith('@etu.univ-poitiers.fr')) {
