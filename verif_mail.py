@@ -7,8 +7,8 @@ import time
 
 # Configuration
 zimbra_url = "https://cas.univ-poitiers.fr/cas/login?service=https%3A%2F%2Fzimbra-auth.univ-poitiers.fr%2Fcas#1"
-username = "oabril"
-password = "L?ouestdonc"
+username = "test"
+password = "test"
 
 # Démarrer le navigateur
 driver = webdriver.Chrome()  # Ou Firefox(), Edge(), etc.
