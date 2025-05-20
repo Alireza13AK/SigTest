@@ -16,7 +16,6 @@
         <h2 id="subtitle_page_mode1">PoitiersSignGen</h2>
     </div>
     <div class="right-section">
-        <button id="btn_form_page_mode1" onclick="location.href='index.html'">Accueil</button>
         <button id="btn_generator_page_mode1" onclick="location.href='https://upmail.univ-poitiers.fr/'">Zimbra</button>
         <button id="btn_tutorial_page_mode1" onclick="location.href='tutorial.html'">Tutorial</button>
         <button id="btn_about_page_mode1" onclick="location.href='about.html'">About</button>
@@ -46,33 +45,20 @@
 
     </div>
     <div class="buttonCard">
-        <button class="button" id="verif_button" onclick="history.back()" style="display: block">Back</button>
-        <button class="button" id="fetchSignature">Exécuter Script</button>
-        <br>
+        <button class="button" id="verif_button" onclick="location.href = 'formulaire.html'" style="display: block">Suivant</button>
+         <button  class="button" id="fetchSignature">Exécuter Script</button>
+         <br>
          
-        <p id="result"></p>
+        
     </div>
+
+    <p id="result"></p>
 </div>
 
       
  
-  <script>
-    document.getElementById('fetchSignature').addEventListener('click', () => {
-      const resultElement = document.getElementById('result');
-      resultElement.innerText = "Chargement...";
+ 
 
-      fetch('http://127.0.0.1:5000/zimbra-signature')
-        .then(response => response.json())
-        .then(data => {
-          console.log('Réponse reçue:', data);  //  vérifie dans la console navigateur
-          resultElement.innerText = data.signature || "Aucune signature trouvée.";
-        })
-        .catch(error => {
-          resultElement.innerText = "Erreur : " + error;
-          console.error(error);
-        });
-    });
-  </script>
 
 
 
@@ -152,6 +138,7 @@
 </footer>
 
 <script>
+
     const params = new URLSearchParams(window.location.search);
     const signature = params.get('signature');
     if (signature) {
@@ -184,7 +171,7 @@
 
     });
 
-    document.getElementById('fetchSignature').addEventListener('click', function (event) {
+    document.getElementById('verif_button').addEventListener('click', function (event) {
         const email = document.getElementById("email_etu").value;
 
         if (email.endsWith('@etu.univ-poitiers.fr')) {
@@ -194,6 +181,30 @@
             event.preventDefault();
         }
     })
+
+
+
+     document.getElementById('fetchSignature').addEventListener('click', async () => {
+    const resultElement = document.getElementById('result');
+    resultElement.innerText = "Chargement...";
+
+    const signature = "ta_valeur_signature";  // Assure-toi qu'elle est définie
+    const url = `http://127.0.0.1:5000/zimbra-signature?signature=${encodeURIComponent(signature)}`;
+
+    try {
+      const response = await fetch(url);
+      const text = await response.text();  // Récupère la réponse en texte
+      
+
+      // Affiche la réponse dans l'élément HTML
+      resultElement.innerText = text;
+    } catch (error) {
+      resultElement.innerText = "Erreur lors de la requête : " + error;
+    }
+    
+    // Ensuite affiche "the end ....."
+    resultElement.innerText += "\nThe end .....";
+  });
 </script>
 
 

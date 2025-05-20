@@ -4,12 +4,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import os
 
-def get_signature():
+def get_signature(signature):
+    print(signature)
     # Configuration
     zimbra_url = "https://cas.univ-poitiers.fr/cas/login?service=https%3A%2F%2Fzimbra-auth.univ-poitiers.fr%2Fcas#1"
-    username = "test"
-    password = "test"
+    username = "aakhlagh"
+    password = "Mehri@1377"
 
     driver = webdriver.Chrome()
     driver.maximize_window()
@@ -52,7 +54,7 @@ def get_signature():
         email_row.click()
 
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "div[class*='MsgBody']")))
-        time.sleep(3)
+        
 
     
 
@@ -60,14 +62,25 @@ def get_signature():
 
       
 
-      
+    
 
+        
         iframe = driver.find_element(By.XPATH, "//iframe")
         driver.switch_to.frame(iframe)
         div = driver.find_element(By.XPATH, "/html/body/div/div/div/div[last()]")
         texte = div.text
         print(texte)
-        return texte
+
+        return str(texte==signature)
+        
+
+
+       
+       
+
+
+      
+
 
     except Exception as e:
         return f"Erreur : {str(e)}"
