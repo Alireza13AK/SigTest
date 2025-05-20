@@ -10,8 +10,8 @@ def get_signature(signature):
     print(signature)
     # Configuration
     zimbra_url = "https://cas.univ-poitiers.fr/cas/login?service=https%3A%2F%2Fzimbra-auth.univ-poitiers.fr%2Fcas#1"
-    username = "aakhlagh"
-    password = "Mehri@1377"
+    username = "test"
+    password = "test"
 
     driver = webdriver.Chrome()
     driver.maximize_window()
