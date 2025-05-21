@@ -6,6 +6,50 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import os
 
+
+def nettoyer(signature):
+    # Supprime les lignes vides et les espaces en trop
+    lignes = signature.strip().splitlines()
+    lignes_nettoyees = [ligne.strip() for ligne in lignes if ligne.strip()]
+    return lignes_nettoyees
+
+def comparer_signatures(sig1, sig2):
+
+    res = True
+    
+    lignes1 = nettoyer(sig1)
+    lignes2 = nettoyer(sig2)
+
+    # Ignore la ligne si elle se termine par une virgule (ex: "Cordialement,")
+    if lignes1 and lignes1[0].strip().endswith(','):
+        lignes1 = lignes1[1:]
+    if lignes2 and lignes2[0].strip().endswith(','):
+        lignes2 = lignes2[1:]
+
+    resultats = []
+    champs = ["Votre Nom et prénom", "Votre Groupe TD", "Niveau", "UFR", "Université"]
+
+    for i in range(len(champs)):
+        try:
+            ligne1 = lignes1[i].strip().lower()
+            ligne2 = lignes2[i].strip().lower()
+            if ligne1 == ligne2:
+                resultats.append(f"{champs[i]} : OK")
+            else:
+                res = False
+                resultats.append(f"{champs[i]} : Différent → '{lignes1[i]}' vs '{lignes2[i]}'")
+        except IndexError:
+            res = False
+            resultats.append(f"{champs[i]} : Manquant dans l'une des signatures")
+
+    if res :
+        resultats.append(f"Votre signature est correcte!")
+    else :
+        resultats.append(f"Votre signature est malheureusement incorrecte. Veuillez réessayer.")
+
+    return "\n".join(resultats)
+
+
 def get_signature(signature):
     print(signature)
     # Configuration
@@ -54,36 +98,30 @@ def get_signature(signature):
         email_row.click()
 
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "div[class*='MsgBody']")))
-        
 
-    
-
-        
-
-      
-
-    
-
-        
         iframe = driver.find_element(By.XPATH, "//iframe")
         driver.switch_to.frame(iframe)
         div = driver.find_element(By.XPATH, "/html/body/div/div/div/div[last()]")
         texte = div.text
         print(texte)
 
-        return str(texte==signature)
-        
+        print(texte)
+
+        resstring = str(comparer_signatures(signature, texte))
+
+        return resstring
 
 
-       
-       
 
 
-      
+
+
+
+
 
 
     except Exception as e:
         return f"Erreur : {str(e)}"
-    
+
     finally:
         driver.quit()
