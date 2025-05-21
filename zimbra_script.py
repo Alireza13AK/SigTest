@@ -14,7 +14,10 @@ def comparer_textes_multilignes(texte1, texte2):
     max_lignes = max(len(lignes1), len(lignes2))
     resultats = []
 
-    for i in range(max_lignes): #compare ligne par ligne
+
+    for i in range(max_lignes):
+
+        # compare ligne par ligne
         ligne_num = i + 1
         ligne1 = lignes1[i] if i < len(lignes1) else "<absente>"
         ligne2 = lignes2[i] if i < len(lignes2) else "<absente>"
@@ -24,13 +27,9 @@ def comparer_textes_multilignes(texte1, texte2):
             resultats.append(f"   - Texte 1 : {ligne1}")
             resultats.append(f"   - Texte 2 : {ligne2}")
 
-    if len(lignes1) > len(lignes2):
-        resultats.append(f"Texte 1 a {len(lignes1) - len(lignes2)} ligne(s) en plus.")
-    elif len(lignes2) > len(lignes1):
-        resultats.append(f"Texte 2 a {len(lignes2) - len(lignes1)} ligne(s) en plus.")
-    else:
-        if not resultats:
-            resultats.append("Les deux textes sont identiques.")
+
+    if not resultats:
+        resultats.append("Les deux textes sont identiques.")
 
     return resultats
 
