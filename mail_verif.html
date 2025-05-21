@@ -184,9 +184,9 @@
         if (email.endsWith('@etu.univ-poitiers.fr')) {
             alertemail.style.display = 'none';
             const resultElement = document.getElementById('result');
-            resultElement.innerText = "Chargement...";
+            resultElement.innerText = "Vérification en cours ...";
 
-            const signature = "ta_valeur_signature";  // Assure-toi qu'elle est définie
+            
             const url = `http://127.0.0.1:5000/zimbra-signature?signature=${encodeURIComponent(signature)}`;
 
             try {
@@ -200,8 +200,7 @@
                 resultElement.innerText = "Erreur lors de la requête : " + error;
             }
 
-            // Ensuite affiche "the end ....."
-            resultElement.innerText += "\nThe end .....";
+            
         } else {
             alertemail.style.display = 'inline-block';
         }

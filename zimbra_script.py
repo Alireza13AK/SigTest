@@ -7,31 +7,39 @@ import time
 import os
 
 
-def comparer_textes_multilignes(texte1, texte2):
-    lignes1 = texte1.splitlines()
-    lignes2 = texte2.splitlines()
+def nettoyer(signature):
+    # Supprime les lignes vides et les espaces en trop
+    lignes = signature.strip().splitlines()
+    lignes_nettoyees = [ligne.strip() for ligne in lignes if ligne.strip()]
+    return lignes_nettoyees
 
-    max_lignes = max(len(lignes1), len(lignes2))
+def comparer_signatures(sig1, sig2):
+
+    
+    lignes1 = nettoyer(sig1)
+    lignes2 = nettoyer(sig2)
+
+    # Ignore la ligne si elle se termine par une virgule (ex: "Cordialement,")
+    if lignes1 and lignes1[0].strip().endswith(','):
+        lignes1 = lignes1[1:]
+    if lignes2 and lignes2[0].strip().endswith(','):
+        lignes2 = lignes2[1:]
+
     resultats = []
+    champs = ["Votre Nom et prénom", "Votre Groupe TD", "Niveau", "UFR", "Université"]
 
+    for i in range(len(champs)):
+        try:
+            ligne1 = lignes1[i].strip().lower()
+            ligne2 = lignes2[i].strip().lower()
+            if ligne1 == ligne2:
+                resultats.append(f"{champs[i]} : OK")
+            else:
+                resultats.append(f"{champs[i]} : Différent → '{lignes1[i]}' vs '{lignes2[i]}'")
+        except IndexError:
+            resultats.append(f"{champs[i]} : Manquant dans l'une des signatures")
 
-    for i in range(max_lignes):
-
-        # compare ligne par ligne
-        ligne_num = i + 1
-        ligne1 = lignes1[i] if i < len(lignes1) else "<absente>"
-        ligne2 = lignes2[i] if i < len(lignes2) else "<absente>"
-
-        if ligne1 != ligne2:
-            resultats.append(f"  Différence ligne {ligne_num} :")
-            resultats.append(f"   - Texte 1 : {ligne1}")
-            resultats.append(f"   - Texte 2 : {ligne2}")
-
-
-    if not resultats:
-        resultats.append("Les deux textes sont identiques.")
-
-    return resultats
+    return "\n".join(resultats)
 
 
 def get_signature(signature):
@@ -85,13 +93,15 @@ def get_signature(signature):
 
         iframe = driver.find_element(By.XPATH, "//iframe")
         driver.switch_to.frame(iframe)
-        div = driver.find_element(By.XPATH, "/html/body/div/div/div/div[last()]")
-        texte = div.text
+        divs = driver.find_elements(By.XPATH, "/html/body/div/div/div/div")
+        signature_text = "\n\n".join(div.text for div in divs)
+        texte = signature_text  # Ou juste utiliser signature_text directement
+
         print(texte)
 
-        resstring = str(texte == signature)
+        resstring = " : " 
 
-        resstring += " : " + str(comparer_textes_multilignes(signature, texte))
+        resstring += " : " + str(comparer_signatures(signature, texte))
 
         return resstring
 

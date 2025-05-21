@@ -441,3 +441,26 @@ body.dark-mode th {
     padding: 0 rem;
     text-align: center;
 }
+  #result {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #0865a3;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    white-space: pre-line; /* pour que les \n soient respectés */
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+
+  #result span.ok {
+    color: green;
+    font-weight: bold;
+  }
+
+  #result span.diff {
+    color: #d9534f;
+    font-weight: bold;
+  }
