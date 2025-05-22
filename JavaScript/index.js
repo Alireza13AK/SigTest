@@ -296,6 +296,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // === Revalidation après retour arrière navigateur ===
     window.addEventListener('pageshow', function () {
+            // === Revalidation après retour arrière navigateur ===
         checkFormCompletion();
         autreFormCheck();
     });
