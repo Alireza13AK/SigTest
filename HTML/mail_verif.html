@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://www.univ-poitiers.fr/wp-content/themes/universite_poitiers/img/upwpa128.png">
+</head>
+<body>
+<div class="header">
+    <div class="left-section">
+        <img src="../Images/logo-up.png" alt="test" width="100px">
+        <h2 id="subtitle_page_mode1">PoitiersSignGen</h2>
+    </div>
+    <div class="right-section">
+        <button id="btn_home_page_mode1" onclick="location.href='index.html'">Accueil</button>
+        <button id="btn_generator_page_mode1" onclick="location.href='https://upmail.univ-poitiers.fr/'">Zimbra</button>
+        <button id="btn_tutorial_page_mode1" onclick="location.href='tutorial.html'">Tutoriel</button>
+        <button id="btn_about_page_mode1" onclick="location.href='about.html'">About</button>
+        <select id="language">
+            <option value="fr">&#x1F1EB;&#x1F1F7;</option>
+            <option value="en">&#x1F1FA;&#x1F1F8;</option>
+        </select>
+    </div>
+</div>
+
+<div class="main_signature">
+    <h4 id="titre" style="font-size: 32px; text-align: center; display: none;">Voici votre signature générée:</h4>
+    <pre id="signature_display2"></pre>
+    <button class="button" id="copy_button" style="display: none;">Copier</button>
+
+    <div id="copy_message" style="display: none; color: green; margin-top: 10px;">Le texte a été copié !</div>
+
+</div>
+
+<div class="main_content">
+
+    <h4 style="font-size: 32px; text-align: center; color: #3498DB;">Pour la vérification, veuillez mettre votre adresse mail étudiante.</h4>
+    <label>
+        <input type="text" id="email_etu" name="email_etu" class="textField" size="30" placeholder="prenom.nom@etu.univ-poitiers.fr">
+    </label>
+    <div class="alert" style="display: none;" id="alerteemail">
+        <strong>Attention!</strong> L'adresse doit se terminer par @etu.univ-poitiers.fr !
+    </div>
+    <div class="subCard">
+
+    </div>
+    <div class="buttonCard">
+        <button class="button" id="index_button" onclick="history.back()">Retour</button>
+        <button class="button" id="fetchSignature">Vérification</button>
+
+        <br>
+
+
+    </div>
+
+    <p id="result"></p>
+</div>
+
+
+
+
+
+
+
+
+<footer id="social-footer" class="site-social-footer">
+
+
+    <div id="social-nav">
+
+
+        <ul>
+            <li>La vie étudiante continue sur les réseaux sociaux !</li>
+            <li><a target="_blank" href="https://www.facebook.com/univpoitiers/" title="Notre compte Facebook"><i aria-hidden="true" class="fa-brands fa-facebook"></i></a></li><li><a target="_blank" href="https://www.instagram.com/univ_poitiers/" title="Notre compte Instagram"><i aria-hidden="true" class="fa-brands fa-instagram"></i></a></li><li><a target="_blank" href="https://twitter.com/#!/univpoitiers" title="Notre compte Twitter"><i aria-hidden="true" class="fa-brands fa-twitter"></i></a></li><li><a target="_blank" href="https://www.linkedin.com/school/45459/" title="Notre compte Linkedin"><i aria-hidden="true" class="fa-brands fa-linkedin"></i></a></li><li><a target="_blank" href="http://www.youtube.com/user/UniversitePoitiers" title="Notre compte Youtube"><i aria-hidden="true" class="fa-brands fa-youtube"></i></a></li>
+        </ul>
+
+
+    </div>
+
+</footer>
+
+<footer id="main-footer" class="site-main-footer">
+
+    <div class="footer">
+        <div class="footer-left">
+            <div class="university-title">UNIVERSITÉ DE POITIERS</div>
+            <div class="address">
+                Présidence et administration de l'université<br>
+                15 rue de l'Hôtel Dieu<br>
+                TSA 71117<br>
+                86073 POITIERS Cedex 9, France
+            </div>
+            <div class="phone">
+                <a href="tel:+33549453000">
+                    <svg class="phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    (33) (0)5 49 45 30 00
+                </a>
+            </div>
+            <div class="note">
+                Le "15 rue de l'Hôtel Dieu à Poitiers" correspond à l'administration de l'université. Aucun cours n'y est dispensé.
+            </div>
+        </div>
+        <div class="footer-right">
+            <div class="footer-column">
+                <div class="column-title">ESPACES</div>
+                <ul class="link-list">
+                    <li><a href="https://www.univ-poitiers.fr/souvrir-a-linternational/">International</a></li>
+                    <li><a href="https://www.univ-poitiers.fr/espace-lyceen-ne/">Lycéen·ne·s</a></li>
+                    <li><a href="https://www.univ-poitiers.fr/espace-etudiant-e-s/">Étudiant·e·s</a></li>
+                    <li><a href="https://www.univ-poitiers.fr/espaces-ancien-ne-s-up-alumnis/">Ancien·ne·s (UP alumni·s)</a></li>
+                    <li><a href="https://www.univ-poitiers.fr/espace-presse/">Presse</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <div class="column-title">ACCÈS DIRECTS</div>
+                <ul class="link-list">
+                    <li><a href="https://ent.univ-poitiers.fr">ENT étudiant</a></li>
+                    <li><a href="https://iris.univ-poitiers.fr/">Iris</a></li>
+                    <li><a href="https://annuaire.appli.univ-poitiers.fr/">Annuaire</a></li>
+                    <li><a href="https://marches-publics.appli.univ-poitiers.fr/www">Marchés publics</a></li>
+                    <li><a href="https://www.univ-poitiers.fr/choisir-luniversite/decouvrir-luniversite-de-poitiers/plans-dacces/">Plans d'accès</a></li>
+                    <li><a href="https://www.univ-poitiers.fr/choisir-luniversite/recrutement/">Recrutement</a></li>
+                    <li><a href="https://www.univ-poitiers.fr/flux-rss/">Flux RSS</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <div class="column-title">INFORMATIONS LÉGALES</div>
+                <ul class="link-list">
+                    <li><a href="https://www.univ-poitiers.fr/mentions-legales/">Mentions légales</a></li>
+                    <li><a href="https://www.univ-poitiers.fr/donnees-personnelles/">Données personnelles</a></li>
+                    <li><a href="https://www.univ-poitiers.fr/accessibilite/">Accessibilité</a></li>
+                    <li><a href="https://www.univ-poitiers.fr/plan-du-site/">Plan du site</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+
+    const params = new URLSearchParams(window.location.search);
+    const signature = params.get('signature');
+    if (signature) {
+
+        document.getElementById('titre').style.display = 'inline-block';
+
+        const decoded = decodeURIComponent(signature);
+        document.getElementById('signature_display2').textContent = decoded;
+
+
+        document.getElementById('copy_button').style.display = 'inline-block';
+    }
+
+    const signature_texte = document.getElementById('signature_display2');
+
+    document.getElementById('copy_button').addEventListener('click', () => {
+
+        const range = document.createRange();
+        range.selectNodeContents(signature_texte);
+
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        document.execCommand("copy");
+
+        // Afficher le message que le texte a été copié
+        const message = document.getElementById('copy_message');
+        message.style.display = 'block';
+
+    });
+
+    document.getElementById('fetchSignature').addEventListener('click', async () => {
+        const email = document.getElementById("email_etu").value;
+        const alertemail = document.getElementById("alerteemail");
+
+        if (email.endsWith('@etu.univ-poitiers.fr')) {
+            alertemail.style.display = 'none';
+            const resultElement = document.getElementById('result');
+            resultElement.innerText = "Vérification en cours ...";
+
+            const signature = "Cordialement,\n" + "\n" + "Owen ABRIL\n" + "Groupe de TD N°2\n" + "L1 Informatique\n" + "UFR Sciences Fondamentales Appliquées\n" + "Université de Poitiers\n" + "Tél. : 01 23 45 67 89"
+
+            
+            const url = `http://127.0.0.1:5000/zimbra-signature?signature=${encodeURIComponent(signature)}`;
+
+            try {
+                const response = await fetch(url);
+                const text = await response.text();  // Récupère la réponse en texte
+
+
+                // Affiche la réponse dans l'élément HTML
+                resultElement.innerText = text;
+            } catch (error) {
+                resultElement.innerText = "Erreur lors de la requête : " + error;
+            }
+
+            
+        } else {
+            alertemail.style.display = 'inline-block';
+        }
+    });
+</script>
+
+
+</body>
+</html>

@@ -15,7 +15,7 @@ def home():
 def run_script():
     signature = request.args.get('signature')
     result = zimbra_script.get_signature(signature)
-    return str(result)
+    return result
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
