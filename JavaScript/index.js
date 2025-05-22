@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const signature = generateSignature();
         const encodedSig = encodeURIComponent(signature);
-        window.location.href = `tutorial.html?signature=${encodedSig}`;
+        window.location.href = `HTML/tutorial.html?signature=${encodedSig}`;
     });
 
     // === Auto-espace du téléphone ===
