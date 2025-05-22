@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
    
-    <link rel="stylesheet" type="text/css" href="header.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="CSS/header.css">
+    <link rel="stylesheet" type="text/css" href="CSS/main.css">
+    <link rel="stylesheet" type="text/css" href="CSS/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://www.univ-poitiers.fr/wp-content/themes/universite_poitiers/img/upwpa128.png">
+    <script src="JavaScript/index.js"></script>
+    <title>PoitiersSignGen</title>
 </head>
 <body>
     <div class="header">
 		<div class="left-section">
-			<h2 id="subtitle_page_mode1">Verification de la signature</h2>
+            <img src="Images/logo-up.png" alt="test" width="100px">
+			<h2 id="subtitle_page_mode1">PoitiersSignGen</h2>
 		</div>
 		<div class="right-section">
-			<button id="btn_generator_page_mode1" onclick="location.href='generator.html'">Zimbra</button>
-			<button id="btn_tutorial_page_mode1" onclick="location.href='tutorial.html'">Tutorial</button>
+            <button id="btn_generator_page_mode1" onclick="location.href='https://upmail.univ-poitiers.fr/'">Zimbra</button>
+			<button id="btn_tutorial_page_mode1" onclick="location.href='HTML/tutorial.html'">Tutoriel</button>
 			<button id="btn_about_page_mode1" onclick="location.href='about.html'">About</button>
 			<select id="language">
 				<option value="fr">&#x1F1EB;&#x1F1F7;</option>
@@ -25,10 +30,20 @@
 
     <div class="main_content">
         <div class="subCard">
+            <h4 id="titre1" style="font-size: 32px; text-align: center;">Complétez ce formulaire pour créer votre signature électronique.</h4>
+            <h4 id="titre2" style="font-size: 32px; text-align: center;">Ensuite, suivez les étapes du tutoriel pour mettre votre signature dans Zimbra une fois le formulaire fini.</h4>
+            <h4 id="titre3" style="font-size: 32px; text-align: center;">Enfin, vérifiez en appuyant sur le bouton "Vérification".</h4>
+            <h4 id="titre4" style="font-size: 32px; text-align: center;">Aucune donnée ne sera stockée.</h4>
+            <h4 id="prenom">Prénom<span class="obligatoire"> *</span></h4>
+            <label>
+            <input type="text" id="prenom_etu" name="prenom_etu" class="textField" placeholder="Votre prenom">
+            </label>
+
             <h4 id="nom">Nom<span class="obligatoire"> *</span></h4>
-            <input type="text" id="no m_etu" name="nom_etu" class="textField" placeholder="Placeholder">
-            <h4 id="prenom">Prenom<span class="obligatoire"> *</span></h4>
-            <input type="text" id="prenom_etu" name="prenom_etu" class="textField" placeholder="Placeholder">
+            <label>
+            <input type="text" id="nom_etu" name="nom_etu" class="textField" placeholder="Votre nom">
+            </label>
+            
             <h4 id="groupe_td">Groupe de TD<span class="obligatoire"> *</span></h4>
             <label>
             <input type="text" pattern="[1-9][0-9]?" id="groupe_td_etu" name="groupe_td_etu" class="textField" placeholder="Entre 1 et 99" maxlength="2" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 2); if (this.value === '0') this.value = '';">
@@ -202,7 +217,15 @@
 
 
                 </select>
+                </label>
 
+            <h4 id="telephone">Téléphone</h4>
+            <label>
+                <input type="text" pattern="^$|\d{10}" title="10 chiffres exactement ou vide" id="telephone_etu" name="groupe_td_etu" class="textField" placeholder="XX XX XX XX XX" maxlength="14" minlength="14" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)">
+            </label>
+            <div class="alert" style="display: none;" id="alertephone">
+                <strong>Attention!</strong> Le numéro de téléphone doit contenir exactement 10 chiffres ou être vide.
+            </div>
 
 
                   
@@ -210,8 +233,8 @@
          
         </div>
         <div class="buttonCard">
-            <button class="button" type="submit" disabled>Verification</button>
-            <button class="button" type="reset" id="reset">Reset</button>
+            <button class="button" id="submit" type="button" style="display: none;">Vérification</button>
+            <button class="button" type="reset" id="reset">Réinitialiser</button>
         </div>
     </div>
 
