@@ -186,7 +186,8 @@
             const resultElement = document.getElementById('result');
             resultElement.innerText = "Vérification en cours ...";
 
-            const signature = "Cordialement,\n" + "\n" + "Owen ABRIL\n" + "Groupe de TD N°2\n" + "L1 Informatique\n" + "UFR Sciences Fondamentales Appliquées\n" + "Université de Poitiers\n" + "Tél. : 01 23 45 67 89"
+            const signature = document.getElementById("signature_display2").textContent;
+            console.log(signature);
 
             
             const url = `http://127.0.0.1:5000/zimbra-signature?signature=${encodeURIComponent(signature)}`;
