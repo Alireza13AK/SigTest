@@ -186,11 +186,11 @@
             const resultElement = document.getElementById('result');
             resultElement.innerText = "Vérification en cours ...";
 
-            const signature = document.getElementById("signature_display2").textContent;
-            console.log(signature);
+            const signature_verif = document.getElementById("signature_display2").textContent;
+            console.log(signature_verif);
 
             
-            const url = `http://127.0.0.1:5000/zimbra-signature?signature=${encodeURIComponent(signature)}`;
+            const url = `http://127.0.0.1:5000/zimbra-signature?signature=${encodeURIComponent(signature_verif)}`;
 
             try {
                 const response = await fetch(url);
