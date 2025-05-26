@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Déclaration du charset UTF-8 -->
     <meta charset="UTF-8">
+    <!-- Feuilles de styles CSS pour header, main, footer -->
     <link rel="stylesheet" type="text/css" href="../CSS/header.css">
     <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
@@ -13,16 +15,20 @@
     <title>PoitiersSignGen</title>
 </head>
 <body>
+
+    <!-- Header avec logo et titre à gauche, boutons de navigation à droite -->
     <div class="header">
         <div class="left-section">
 			<img src="../Images/logo-up.png" alt="test" width="100px">
             <h2 id="subtitle_page_mode1">PoitiersSignGen</h2>
         </div>
         <div class="right-section">
-            <button id="btn_form_page_mode1" onclick="location.href='index.html'">Accueil</button>
+            <!-- Boutons navigation Accueil, Zimbra, Tutoriel, About -->
+            <button id="btn_form_page_mode1" onclick="location.href='../index.html'">Accueil</button>
             <button id="btn_generator_page_mode1" onclick="location.href='https://upmail.univ-poitiers.fr/'">Zimbra</button>
             <button id="btn_tutorial_page_mode1" onclick="location.href='tutorial.html'">Tutoriel</button>
             <button id="btn_about_page_mode1" onclick="location.href='about.html'">About</button>
+            <!-- Sélecteur de langue FR/EN -->
             <label>
                 <select id="language">
                     <option value="fr">&#x1F1EB;&#x1F1F7;</option>
@@ -32,21 +38,32 @@
         </div>
     </div>
 
+    <!-- Section principale pour afficher la signature générée -->
     <div class="main_signature">
+
+        <!-- Titre affiché dynamiquement quand signature est prête -->
 		<h4 id="titre" style="font-size: 32px; text-align: center; display: none; color: #3498DB;">Voici votre signature générée:</h4>
+        <!-- Bloc <pre> pour afficher la signature formatée -->
         <pre id="signature_display"></pre>
+        <!-- Bouton copier la signature, caché par défaut -->
         <button class="button" id="copy_button" style="display: none;">Copier</button>
-	
+        <!-- Message de confirmation copie, caché par défaut -->
 		<div id="copy_message" style="display: none; color: green; margin-top: 10px;">Le texte a été copié !</div> 
 
     </div>
-
+    
+    <!-- Section principale avec tutoriel et liens -->
 	<div class="main_content">
 		<div class="subCard">
+            <!-- Titre tutoriel -->
 			<h4 id="nom" style="font-size: 32px; text-align: center;">Ajouter une signature à vos e-mails dans Zimbra : Tutoriel complet ici :</h4>
-			<img src="../Images/Tutoriel.png" alt="Ma signature">
+            <!-- Image tutoriel -->
+            <img src="../Images/Tutoriel.png" alt="Ma signature">
+            <!-- Autre option tutoriel via lien bouton -->
             <h4 id="nom" style="font-size: 32px; text-align: center;">Ou alors vous pouvez voir ce site : <button class="button" onclick="location.href='https://imedias.univ-poitiers.fr/documentation/etudiants/messagerie-collaborative/messagerie/ajout-de-signature-automatique-dans-la-messagerie-zimbra-1300821.kjsp'">Ajout de signature automatique dans la messagerie Zimbra</button></h4>
-			<button class="button" id="index_button" onclick="history.back()">Retour</button>
+			<!-- Bouton retour à la page précédente -->
+            <button class="button" id="index_button" onclick="history.back()">Retour</button>
+            <!-- Bouton de vérification, aligné à droite -->
             <button class="button" id="next_button" style="float:right">Vérification</button>
            
 
@@ -54,6 +71,7 @@
 		
 	</div>
 
+    <!-- Footer réseaux sociaux -->
     <footer id="social-footer" class="site-social-footer">
 
 
@@ -62,7 +80,12 @@
 
             <ul>
                 <li>La vie étudiante continue sur les réseaux sociaux !</li>
-                <li><a target="_blank" href="https://www.facebook.com/univpoitiers/" title="Notre compte Facebook"><i aria-hidden="true" class="fa-brands fa-facebook"></i></a></li><li><a target="_blank" href="https://www.instagram.com/univ_poitiers/" title="Notre compte Instagram"><i aria-hidden="true" class="fa-brands fa-instagram"></i></a></li><li><a target="_blank" href="https://twitter.com/#!/univpoitiers" title="Notre compte Twitter"><i aria-hidden="true" class="fa-brands fa-twitter"></i></a></li><li><a target="_blank" href="https://www.linkedin.com/school/45459/" title="Notre compte Linkedin"><i aria-hidden="true" class="fa-brands fa-linkedin"></i></a></li><li><a target="_blank" href="http://www.youtube.com/user/UniversitePoitiers" title="Notre compte Youtube"><i aria-hidden="true" class="fa-brands fa-youtube"></i></a></li>
+                <!-- Liens réseaux sociaux avec icônes -->
+                <li><a target="_blank" href="https://www.facebook.com/univpoitiers/" title="Notre compte Facebook"><i aria-hidden="true" class="fa-brands fa-facebook"></i></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/univ_poitiers/" title="Notre compte Instagram"><i aria-hidden="true" class="fa-brands fa-instagram"></i></a></li>
+                <li><a target="_blank" href="https://twitter.com/#!/univpoitiers" title="Notre compte Twitter"><i aria-hidden="true" class="fa-brands fa-twitter"></i></a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/school/45459/" title="Notre compte Linkedin"><i aria-hidden="true" class="fa-brands fa-linkedin"></i></a></li>
+                <li><a target="_blank" href="http://www.youtube.com/user/UniversitePoitiers" title="Notre compte Youtube"><i aria-hidden="true" class="fa-brands fa-youtube"></i></a></li>
             </ul>
 
 
@@ -70,6 +93,7 @@
 
     </footer>
 
+    <!-- Footer principal avec informations de contact, liens utiles et mentions légales -->
     <footer id="main-footer" class="site-main-footer">
 
         <div class="footer">
@@ -82,7 +106,9 @@
                     86073 POITIERS Cedex 9, France
                 </div>
                 <div class="phone">
+                    <!-- Lien cliquable pour appeler -->
                     <a href="tel:+33549453000">
+                        <!-- Icône téléphone SVG -->
                         <svg class="phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
@@ -90,9 +116,11 @@
                     </a>
                 </div>
                 <div class="note">
+                    <!-- Note importante sur l'adresse -->
                     Le "15 rue de l'Hôtel Dieu à Poitiers" correspond à l'administration de l'université. Aucun cours n'y est dispensé.
                 </div>
             </div>
+            <!-- Liens utiles de l'Université de Poitiers -->
             <div class="footer-right">
                 <div class="footer-column">
                     <div class="column-title">ESPACES</div>
@@ -152,31 +180,39 @@ def calcule_somme(a, b):
     -->
 
     <script>
+        // Récupération du paramètre "signature" dans l'URL
         const params = new URLSearchParams(window.location.search);
         const signature = params.get('signature');
 
+        // Si une signature est présente dans l'URL
         if (signature) {
-
+            
+            // Afficher le titre
 			document.getElementById('titre').style.display = 'inline-block';
 
+            // Décoder la signature depuis l'URL et l'afficher dans le <pre>
             const decoded = decodeURIComponent(signature);
             document.getElementById('signature_display').textContent = decoded;
             
-         
+            // Afficher le bouton copier
             document.getElementById('copy_button').style.display = 'inline-block';
         }
-
+        
+        // Élément contenant la signature affichée
         const signature_texte = document.getElementById('signature_display');
 
+        // Gestionnaire clic sur le bouton copier
         document.getElementById('copy_button').addEventListener('click', () => {
 
+            // Sélectionner le contenu du <pre> signature_display
             const range = document.createRange();
             range.selectNodeContents(signature_texte);
-
+            
             const selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(range);
-
+            
+            // Copier dans le presse-papier
             document.execCommand("copy");
 
 			// Afficher le message que le texte a été copié
@@ -184,8 +220,10 @@ def calcule_somme(a, b):
             message.style.display = 'block';
 
         });
-        document.addEventListener('DOMContentLoaded', function () {
 
+        // Quand le DOM est charg
+        document.addEventListener('DOMContentLoaded', function () {
+            // Bouton Vérification redirige vers mail_verif.html avec signature encodée en paramètre URL
             document.getElementById('next_button').addEventListener('click', () => {
                 const encodedSig = encodeURIComponent(signature);
                 window.location.href = `mail_verif.html?signature=${encodedSig}`;
