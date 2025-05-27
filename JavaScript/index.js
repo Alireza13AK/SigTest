@@ -1,3 +1,7 @@
+/**
+ * Script principal exécuté une fois que le DOM est complètement chargé.
+ */
+
 document.addEventListener('DOMContentLoaded', function () {
     // === Sélection des éléments ===
     const inputnom = document.getElementById('nom_etu');
@@ -23,6 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
         inputcomposante,
         inputnivetudes
     ];
+
+
+    /**
+     * Retourne l’index de la composante correspondant à une formation.
+     * 
+     * @param {string} formation - Nom complet de la formation sélectionnée.
+     * @returns {number|string} Index de la composante ou "Autre" si inconnu.
+     */
 
     function compCheck(formation) {
         switch (formation) {
@@ -133,6 +145,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+    /**
+     * Affiche ou masque les champs liés à "Autre formation" selon la sélection.
+     * Met également à jour les valeurs et exigences associées.
+     */
+
     // === Affichage conditionnel de l'autre formation ===
     function autreFormCheck() {
         const selectedIndex = inputformation.selectedIndex;
@@ -168,6 +185,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+
+    /**
+     * Vérifie si tous les champs obligatoires sont remplis,
+     * puis affiche ou masque le bouton de soumission en conséquence.
+     *
+     * @function
+     * @returns {void}
+     */
+
     // === Vérification des champs obligatoires ===
     function checkFormCompletion() {
         let allFilled = true;
@@ -182,8 +208,17 @@ document.addEventListener('DOMContentLoaded', function () {
         submitButton.style.display = allFilled ? 'inline-block' : 'none';
     }
 
-    // === Génération de la signature ===
-    function niv_etudes(annee) {
+
+    /**
+     * Retourne le code correspondant au niveau d'études
+     * en fonction de la chaîne de texte donnée.
+     * 
+     * @param {string} annee - Niveau d'études sous forme textuelle (ex : "Bac +3").
+     * @returns {string|undefined} Code du niveau d'études correspondant (ex : "L3"),
+     *                             ou undefined si aucun cas ne correspond.
+     */
+
+        function niv_etudes(annee) {
         switch (annee) {
             case "Bac +1":
                 return "L1";
@@ -199,6 +234,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 return "Doctorant";
         }
     }
+
+
+    /**
+     * Génère la signature formatée à partir des valeurs du formulaire.
+     * 
+     * Formate le prénom et nom, ajoute le groupe de TD, la formation,
+     * la composante, l'université, et éventuellement le téléphone.
+     * 
+     * @function
+     * @returns {string} La signature complète formatée en chaîne de caractères.
+     */
+
+    // === Génération de la signature ===
 
     function generateSignature() {
         alertmess.style.display = 'none';
@@ -233,6 +281,14 @@ document.addEventListener('DOMContentLoaded', function () {
         return signature;
     }
 
+    /**
+     * Gère l'événement click du bouton de soumission du formulaire.
+     * Valide les champs "Autre formation" et téléphone,
+     * affiche les alertes et redirige avec la signature encodée.
+     * 
+     * @param {Event} event - L'événement click.
+     */
+
     // === Gestion du bouton submit ===
     submitButton.addEventListener('click', function (event) {
         const autreValue = inputautreformation.value.trim();
@@ -261,11 +317,29 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = `HTML/tutorial.html?signature=${encodedSig}`;
     });
 
+
+    /**
+     * Formate automatiquement la saisie du numéro de téléphone
+     * en insérant un espace tous les deux chiffres.
+     * 
+     * @param {InputEvent} e - L'événement d'entrée sur le champ téléphone.
+     */
+
     // === Auto-espace du téléphone ===
     inputtelephone.addEventListener('input', function (e) {
         let value = e.target.value.replace(/\D/g, '').substring(0, 10);
         e.target.value = value.match(/.{1,2}/g)?.join(' ') || '';
     });
+
+    
+
+    /**
+     * Réinitialise tous les champs du formulaire.
+     * Masque les messages d’alerte et réactive les vérifications de champs obligatoires.
+     * 
+     * @event click
+     * @returns {void}
+     */
 
     // === Remise à zéro du formulaire ===
     resetButton.addEventListener('click', function () {
@@ -285,14 +359,40 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(checkFormCompletion, 0); // attendre que les valeurs soient réinitialisées
     });
 
+
+    /**
+     * Ajoute des écouteurs d'événements à chaque champ obligatoire
+     * pour surveiller leur complétion en temps réel.
+     *
+     * @function
+     * @returns {void}
+     */
+
     // === Écouteurs sur les champs obligatoires ===
     requiredFields.forEach(function (input) {
         input.addEventListener('input', checkFormCompletion);
         input.addEventListener('change', checkFormCompletion);
     });
 
+
+    /**
+     * Surveille les changements dans la liste déroulante de formation.
+     * Met à jour dynamiquement les champs associés.
+     *
+     * @event change
+     * @returns {void}
+     */
+
     // === Écouteur pour changement de formation ===
     inputformation.addEventListener('change', autreFormCheck);
+
+
+    /**
+     * Réexécute les fonctions de validation lors du retour à la page via le navigateur (pageshow).
+     *
+     * @event pageshow
+     * @returns {void}
+     */
 
     // === Revalidation après retour arrière navigateur ===
     window.addEventListener('pageshow', function () {

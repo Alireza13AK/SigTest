@@ -99,46 +99,43 @@ def get_signature(signature,email):
             driver.quit()
             return "Erreur : Connexion à Zimbra échouée. Veuillez vérifier vos identifiants."
 
-        # Clic sur le dossier "signature"
+        # Clic sur le dossier filtré "signature"
         signature_cell = wait.until(EC.element_to_be_clickable((By.XPATH, "//td[contains(@id, '_textCell') and text()='signature']")))
         signature_cell.click()
         time.sleep(3)
 
+        # Clic sur la flèche du dossier filtré "signature"
         signature_arrow_cell = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="zti__main_Mail__3012_extraCell"]')))
         signature_arrow_cell.click()
         time.sleep(1)
 
+        # Clic sur "éditer les propriétés"
         propr_edit = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#EDIT_PROPS')))
         propr_edit.click()
         time.sleep(2)
 
+        # Appui 2 fois TAB
         actions.send_keys(Keys.TAB).send_keys(Keys.TAB).perform()
         time.sleep(1)
         
+        # Selon la plateforme (windows, linux, mac) faire "CTRL + A" ou "CMD + A" pour sélectionner le texte
         import platform
         if platform.system() == 'Darwin':  # macOS
             actions.key_down(Keys.COMMAND).send_keys('a').key_up(Keys.COMMAND)
         else:  # Windows/Linux
             actions.key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL)
 
+        # Remplacer le texte par celui-ci pour changer l'adresse mail du filtrage
         actions.send_keys(Keys.DELETE)
         actions.send_keys(f"signature is:unread from:{email}").perform()
-        # filter_edit.send_keys("signature is:unread from:{email}")
         time.sleep(1)
-
+        
+        # Appui bouton OK
         ok_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="FolderProperties_button2_title"]')))
         ok_button.click()
         time.sleep(1)
-
-        signature_cell.click()
-
         
-    except:
-        driver.quit()
-        return "ERREUR CLICK DROIT"
-    
-    try:
-        signature_cell = wait.until(EC.element_to_be_clickable((By.XPATH, "//td[contains(@id, '_textCell') and text()='signature']")))
+        # Rafraîchir le dossier en le recliquant dessus
         signature_cell.click()
         time.sleep(2)
 
@@ -152,7 +149,7 @@ def get_signature(signature,email):
 
     except:
         driver.quit()
-        return "Aucun mail avec l'objet \"Signature\" n'a été envoyé"
+        return "Aucun mail avec l'objet \"Signature\" n'a été envoyé avec cette adresse mail"
 
     try:
         # Passer dans l'iframe
