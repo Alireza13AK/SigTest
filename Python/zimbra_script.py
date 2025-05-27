@@ -5,6 +5,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 import time
 
 
@@ -72,12 +74,13 @@ def get_signature(signature,email):
 
     zimbra_url = "https://cas.univ-poitiers.fr/cas/login?service=https%3A%2F%2Fzimbra-auth.univ-poitiers.fr%2Fcas#1"
     username = "test"
-    password = "test."
+    password = "test"
 
     # Ouvre une nouvelle fenêtre sur Google Chrome
     driver = webdriver.Chrome()
     driver.maximize_window()
     wait = WebDriverWait(driver, 20)
+    actions = ActionChains(driver)
 
 
 
@@ -109,13 +112,26 @@ def get_signature(signature,email):
         propr_edit.click()
         time.sleep(2)
 
-        filter_edit = wait.until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[4]/div[30]/div/table/tbody/tr[2]/td/div[1]/div/div[1]/div[2]/div[1]/div[1]/table/tbody/tr[3]/td[2]/div/input")))
-        filter_edit.send_keys = "signature is:unread from:" + email
+        actions.send_keys(Keys.TAB).send_keys(Keys.TAB).perform()
+        time.sleep(1)
+        
+        import platform
+        if platform.system() == 'Darwin':  # macOS
+            actions.key_down(Keys.COMMAND).send_keys('a').key_up(Keys.COMMAND)
+        else:  # Windows/Linux
+            actions.key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL)
+
+        actions.send_keys(Keys.DELETE)
+        actions.send_keys(f"signature is:unread from:{email}").perform()
+        # filter_edit.send_keys("signature is:unread from:{email}")
         time.sleep(1)
 
         ok_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="FolderProperties_button2_title"]')))
         ok_button.click()
         time.sleep(1)
+
+        signature_cell.click()
+
         
     except:
         driver.quit()
@@ -130,8 +146,6 @@ def get_signature(signature,email):
         email_row = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[contains(@id, '__rw') and contains(@class, 'ZmRowDoubleHeader')]//span[text()='signature']/ancestor::div[contains(@id, '__rw')]")))
         email_row.click()
         time.sleep(10)
-    
-        
 
         # Attendre le contenu du mail
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "div[class*='MsgBody']")))
