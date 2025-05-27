@@ -71,8 +71,8 @@ def get_signature(signature,email):
     print("Signature attendue :\n", signature)
 
     zimbra_url = "https://cas.univ-poitiers.fr/cas/login?service=https%3A%2F%2Fzimbra-auth.univ-poitiers.fr%2Fcas#1"
-    username = "oabril"
-    password = "TheGrounti?86"
+    username = "test"
+    password = "test."
 
     # Ouvre une nouvelle fenêtre sur Google Chrome
     driver = webdriver.Chrome()
