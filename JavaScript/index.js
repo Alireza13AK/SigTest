@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
             case "Musicologie – Poitiers":
             case "Sociologie – Poitiers":
             case "Histoire de l’art et archéologie – Poitiers":
-                return 13;
+                return 14;
 
             // Sciences Fondamentales et Appliquées
             case "CMI Informatique – Poitiers":
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
             case "Sciences de la terre – Poitiers":
             case "CMI Chimie – Poitiers":
             case "Informatique – Poitiers":
-                return 7;
+                return 8;
 
             // Lettres et langues
             case "LLCER Anglais – Poitiers":
@@ -73,14 +73,14 @@ document.addEventListener('DOMContentLoaded', function () {
             case "Sciences du langage – Poitiers":
             case "Sciences du langage avec accès Santé – Poitiers":
             case "LEA – Poitiers":
-                return 11;
+                return 12;
 
             // Droit et sciences sociales
             case "Droit – Poitiers":
             case "Droit – Angoulême":
             case "Droit – Niort":
             case "AES – Poitiers":
-                return 9;
+                return 10;
 
             // Faculté des sciences du sport
             case "STAPS – Poitiers":
@@ -91,16 +91,16 @@ document.addEventListener('DOMContentLoaded', function () {
             case "DEUST Animation – parcours Pleine nature – Poitiers":
             case "DEUST Métiers de la forme – Angoulême":
             case "DEUST Préparateur/technicien en pharmacie – CFA/Poitiers (distanciel)":
-                return 8;
+                return 9;
 
             // Sciences économiques, IAE
             case "Économie Gestion – Poitiers":
             case "Économie Gestion avec accès Santé – Poitiers":
-                return 5;
+                return 4;
 
             // Institut de préparation à l'administration générale
             case "Administration publique – Poitiers":
-                return 0;
+                return 1;
 
             // IUT Poitiers-Châtellerault-Niort
             case "BUT Mesures physiques – Châtellerault":
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
             case "BUT Génie mécanique et productique – Poitiers":
             case "BUT Génie électrique et informatique industrielle – Poitiers":
             case "BUT Techniques de commercialisation – Châtellerault":
-                return 5;
+                return 6;
 
             // IUT d'Angoulême
             case "BUT MMI – Angoulême":
@@ -122,12 +122,12 @@ document.addEventListener('DOMContentLoaded', function () {
             case "BUT Génie mécanique et productique – Angoulême":
             case "BUT Génie électrique et informatique industrielle – Angoulême":
             case "BUT Techniques de commercialisation – Angoulême":
-                return 6;
+                return 7;
 
             // Double mentions
             case "Double licence Droit-Philosophie – Poitiers":
             case "Double licence Droit-LEA – Poitiers":
-                return 2;
+                return 3; // A REVOIR CA
 
             // Santé
             case "LAS Médecine – Poitiers":
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
             case "LAS Pharmacie – Poitiers":
             case "LAS Masso-kinésithérapie – Poitiers":
             case "Certificat de capacité d’orthophonie – Poitiers":
-                return 12;
+                return 13;
 
             // Défaut
             default:
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
             //let valeurComp = composanteCheck(inputformation.options[inputformation.selectedIndex].text);
             //inputcomposante.required = false;
 
-            inputcomposante.selectedIndex = compCheck(inputformation);
+            inputcomposante.selectedIndex = compCheck(inputformation.options[inputformation.selectedIndex].text);
             //inputcomposante.value = ;
 
             console.log("Formation sélectionnée:", inputformation.options[inputformation.selectedIndex].text);
@@ -232,6 +232,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 return "M2";
             case "Doctorant":
                 return "Doctorant";
+            default: 
+                return "";
         }
     }
 
