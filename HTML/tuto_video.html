@@ -39,106 +39,26 @@
         </div>
     </div>
 
-    <!-- Section principale pour afficher la signature générée -->
-    <div class="main_signature">
 
-        <!-- Titre affiché dynamiquement quand signature est prête -->
-		<h4 id="titre" style="font-size: 32px; text-align: center; display: none; color: #3498DB;">Voici votre signature générée:</h4>
-        <!-- Bloc <pre> pour afficher la signature formatée -->
-        <pre id="signature_display"></pre>
-        <!-- Bouton copier la signature, caché par défaut -->
-        <button class="button" id="copy_button" style="display: none;">Copier</button>
-        <!-- Message de confirmation copie, caché par défaut -->
-		<div id="copy_message" style="display: none; color: green; margin-top: 10px;">Le texte a été copié !</div> 
 
-    </div>
-    
-    <!-- Section principale avec tutoriel et liens -->
-	<div class="main_content">
+    <div class="main_content">
 		<div class="subCard">
             <!-- Titre tutoriel -->
-			<h4 id="nom" style="font-size: 32px; text-align: center;">Ajouter une signature à vos e-mails dans Zimbra</h4>
-            <h4 id="nom" style="font-size: 32px; text-align: center;">Tutoriel complet ici :</h4>
-
-
-
-
-
-
-
-
-            <!-- Tutoriel -->
-            <!--<img src="../Images/Tutoriel.png" alt="Ma signature">-->
-
-            <h4 id="tuto1" style="font-size: 22px;">1 - Cliquez sur Zimbra sur cette page Web.</h4>
-            <img src="../Images/Tutoriel_Partie_1.png" alt="Click Zimbra">
-
-            <br>
-            <br>
-            <br>
-            
-            <h4 id="tuto2" style="font-size: 22px;">2 - Connectez vous avec votre identifiant et votre mot de passe.</h4>
-            <img src="../Images/Tutoriel_Partie_2.png" alt="Connexion">
-
-            <br>
-            <br>
-            <br>
-                        
-            <h4 id="tuto3" style="font-size: 22px;">3 - Dans la partie du haut du site, cliquez sur "Préférences".</h4>
-            <img src="../Images/Tutoriel_Partie_3.png" alt="Préférences">
-
-            <br>
-            <br>
-            <br>
-            
-            <h4 id="tuto4" style="font-size: 22px;">4 - Ensuite, à gauche, allez dans "Signatures".</h4>
-            <img src="../Images/Tutoriel_Partie_4.png" alt="Click signature">
-
-            <br>
-            <br>
-            <br>
-            
-            <h4 id="tuto5" style="font-size: 22px;">5 - Donnez un nom de signature, puis collez votre signature générée.</h4>
-            <img src="../Images/Tutoriel_Partie_5.png" alt="Coller signature">
-
-            <br>
-            <br>
-            <br>
-            
-            <h4 id="tuto6.1" style="font-size: 22px;">6 - Dans Utilisation des signatures, sélectionnez votre signature pour les 2 catégories.</h4>
-            <h4 id="tuto6.2" style="font-size: 22px;">Pour la position de la signature, séléctionnez "Au-dessus du mail inclus".</h4>
-            <img src="../Images/Tutoriel_Partie_6.png" alt="Utilisation signature">
-
-            <br>
-            <br>
-            <br>
-
-            <h4 id="tuto7" style="font-size: 22px;">7 - N'oubliez pas d'enregistrer votre signature.</h4>
-            <img src="../Images/Tutoriel_Partie_7.png" alt="Enregistrer">
-
-            <br>
-            <br>
-            <br>
-            
-            <!-- Autre option tutoriel via lien bouton -->
-            <h4 id="nom" style="font-size: 32px; text-align: center;">Ou alors vous pouvez voir ce site : <button class="button" onclick="location.href='https://tuto.appli.univ-poitiers.fr/tutos/configuration-de-la-messagerie-zimbra/?_sf_s=zimbra'">Ajout de signature automatique dans la messagerie Zimbra</button></h4>
-			<!-- Bouton retour à la page précédente -->
+			<h4 id="nom" style="font-size: 32px; text-align: center;">Vidéo tutorielle :</h4>
+        </div>
+        <div class="buttonCard">
             <button class="button" id="index_button" onclick="history.back()">Retour</button>
-            <!-- Bouton de vérification, aligné à droite -->
-            <button class="button" id="next_button" style="float:right">Vérification</button>
-           
+        </div>
+    </div>
 
-		</div>
-		
-	</div>
-
+    
     <!-- Footer réseaux sociaux -->
     <footer id="social-footer" class="site-social-footer">
 
 
         <div id="social-nav">
-
-
+    
+    
             <ul>
                 <li>La vie étudiante continue sur les réseaux sociaux !</li>
                 <!-- Liens réseaux sociaux avec icônes -->
@@ -148,15 +68,15 @@
                 <li><a target="_blank" href="https://www.linkedin.com/school/45459/" title="Notre compte Linkedin"><i aria-hidden="true" class="fa-brands fa-linkedin"></i></a></li>
                 <li><a target="_blank" href="http://www.youtube.com/user/UniversitePoitiers" title="Notre compte Youtube"><i aria-hidden="true" class="fa-brands fa-youtube"></i></a></li>
             </ul>
-
-
+    
+    
         </div>
-
+    
     </footer>
-
+    
     <!-- Footer principal avec informations de contact, liens utiles et mentions légales -->
     <footer id="main-footer" class="site-main-footer">
-
+    
         <div class="footer">
             <div class="footer-left">
                 <div class="university-title">UNIVERSITÉ DE POITIERS</div>
@@ -216,112 +136,7 @@
                 </div>
             </div>
         </div>
-
+    
     </footer>
-<!--
-    <script type="text/javascript">
-        let pyodideReadyPromise;
-
-        async function main() {
-            if (!pyodideReadyPromise) {
-                pyodideReadyPromise = loadPyodide();
-            }
-            const python_test = document.getElementById('res_python');
-            let pyodide = await pyodideReadyPromise;
-
-            await pyodide.runPythonAsync(`
-def calcule_somme(a, b):
-    return a + b
-        `);
-
-            const result = pyodide.runPython("calcule_somme(1, 2)");
-            python_test.textContent = result.toString();
-        }
-    </script>
-    -->
-
-    <script>
-        /**
-         * Récupération de la signature depuis les paramètres de l'URL.
-         * Affiche dynamiquement les éléments de la page si la signature est présente.
-         */
-        
-        // Récupération du paramètre "signature" dans l'URL
-        const params = new URLSearchParams(window.location.search);
-        const signature = params.get('signature');
-
-        // Si une signature est présente dans l'URL
-        if (signature) {
-            
-            // Afficher le titre
-			document.getElementById('titre').style.display = 'inline-block';
-
-            // Décoder la signature depuis l'URL et l'afficher dans le <pre>
-            const decoded = decodeURIComponent(signature);
-            document.getElementById('signature_display').textContent = decoded;
-            
-            // Afficher le bouton copier
-            document.getElementById('copy_button').style.display = 'inline-block';
-        }
-
-        
-        /**
-         * Élément affichant la signature décodée.
-         * @type {HTMLElement}
-         */
-        
-        // Élément contenant la signature affichée
-        const signature_texte = document.getElementById('signature_display');
-
-
-        /**
-         * Gère le clic sur le bouton de copie.
-         * Permet de copier la signature dans le presse-papier et affiche une confirmation.
-         *
-         * @event click
-         * @returns {void}
-         */
-
-        // Gestionnaire clic sur le bouton copier
-        document.getElementById('copy_button').addEventListener('click', () => {
-
-            // Sélectionner le contenu du <pre> signature_display
-            const range = document.createRange();
-            range.selectNodeContents(signature_texte);
-            
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            
-            // Copier dans le presse-papier
-            document.execCommand("copy");
-
-			// Afficher le message que le texte a été copié
-            const message = document.getElementById('copy_message');
-            message.style.display = 'block';
-
-        });
-
-        /**
-         * Une fois le DOM complètement chargé,
-         * initialise l'action du bouton de vérification.
-         *
-         * Redirige vers mail_verif.html avec la signature encodée en paramètre.
-         *
-         * @event DOMContentLoaded
-         * @returns {void}
-         */
-
-        // Quand le DOM est charg
-        document.addEventListener('DOMContentLoaded', function () {
-            // Bouton Vérification redirige vers mail_verif.html avec signature encodée en paramètre URL
-            document.getElementById('next_button').addEventListener('click', () => {
-                const encodedSig = encodeURIComponent(signature);
-                window.location.href = `mail_verif.html?signature=${encodedSig}`;
-            });
-
-        });
-
-    </script>
 </body>
 </html>
