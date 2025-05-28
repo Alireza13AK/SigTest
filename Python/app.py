@@ -22,7 +22,8 @@ def home():
 @app.route('/zimbra-signature')
 def run_script():
     signature = request.args.get('signature') # Récupère la valeur du paramètre 'signature' dans l'URL
-    result = zimbra_script.get_signature(signature) # Appel de la fonction de traitement
+    email = request.args.get('email') # Récupère la valeur du paramètre 'email' dans l'URL
+    result = zimbra_script.get_signature(signature,email) # Appel de la fonction de traitement
     return result # Renvoie la réponse (probablement au format JSON)
     
 # Point d'entrée principal de l'application

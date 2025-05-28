@@ -1,3 +1,7 @@
+/**
+ * Script principal exécuté une fois que le DOM est complètement chargé.
+ */
+
 document.addEventListener('DOMContentLoaded', function () {
     // === Sélection des éléments ===
     const inputnom = document.getElementById('nom_etu');
@@ -24,6 +28,14 @@ document.addEventListener('DOMContentLoaded', function () {
         inputnivetudes
     ];
 
+
+    /**
+     * Retourne l’index de la composante correspondant à une formation.
+     * 
+     * @param {string} formation - Nom complet de la formation sélectionnée.
+     * @returns {number|string} Index de la composante ou "Autre" si inconnu.
+     */
+
     function compCheck(formation) {
         switch (formation) {
 
@@ -35,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
             case "Musicologie – Poitiers":
             case "Sociologie – Poitiers":
             case "Histoire de l’art et archéologie – Poitiers":
-                return 13;
+                return 14;
 
             // Sciences Fondamentales et Appliquées
             case "CMI Informatique – Poitiers":
@@ -49,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
             case "Sciences de la terre – Poitiers":
             case "CMI Chimie – Poitiers":
             case "Informatique – Poitiers":
-                return 7;
+                return 8;
 
             // Lettres et langues
             case "LLCER Anglais – Poitiers":
@@ -61,14 +73,14 @@ document.addEventListener('DOMContentLoaded', function () {
             case "Sciences du langage – Poitiers":
             case "Sciences du langage avec accès Santé – Poitiers":
             case "LEA – Poitiers":
-                return 11;
+                return 12;
 
             // Droit et sciences sociales
             case "Droit – Poitiers":
             case "Droit – Angoulême":
             case "Droit – Niort":
             case "AES – Poitiers":
-                return 9;
+                return 10;
 
             // Faculté des sciences du sport
             case "STAPS – Poitiers":
@@ -79,16 +91,16 @@ document.addEventListener('DOMContentLoaded', function () {
             case "DEUST Animation – parcours Pleine nature – Poitiers":
             case "DEUST Métiers de la forme – Angoulême":
             case "DEUST Préparateur/technicien en pharmacie – CFA/Poitiers (distanciel)":
-                return 8;
+                return 9;
 
             // Sciences économiques, IAE
             case "Économie Gestion – Poitiers":
             case "Économie Gestion avec accès Santé – Poitiers":
-                return 5;
+                return 4;
 
             // Institut de préparation à l'administration générale
             case "Administration publique – Poitiers":
-                return 0;
+                return 1;
 
             // IUT Poitiers-Châtellerault-Niort
             case "BUT Mesures physiques – Châtellerault":
@@ -102,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
             case "BUT Génie mécanique et productique – Poitiers":
             case "BUT Génie électrique et informatique industrielle – Poitiers":
             case "BUT Techniques de commercialisation – Châtellerault":
-                return 5;
+                return 6;
 
             // IUT d'Angoulême
             case "BUT MMI – Angoulême":
@@ -110,12 +122,12 @@ document.addEventListener('DOMContentLoaded', function () {
             case "BUT Génie mécanique et productique – Angoulême":
             case "BUT Génie électrique et informatique industrielle – Angoulême":
             case "BUT Techniques de commercialisation – Angoulême":
-                return 6;
+                return 7;
 
             // Double mentions
             case "Double licence Droit-Philosophie – Poitiers":
             case "Double licence Droit-LEA – Poitiers":
-                return 2;
+                return 3; // A REVOIR CA
 
             // Santé
             case "LAS Médecine – Poitiers":
@@ -124,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
             case "LAS Pharmacie – Poitiers":
             case "LAS Masso-kinésithérapie – Poitiers":
             case "Certificat de capacité d’orthophonie – Poitiers":
-                return 12;
+                return 13;
 
             // Défaut
             default:
@@ -132,6 +144,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+
+    /**
+     * Affiche ou masque les champs liés à "Autre formation" selon la sélection.
+     * Met également à jour les valeurs et exigences associées.
+     */
 
     // === Affichage conditionnel de l'autre formation ===
     function autreFormCheck() {
@@ -160,13 +177,22 @@ document.addEventListener('DOMContentLoaded', function () {
             //let valeurComp = composanteCheck(inputformation.options[inputformation.selectedIndex].text);
             //inputcomposante.required = false;
 
-            inputcomposante.selectedIndex = compCheck(inputformation);
+            inputcomposante.selectedIndex = compCheck(inputformation.options[inputformation.selectedIndex].text);
             //inputcomposante.value = ;
 
             console.log("Formation sélectionnée:", inputformation.options[inputformation.selectedIndex].text);
             console.log("Composante détectée:", compCheck(inputformation.options[inputformation.selectedIndex].text));
         }
     }
+
+
+    /**
+     * Vérifie si tous les champs obligatoires sont remplis,
+     * puis affiche ou masque le bouton de soumission en conséquence.
+     *
+     * @function
+     * @returns {void}
+     */
 
     // === Vérification des champs obligatoires ===
     function checkFormCompletion() {
@@ -182,8 +208,17 @@ document.addEventListener('DOMContentLoaded', function () {
         submitButton.style.display = allFilled ? 'inline-block' : 'none';
     }
 
-    // === Génération de la signature ===
-    function niv_etudes(annee) {
+
+    /**
+     * Retourne le code correspondant au niveau d'études
+     * en fonction de la chaîne de texte donnée.
+     * 
+     * @param {string} annee - Niveau d'études sous forme textuelle (ex : "Bac +3").
+     * @returns {string|undefined} Code du niveau d'études correspondant (ex : "L3"),
+     *                             ou undefined si aucun cas ne correspond.
+     */
+
+        function niv_etudes(annee) {
         switch (annee) {
             case "Bac +1":
                 return "L1";
@@ -197,8 +232,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 return "M2";
             case "Doctorant":
                 return "Doctorant";
+            default: 
+                return "";
         }
     }
+
+
+    /**
+     * Génère la signature formatée à partir des valeurs du formulaire.
+     * 
+     * Formate le prénom et nom, ajoute le groupe de TD, la formation,
+     * la composante, l'université, et éventuellement le téléphone.
+     * 
+     * @function
+     * @returns {string} La signature complète formatée en chaîne de caractères.
+     */
+
+    // === Génération de la signature ===
 
     function generateSignature() {
         alertmess.style.display = 'none';
@@ -233,6 +283,14 @@ document.addEventListener('DOMContentLoaded', function () {
         return signature;
     }
 
+    /**
+     * Gère l'événement click du bouton de soumission du formulaire.
+     * Valide les champs "Autre formation" et téléphone,
+     * affiche les alertes et redirige avec la signature encodée.
+     * 
+     * @param {Event} event - L'événement click.
+     */
+
     // === Gestion du bouton submit ===
     submitButton.addEventListener('click', function (event) {
         const autreValue = inputautreformation.value.trim();
@@ -261,11 +319,29 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = `HTML/tutorial.html?signature=${encodedSig}`;
     });
 
+
+    /**
+     * Formate automatiquement la saisie du numéro de téléphone
+     * en insérant un espace tous les deux chiffres.
+     * 
+     * @param {InputEvent} e - L'événement d'entrée sur le champ téléphone.
+     */
+
     // === Auto-espace du téléphone ===
     inputtelephone.addEventListener('input', function (e) {
         let value = e.target.value.replace(/\D/g, '').substring(0, 10);
         e.target.value = value.match(/.{1,2}/g)?.join(' ') || '';
     });
+
+    
+
+    /**
+     * Réinitialise tous les champs du formulaire.
+     * Masque les messages d’alerte et réactive les vérifications de champs obligatoires.
+     * 
+     * @event click
+     * @returns {void}
+     */
 
     // === Remise à zéro du formulaire ===
     resetButton.addEventListener('click', function () {
@@ -285,14 +361,40 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(checkFormCompletion, 0); // attendre que les valeurs soient réinitialisées
     });
 
+
+    /**
+     * Ajoute des écouteurs d'événements à chaque champ obligatoire
+     * pour surveiller leur complétion en temps réel.
+     *
+     * @function
+     * @returns {void}
+     */
+
     // === Écouteurs sur les champs obligatoires ===
     requiredFields.forEach(function (input) {
         input.addEventListener('input', checkFormCompletion);
         input.addEventListener('change', checkFormCompletion);
     });
 
+
+    /**
+     * Surveille les changements dans la liste déroulante de formation.
+     * Met à jour dynamiquement les champs associés.
+     *
+     * @event change
+     * @returns {void}
+     */
+
     // === Écouteur pour changement de formation ===
     inputformation.addEventListener('change', autreFormCheck);
+
+
+    /**
+     * Réexécute les fonctions de validation lors du retour à la page via le navigateur (pageshow).
+     *
+     * @event pageshow
+     * @returns {void}
+     */
 
     // === Revalidation après retour arrière navigateur ===
     window.addEventListener('pageshow', function () {
