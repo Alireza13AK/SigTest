@@ -33,107 +33,59 @@
         </div>
     </div>
 
-    <!-- Section principale pour afficher la signature générée -->
+
+    <!-- Section principale pour réafficher la signature générée -->
     <div class="main_signature">
-
-        <!-- Titre affiché dynamiquement quand signature est prête -->
-		<h4 id="titre" style="font-size: 32px; text-align: center; display: none; color: #3498DB;">Voici votre signature générée :</h4>
-        <!-- Bloc <pre> pour afficher la signature formatée -->
-        <pre id="signature_display"></pre>
-        <!-- Bouton copier la signature, caché par défaut -->
+        <h4 id="titre" style="font-size: 32px; text-align: center; display: none; color: #3498DB;">Voici votre signature générée :</h4>
+        <pre id="signature_display2"></pre>
         <button class="button" id="copy_button" style="display: none;">Copier</button>
-        <!-- Message de confirmation copie, caché par défaut -->
-		<div id="copy_message" style="display: none; color: green; margin-top: 10px;">Le texte a été copié !</div> 
 
-    
-    
-    <!-- Section principale avec tutoriel et liens -->
-	    <div class="subCard">
-		
-            <!-- Titre tutoriel -->
-			<h4 id="nom" style="font-size: 32px; text-align: center;">Ajouter une signature à vos e-mails dans Zimbra</h4>
-            <h4 id="nom" style="font-size: 32px; text-align: center;">Tutoriel complet ici :</h4>
+        <div id="copy_message" style="display: none; color: green; margin-top: 10px;">Le texte a été copié !</div>
 
+    </div>
 
+    <!-- Section principale pour la vérification de la signature -->
+    <div class="main_content">
 
-
-
-
-
-
-            <!-- Tutoriel -->
-            <!--<img src="../Images/Tutoriel.png" alt="Ma signature">-->
-
-            <h4 id="tuto1" style="font-size: 22px;">1 - Cliquez sur Zimbra sur cette page Web.</h4>
-            <img src="../Images/Tutoriel_Partie_1.png" alt="Click Zimbra">
-
-            <br>
-            <br>
-            <br>
-            
-            <h4 id="tuto2" style="font-size: 22px;">2 - Connectez vous avec votre identifiant et votre mot de passe.</h4>
-            <img src="../Images/Tutoriel_Partie_2.png" alt="Connexion">
-
-            <br>
-            <br>
-            <br>
-                        
-            <h4 id="tuto3" style="font-size: 22px;">3 - Dans la partie du haut du site, cliquez sur "Préférences".</h4>
-            <img src="../Images/Tutoriel_Partie_3.png" alt="Préférences">
-
-            <br>
-            <br>
-            <br>
-            
-            <h4 id="tuto4" style="font-size: 22px;">4 - Ensuite, à gauche, allez dans "Signatures".</h4>
-            <img src="../Images/Tutoriel_Partie_4.png" alt="Click signature">
-
-            <br>
-            <br>
-            <br>
-            
-            <h4 id="tuto5" style="font-size: 22px;">5 - Donnez un nom de signature, puis collez votre signature générée.</h4>
-            <img src="../Images/Tutoriel_Partie_5.png" alt="Coller signature">
-
-            <br>
-            <br>
-            <br>
-            
-            <h4 id="tuto6.1" style="font-size: 22px;">6 - Dans Utilisation des signatures, sélectionnez votre signature pour les 2 catégories.</h4>
-            <h4 id="tuto6.2" style="font-size: 22px;">Pour la position de la signature, séléctionnez "Au-dessus du mail inclus".</h4>
-            <img src="../Images/Tutoriel_Partie_6.png" alt="Utilisation signature">
-
-            <br>
-            <br>
-            <br>
-
-            <h4 id="tuto7" style="font-size: 22px;">7 - N'oubliez pas d'enregistrer votre signature.</h4>
-            <img src="../Images/Tutoriel_Partie_7.png" alt="Enregistrer">
-
-            <br>
-            <br>
-            <br>
-
-
-            <!-- Autre option tutoriel via lien bouton -->
-            <h4 id="nom" style="font-size: 32px; text-align: center;">Ou alors vous pouvez voir ce site : <button class="button" onclick="location.href='https://tuto.appli.univ-poitiers.fr/tutos/configuration-de-la-messagerie-zimbra/?_sf_s=zimbra'">Ajout de signature automatique dans la messagerie Zimbra</button></h4>
-			<!-- Bouton retour à la page précédente -->
-            <button class="button" id="index_button" onclick="history.back()">Retour</button>
-            <!-- Bouton de vérification, aligné à droite -->
-            <button class="button" id="next_button" >Vérification</button>
+        <h4 style="font-size: 32px; text-align: center; color: #3498DB;">Pour la vérification, veuillez mettre votre adresse mail étudiante.</h4>
+        <!-- Champ adresse mail (obligatoire) -->
+        <label>
+            <input type="text" id="email_etu" name="email_etu" class="textField" size="30" placeholder="prenom.nom@etu.univ-poitiers.fr">
+        </label>
+        <!-- Alerte email -->
+        <div class="alert" style="display: none;" id="alerteemail">
+            <strong>Attention!</strong> L'adresse doit se terminer par @etu.univ-poitiers.fr !
         </div>
 
-        
-            
-           
+        <br>
+        <br>
 
-		</div>
+        <!-- <h4 style="font-size: 32px; text-align: center; color: #3498DB;">Avant de valider, veuillez nous envoyer un mail à l'adresse [à voir pour le moment].</h4> --> <!-- A MODIFIER SELON L'ADRESSE MAIL QU'ON AURA -->
 
-        
-		
-	
+        <!-- Résultat de la vérification -->
+        <div class="subCard">
 
-    <!-- Footer réseaux sociaux -->
+        </div>
+        <!-- Boutons Vérification et Retour -->
+        <div class="buttonCard">
+            <button class="button" id="index_button" onclick="history.back()">Retour</button>
+            <button class="button" id="fetchSignature">Vérification</button>
+
+            <br>
+
+
+        </div>
+
+        <p id="result"></p>
+    </div>
+
+
+
+
+
+
+
+    <!-- Pied de page -->
     <footer id="social-footer" class="site-social-footer">
 
 
@@ -142,12 +94,7 @@
 
             <ul>
                 <li>La vie étudiante continue sur les réseaux sociaux !</li>
-                <!-- Liens réseaux sociaux avec icônes -->
-                <li><a target="_blank" href="https://www.facebook.com/univpoitiers/" title="Notre compte Facebook"><i aria-hidden="true" class="fa-brands fa-facebook"></i></a></li>
-                <li><a target="_blank" href="https://www.instagram.com/univ_poitiers/" title="Notre compte Instagram"><i aria-hidden="true" class="fa-brands fa-instagram"></i></a></li>
-                <li><a target="_blank" href="https://twitter.com/#!/univpoitiers" title="Notre compte Twitter"><i aria-hidden="true" class="fa-brands fa-twitter"></i></a></li>
-                <li><a target="_blank" href="https://www.linkedin.com/school/45459/" title="Notre compte Linkedin"><i aria-hidden="true" class="fa-brands fa-linkedin"></i></a></li>
-                <li><a target="_blank" href="http://www.youtube.com/user/UniversitePoitiers" title="Notre compte Youtube"><i aria-hidden="true" class="fa-brands fa-youtube"></i></a></li>
+                <li><a target="_blank" href="https://www.facebook.com/univpoitiers/" title="Notre compte Facebook"><i aria-hidden="true" class="fa-brands fa-facebook"></i></a></li><li><a target="_blank" href="https://www.instagram.com/univ_poitiers/" title="Notre compte Instagram"><i aria-hidden="true" class="fa-brands fa-instagram"></i></a></li><li><a target="_blank" href="https://twitter.com/#!/univpoitiers" title="Notre compte Twitter"><i aria-hidden="true" class="fa-brands fa-twitter"></i></a></li><li><a target="_blank" href="https://www.linkedin.com/school/45459/" title="Notre compte Linkedin"><i aria-hidden="true" class="fa-brands fa-linkedin"></i></a></li><li><a target="_blank" href="http://www.youtube.com/user/UniversitePoitiers" title="Notre compte Youtube"><i aria-hidden="true" class="fa-brands fa-youtube"></i></a></li>
             </ul>
 
 
@@ -155,7 +102,6 @@
 
     </footer>
 
-    <!-- Footer principal avec informations de contact, liens utiles et mentions légales -->
     <footer id="main-footer" class="site-main-footer">
 
         <div class="footer">
@@ -168,9 +114,7 @@
                     86073 POITIERS Cedex 9, France
                 </div>
                 <div class="phone">
-                    <!-- Lien cliquable pour appeler -->
                     <a href="tel:+33549453000">
-                        <!-- Icône téléphone SVG -->
                         <svg class="phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
@@ -178,11 +122,9 @@
                     </a>
                 </div>
                 <div class="note">
-                    <!-- Note importante sur l'adresse -->
                     Le "15 rue de l'Hôtel Dieu à Poitiers" correspond à l'administration de l'université. Aucun cours n'y est dispensé.
                 </div>
             </div>
-            <!-- Liens utiles de l'Université de Poitiers -->
             <div class="footer-right">
                 <div class="footer-column">
                     <div class="column-title">ESPACES</div>
@@ -217,112 +159,115 @@
                 </div>
             </div>
         </div>
-
     </footer>
-<!--
-    <script type="text/javascript">
-        let pyodideReadyPromise;
-
-        async function main() {
-            if (!pyodideReadyPromise) {
-                pyodideReadyPromise = loadPyodide();
-            }
-            const python_test = document.getElementById('res_python');
-            let pyodide = await pyodideReadyPromise;
-
-            await pyodide.runPythonAsync(`
-def calcule_somme(a, b):
-    return a + b
-        `);
-
-            const result = pyodide.runPython("calcule_somme(1, 2)");
-            python_test.textContent = result.toString();
-        }
-    </script>
-    -->
 
     <script>
-        /**
-         * Récupération de la signature depuis les paramètres de l'URL.
-         * Affiche dynamiquement les éléments de la page si la signature est présente.
-         */
         
-        // Récupération du paramètre "signature" dans l'URL
+        // Récupération du paramètre "signature" depuis l'URL
         const params = new URLSearchParams(window.location.search);
         const signature = params.get('signature');
 
-        // Si une signature est présente dans l'URL
+        // Si une signature est présente, on l'affiche
         if (signature) {
-            
-            // Afficher le titre
-			document.getElementById('titre').style.display = 'inline-block';
 
-            // Décoder la signature depuis l'URL et l'afficher dans le <pre>
+            // Affiche le titre
+            document.getElementById('titre').style.display = 'inline-block';
+
+            // Décode et affiche la signature
             const decoded = decodeURIComponent(signature);
-            document.getElementById('signature_display').textContent = decoded;
-            
-            // Afficher le bouton copier
+            document.getElementById('signature_display2').textContent = decoded;
+
+            // Affiche le bouton "Copier"
             document.getElementById('copy_button').style.display = 'inline-block';
         }
 
-        
-        /**
-         * Élément affichant la signature décodée.
-         * @type {HTMLElement}
-         */
-        
-        // Élément contenant la signature affichée
-        const signature_texte = document.getElementById('signature_display');
+        // Récupère l'élément contenant la signature
+        const signature_texte = document.getElementById('signature_display2');
 
 
         /**
-         * Gère le clic sur le bouton de copie.
-         * Permet de copier la signature dans le presse-papier et affiche une confirmation.
+         * Copie le contenu de la signature dans le presse-papier
+         * lorsqu'on clique sur le bouton "Copier".
          *
          * @event click
          * @returns {void}
          */
 
-        // Gestionnaire clic sur le bouton copier
         document.getElementById('copy_button').addEventListener('click', () => {
 
-            // Sélectionner le contenu du <pre> signature_display
+            // Sélectionne le texte dans la balise <pre>
             const range = document.createRange();
             range.selectNodeContents(signature_texte);
-            
+
             const selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(range);
-            
-            // Copier dans le presse-papier
+
+            // Copie dans le presse-papier
             document.execCommand("copy");
 
-			// Afficher le message que le texte a été copié
+            // Afficher le message que le texte a été copié
             const message = document.getElementById('copy_message');
             message.style.display = 'block';
 
         });
 
         /**
-         * Une fois le DOM complètement chargé,
-         * initialise l'action du bouton de vérification.
+         * Envoie une requête au serveur Flask pour vérifier la signature et l'email.
+         * Affiche un message d'alerte si l'email n'est pas valide.
          *
-         * Redirige vers mail_verif.html avec la signature encodée en paramètre.
-         *
-         * @event DOMContentLoaded
-         * @returns {void}
+         * @event click
+         * @async
+         * @returns {Promise<void>}
          */
 
-        // Quand le DOM est charg
-        document.addEventListener('DOMContentLoaded', function () {
-            // Bouton Vérification redirige vers mail_verif.html avec signature encodée en paramètre URL
-            document.getElementById('next_button').addEventListener('click', () => {
-                const encodedSig = encodeURIComponent(signature);
-                window.location.href = `mail_verif.html?signature=${encodedSig}`;
-            });
+        document.getElementById('fetchSignature').addEventListener('click', async () => {
 
+            // Récupère l'email saisi et l'élément d'alerte
+            const email = document.getElementById("email_etu").value;
+            const alertemail = document.getElementById("alerteemail");
+
+            // Vérifie que l'email est un email étudiant valide
+            if (email.endsWith('@etu.univ-poitiers.fr')) {
+                alertemail.style.display = 'none';
+
+                // Affiche un message temporaire de traitement
+                const resultElement = document.getElementById('result');
+                resultElement.innerText = "Vérification en cours ...";
+
+                // Récupère la signature affichée
+                const signature_verif = document.getElementById("signature_display2").textContent;
+                console.log(signature_verif);
+
+                // Récupère l'email à nouveau
+                const email_verif = document.getElementById("email_etu").value;
+                console.log(email_verif);
+
+            
+                // Crée l'URL d'appel à l'API Flask
+                const url = `http://127.0.0.1:5000/zimbra-signature?signature=${encodeURIComponent(signature_verif)}&email=${encodeURIComponent(email_verif)}`;
+
+                try {
+                    // Effectue la requête et récupère la réponse en texte
+                    const response = await fetch(url);
+                    const text = await response.text();  // Récupère la réponse en texte
+
+                    // Affiche la réponse dans l'élément HTML
+                    resultElement.innerText = text;
+
+                } catch (error) {
+                    // Affiche un message d'erreur si la requête échoue
+                    resultElement.innerText = "Erreur lors de la requête : " + error;
+                }
+
+            
+            } else {
+                // Affiche l'alerte si l'email est invalide
+                alertemail.style.display = 'inline-block';
+            }
         });
-
     </script>
+
+
 </body>
 </html>
