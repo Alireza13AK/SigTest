@@ -33,51 +33,107 @@
         </div>
     </div>
 
-
-    <!-- Section principale pour réafficher la signature générée -->
+      <!-- Section principale pour afficher la signature générée -->
     <div class="main_signature">
-        <h4 id="titre" style="font-size: 32px; text-align: center; display: none; color: #3498DB;">Voici votre signature générée :</h4>
-        <pre id="signature_display2"></pre>
+
+        <!-- Titre affiché dynamiquement quand signature est prête -->
+		<h4 id="titre" style="font-size: 32px; text-align: center; display: none; color: #3498DB;">Voici votre signature générée :</h4>
+        <!-- Bloc <pre> pour afficher la signature formatée -->
+        <pre id="signature_display"></pre>
+        <!-- Bouton copier la signature, caché par défaut -->
         <button class="button" id="copy_button" style="display: none;">Copier</button>
+        <!-- Message de confirmation copie, caché par défaut -->
+		<div id="copy_message" style="display: none; color: green; margin-top: 10px;">Le texte a été copié !</div> 
 
-        <div id="copy_message" style="display: none; color: green; margin-top: 10px;">Le texte a été copié !</div>
+    
+    
+    <!-- Section principale avec tutoriel et liens -->
+	    <div class="subCard">
+		
+            <!-- Titre tutoriel -->
+			<h4 id="nom" style="font-size: 32px; text-align: center;">Ajouter une signature à vos e-mails dans Zimbra</h4>
+            <h4 id="nom" style="font-size: 32px; text-align: center;">Tutoriel complet ici :</h4>
 
-    </div>
 
-    <!-- Section principale pour la vérification de la signature -->
-    <div class="main_content">
 
-        <h4 style="font-size: 32px; text-align: center; color: #3498DB;">Pour la vérification, veuillez mettre votre adresse mail étudiante.</h4>
-        <!-- Champ adresse mail (obligatoire) -->
-        <label>
-            <input type="text" id="email_etu" name="email_etu" class="textField" size="30" placeholder="prenom.nom@etu.univ-poitiers.fr">
-        </label>
-        <!-- Alerte email -->
-        <div class="alert" style="display: none;" id="alerteemail">
-            <strong>Attention!</strong> L'adresse doit se terminer par @etu.univ-poitiers.fr !
-        </div>
 
-        <br>
-        <br>
 
-        <!-- <h4 style="font-size: 32px; text-align: center; color: #3498DB;">Avant de valider, veuillez nous envoyer un mail à l'adresse [à voir pour le moment].</h4> --> <!-- A MODIFIER SELON L'ADRESSE MAIL QU'ON AURA -->
 
-        <!-- Résultat de la vérification -->
-        <div class="subCard">
 
-        </div>
-        <!-- Boutons Vérification et Retour -->
-        <div class="buttonCard">
-            <button class="button" id="index_button" onclick="history.back()">Retour</button>
-            <button class="button" id="fetchSignature">Vérification</button>
 
+            <!-- Tutoriel -->
+            <!--<img src="../Images/Tutoriel.png" alt="Ma signature">-->
+
+            <h4 id="tuto1" style="font-size: 22px;">1 - Cliquez sur Zimbra sur cette page Web.</h4>
+            <img src="../Images/Tutoriel_Partie_1.png" alt="Click Zimbra">
+
+            <br>
+            <br>
+            <br>
+            
+            <h4 id="tuto2" style="font-size: 22px;">2 - Connectez vous avec votre identifiant et votre mot de passe.</h4>
+            <img src="../Images/Tutoriel_Partie_2.png" alt="Connexion">
+
+            <br>
+            <br>
+            <br>
+                        
+            <h4 id="tuto3" style="font-size: 22px;">3 - Dans la partie du haut du site, cliquez sur "Préférences".</h4>
+            <img src="../Images/Tutoriel_Partie_3.png" alt="Préférences">
+
+            <br>
+            <br>
+            <br>
+            
+            <h4 id="tuto4" style="font-size: 22px;">4 - Ensuite, à gauche, allez dans "Signatures".</h4>
+            <img src="../Images/Tutoriel_Partie_4.png" alt="Click signature">
+
+            <br>
+            <br>
+            <br>
+            
+            <h4 id="tuto5" style="font-size: 22px;">5 - Donnez un nom de signature, puis collez votre signature générée.</h4>
+            <img src="../Images/Tutoriel_Partie_5.png" alt="Coller signature">
+
+            <br>
+            <br>
+            <br>
+            
+            <h4 id="tuto6.1" style="font-size: 22px;">6 - Dans Utilisation des signatures, sélectionnez votre signature pour les 2 catégories.</h4>
+            <h4 id="tuto6.2" style="font-size: 22px;">Pour la position de la signature, séléctionnez "Au-dessus du mail inclus".</h4>
+            <img src="../Images/Tutoriel_Partie_6.png" alt="Utilisation signature">
+
+            <br>
+            <br>
+            <br>
+
+            <h4 id="tuto7" style="font-size: 22px;">7 - N'oubliez pas d'enregistrer votre signature.</h4>
+            <img src="../Images/Tutoriel_Partie_7.png" alt="Enregistrer">
+
+            <br>
+            <br>
             <br>
 
 
+            <!-- Autre option tutoriel via lien bouton -->
+            <h4 id="nom" style="font-size: 32px; text-align: center;">Ou alors vous pouvez voir ce site : <button class="button" onclick="location.href='https://tuto.appli.univ-poitiers.fr/tutos/configuration-de-la-messagerie-zimbra/?_sf_s=zimbra'">Ajout de signature automatique dans la messagerie Zimbra</button></h4>
+			<!-- Bouton retour à la page précédente -->
+            <button class="button" id="index_button" onclick="history.back()">Retour</button>
+            <!-- Bouton de vérification, aligné à droite -->
+            <button class="button" id="next_button" >Vérification</button>
         </div>
 
-        <p id="result"></p>
-    </div>
+        
+            
+           
+
+		</div>
+
+        
+
+
+
+ 
 
 
 
@@ -161,112 +217,7 @@
         </div>
     </footer>
 
-    <script>
-        
-        // Récupération du paramètre "signature" depuis l'URL
-        const params = new URLSearchParams(window.location.search);
-        const signature = params.get('signature');
-
-        // Si une signature est présente, on l'affiche
-        if (signature) {
-
-            // Affiche le titre
-            document.getElementById('titre').style.display = 'inline-block';
-
-            // Décode et affiche la signature
-            const decoded = decodeURIComponent(signature);
-            document.getElementById('signature_display2').textContent = decoded;
-
-            // Affiche le bouton "Copier"
-            document.getElementById('copy_button').style.display = 'inline-block';
-        }
-
-        // Récupère l'élément contenant la signature
-        const signature_texte = document.getElementById('signature_display2');
-
-
-        /**
-         * Copie le contenu de la signature dans le presse-papier
-         * lorsqu'on clique sur le bouton "Copier".
-         *
-         * @event click
-         * @returns {void}
-         */
-
-        document.getElementById('copy_button').addEventListener('click', () => {
-
-            // Sélectionne le texte dans la balise <pre>
-            const range = document.createRange();
-            range.selectNodeContents(signature_texte);
-
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-
-            // Copie dans le presse-papier
-            document.execCommand("copy");
-
-            // Afficher le message que le texte a été copié
-            const message = document.getElementById('copy_message');
-            message.style.display = 'block';
-
-        });
-
-        /**
-         * Envoie une requête au serveur Flask pour vérifier la signature et l'email.
-         * Affiche un message d'alerte si l'email n'est pas valide.
-         *
-         * @event click
-         * @async
-         * @returns {Promise<void>}
-         */
-
-        document.getElementById('fetchSignature').addEventListener('click', async () => {
-
-            // Récupère l'email saisi et l'élément d'alerte
-            const email = document.getElementById("email_etu").value;
-            const alertemail = document.getElementById("alerteemail");
-
-            // Vérifie que l'email est un email étudiant valide
-            if (email.endsWith('@etu.univ-poitiers.fr')) {
-                alertemail.style.display = 'none';
-
-                // Affiche un message temporaire de traitement
-                const resultElement = document.getElementById('result');
-                resultElement.innerText = "Vérification en cours ...";
-
-                // Récupère la signature affichée
-                const signature_verif = document.getElementById("signature_display2").textContent;
-                console.log(signature_verif);
-
-                // Récupère l'email à nouveau
-                const email_verif = document.getElementById("email_etu").value;
-                console.log(email_verif);
-
-            
-                // Crée l'URL d'appel à l'API Flask
-                const url = `http://127.0.0.1:5000/zimbra-signature?signature=${encodeURIComponent(signature_verif)}&email=${encodeURIComponent(email_verif)}`;
-
-                try {
-                    // Effectue la requête et récupère la réponse en texte
-                    const response = await fetch(url);
-                    const text = await response.text();  // Récupère la réponse en texte
-
-                    // Affiche la réponse dans l'élément HTML
-                    resultElement.innerText = text;
-
-                } catch (error) {
-                    // Affiche un message d'erreur si la requête échoue
-                    resultElement.innerText = "Erreur lors de la requête : " + error;
-                }
-
-            
-            } else {
-                // Affiche l'alerte si l'email est invalide
-                alertemail.style.display = 'inline-block';
-            }
-        });
-    </script>
+   
 
 
 </body>
