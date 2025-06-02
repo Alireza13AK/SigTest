@@ -466,3 +466,54 @@ body.dark-mode th {
     font-weight: bold;
   }
 
+
+
+
+
+
+  .main-content {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.main-content h2 {
+  text-align: center;
+  color:  #3498DB;
+}
+
+.main-content p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.main-content .info {
+  background-color: #fff4f4;
+  border-left: 5px solid  #3498DB;
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-radius: 6px;
+}
+
+.main-content .cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.main-content .cta a {
+  text-decoration: none;
+  background-color:  #3498DB;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.main-content .cta a:hover {
+  background-color:  #3498DB;
+}

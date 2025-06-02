@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else
 
         if (inputtelephone.value.trim() !== '') {
-            signature += `Tél. : ${inputtelephone.value}`;
+            signature += `Tél : ${inputtelephone.value}`;
         }
 
         return signature;
