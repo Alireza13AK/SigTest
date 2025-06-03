@@ -61,8 +61,8 @@
         <br>
         <br>
 
-        <h4>Si la signature n'apparait pas dans le cadre de l'étape 2, revoyez les étapes de l'implémentation de la signature :</h4>
-        <button class=button onclick="location.href='tutorial.html?signature=' + signature">Retour implémentation signature</button>
+        <h4 style="color: #3498DB;">Si la signature n'apparait pas dans le cadre de l'étape 2, revoyez les étapes de l'implémentation de la signature :</h4>
+        <button class=button id="implementation">Retour implémentation signature</button>
         <br>
         <br>
         <br>
@@ -289,6 +289,17 @@
                 alertemail.style.display = 'inline-block';
             }
         });
+
+        // Quand le DOM est charg
+        document.addEventListener('DOMContentLoaded', function () {
+            // Bouton Vérification redirige vers mail_verif.html avec signature encodée en paramètre URL
+            document.getElementById('implementation').addEventListener('click', () => {
+                const encodedSig = encodeURIComponent(signature);
+                window.location.href = `tutorial.html?signature=${encodedSig}`;
+            });
+
+        });
+
     </script>
 
 
