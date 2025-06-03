@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Double mentions
             case "Double licence Droit-Philosophie – Poitiers":
             case "Double licence Droit-LEA – Poitiers":
-                return 3; // A REVOIR CA
+                return 10; // A REVOIR CA
 
             // Santé
             case "LAS Médecine – Poitiers":
@@ -160,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function () {
             inputautreformation.style.display = 'block';
             titre_autreformation.style.display = 'block';
             inputcomposante.required = true;
-            inputcomposante.selectedIndex = 0;
             inputautreformation.required = true;
 
         } else {
