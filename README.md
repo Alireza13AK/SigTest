@@ -1,3 +1,24 @@
+# Signature
+
+## Développeurs
+
+- Alireza AKHLAGHI
+- Owen ABRIL
+
+# Architecture du Projet
+
+SigTest\
+├── CSS/             
+├── HTML/          
+├── Images/\
+├── JavaScript/               
+├── PDF/\
+├── Python/\
+├── Video/\
+├── index.html\
+├── README.md
+
+
 # Lancement du site web avec Selenium et Python
 
 ## Prérequis:
