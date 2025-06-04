@@ -53,7 +53,7 @@ Le module chromedriver-autoinstaller télécharge et configure automatiquement l
 Dans le terminal :
 
 ```bash
-python ./app.py
+./Python/app.py
 ```
 
 ---
@@ -66,24 +66,13 @@ Plusieurs options :
 Via Live Server dans VSCode (recommandé) :
 
 - Installez l'extension "Live Server" dans VSCode.
-- Faites un clic droit sur index.html > "Open with Live Server".
+- Faites un clic droit sur `index.html` > "Open with Live Server".
 
 
 Ouverture directe dans le navigateur :
 
 Double-cliquez sur `index.html`, ou ouvrez un navigateur puis faites glisser `index.html` dedans.
 
----
-
-## Remarques
-
-Assurez-vous que le fichier `app.py` est bien présent à la racine du projet.
-Si vous utilisez Chrome, téléchargez le bon chromedriver à l'adresse suivante : https://sites.google.com/chromium.org/driver/
-Si nécessaire, testez l'exécution de chromedriver dans le terminal avec :
-
-```bash
-chromedriver --version
-```
 
 ---
 

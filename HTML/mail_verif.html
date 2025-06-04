@@ -44,11 +44,11 @@
         <br>
         <br>
 
-        <h4 id="tuto3" style="font-size: 22px; text-align: left; color: #3498DB;">1 - Allez créer un nouveau message avec "Nouveau message".</h4>
+        <h4 id="tuto1" style="font-size: 22px; text-align: left; color: #3498DB;">1 - Allez créer un nouveau message avec "Nouveau message".</h4>
         <img src="../Images/verification.png" alt="Nouveau_message">
 
 
-        <h4 id="tuto3" style="font-size: 22px; text-align: left; color: #3498DB;">2 - Une fois sur la page, vous devriez voir votre signature.</h4>
+        <h4 id="tuto2" style="font-size: 22px; text-align: left; color: #3498DB;">2 - Une fois sur la page, vous devriez voir votre signature.</h4>
         <img src="../Images/verification 2.png" alt="Verification">
 
         <br>
@@ -182,51 +182,21 @@
         // Récupération du paramètre "signature" depuis l'URL
         const params = new URLSearchParams(window.location.search);
         const signature = params.get('signature');
+        console.log(signature);
 
         // Si une signature est présente, on l'affiche
         if (signature) {
 
-            // Affiche le titre
-            document.getElementById('titre').style.display = 'inline-block';
 
             // Décode et affiche la signature
             const decoded = decodeURIComponent(signature);
-            document.getElementById('signature_display2').textContent = decoded;
 
-            // Affiche le bouton "Copier"
-            document.getElementById('copy_button').style.display = 'inline-block';
+
         }
 
         // Récupère l'élément contenant la signature
-        const signature_texte = document.getElementById('signature_display2');
+        const signature_texte = decoded;
 
-
-        /**
-         * Copie le contenu de la signature dans le presse-papier
-         * lorsqu'on clique sur le bouton "Copier".
-         *
-         * @event click
-         * @returns {void}
-         */
-
-        document.getElementById('copy_button').addEventListener('click', () => {
-
-            // Sélectionne le texte dans la balise <pre>
-            const range = document.createRange();
-            range.selectNodeContents(signature_texte);
-
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-
-            // Copie dans le presse-papier
-            document.execCommand("copy");
-
-            // Afficher le message que le texte a été copié
-            const message = document.getElementById('copy_message');
-            message.style.display = 'block';
-
-        });
 
         /**
          * Envoie une requête au serveur Flask pour vérifier la signature et l'email.
@@ -238,6 +208,7 @@
          */
 
         document.getElementById('fetchSignature').addEventListener('click', async () => {
+            console.log('Le bouton a été cliqué !');
 
             // Récupère l'email saisi et l'élément d'alerte
             const email = document.getElementById("email_etu").value;
