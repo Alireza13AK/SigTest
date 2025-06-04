@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" href="https://www.univ-poitiers.fr/wp-content/themes/universite_poitiers/img/upwpa128.png">
 
     <!-- Script JavaScript principal -->
-    <script src="../JavaScript/mail_verif.js"></script>
+    <script src="../JavaScript/tutorial.js"></script>
     
 </head>
 <body>
@@ -247,27 +247,7 @@
         </div>
 
     </footer>
-<!--
-    <script type="text/javascript">
-        let pyodideReadyPromise;
 
-        async function main() {
-            if (!pyodideReadyPromise) {
-                pyodideReadyPromise = loadPyodide();
-            }
-            const python_test = document.getElementById('res_python');
-            let pyodide = await pyodideReadyPromise;
-
-            await pyodide.runPythonAsync(`
-def calcule_somme(a, b):
-    return a + b
-        `);
-
-            const result = pyodide.runPython("calcule_somme(1, 2)");
-            python_test.textContent = result.toString();
-        }
-    </script>
-    -->
 
     
 </body>

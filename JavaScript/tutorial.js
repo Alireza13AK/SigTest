@@ -71,12 +71,12 @@ document.addEventListener('DOMContentLoaded', function() {
      */
 
     // Quand le DOM est charg
-    document.addEventListener('DOMContentLoaded', function () {
+ 
         // Bouton Vérification redirige vers mail_verif.html avec signature encodée en paramètre URL
         document.getElementById('next_button').addEventListener('click', () => {
             const encodedSig = encodeURIComponent(signature);
-            window.location.href = `/mail_verif.html?signature=${encodedSig}`;
+            window.location.href = `mail_verif.html?signature=${encodedSig}`;
          });
 
-    });
+  
 })
