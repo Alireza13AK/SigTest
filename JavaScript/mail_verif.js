@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoadedDOMContent', function (){
+document.addEventListener('DOMContentLoaded', function (){
      // Récupération du paramètre "signature" depuis l'URL
     const params = new URLSearchParams(window.location.search);
     const signature = params.get('signature');
@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoadedDOMContent', function (){
      */
 
     document.getElementById('fetchSignature').addEventListener('click', async () => {
-        console.log('Le bouton a été cliqué !');
 
         // Récupère l'email saisi et l'élément d'alerte
         const email = document.getElementById("email_etu").value;
