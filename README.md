@@ -74,7 +74,7 @@ Le module chromedriver-autoinstaller télécharge et configure automatiquement l
 Dans le terminal :
 
 ```bash
-./Python/app.py
+start index.html && python Python/app.py
 ```
 
 ---
