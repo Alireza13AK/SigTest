@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import time
+import platform
 
 
 # Sépare les lignes et efface les espaces
@@ -119,7 +120,7 @@ def get_signature(signature,email):
         time.sleep(1)
         
         # Selon la plateforme (windows, linux, mac) faire "CTRL + A" ou "CMD + A" pour sélectionner le texte
-        import platform
+       
         if platform.system() == 'Darwin':  # macOS
             actions.key_down(Keys.COMMAND).send_keys('a').key_up(Keys.COMMAND)
         else:  # Windows/Linux
