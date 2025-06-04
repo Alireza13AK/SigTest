@@ -191,11 +191,13 @@
             // Décode et affiche la signature
             const decoded = decodeURIComponent(signature);
 
+            // Récupère l'élément contenant la signature
+            signature_texte = decoded;
+
 
         }
 
-        // Récupère l'élément contenant la signature
-        const signature_texte = decoded;
+        
 
 
         /**
@@ -223,7 +225,7 @@
                 resultElement.innerText = "Vérification en cours ...";
 
                 // Récupère la signature affichée
-                const signature_verif = document.getElementById("signature_display2").textContent;
+                const signature_verif = signature_texte;
                 console.log(signature_verif);
 
                 // Récupère l'email à nouveau
@@ -254,15 +256,7 @@
             }
         });
 
-        // Quand le DOM est charg
-        document.addEventListener('DOMContentLoaded', function () {
-            // Bouton Vérification redirige vers mail_verif.html avec signature encodée en paramètre URL
-            document.getElementById('implementation').addEventListener('click', () => {
-                const encodedSig = encodeURIComponent(signature);
-                window.location.href = `tutorial.html?signature=${encodedSig}`;
-            });
-
-        });
+        
 
     </script>
 
