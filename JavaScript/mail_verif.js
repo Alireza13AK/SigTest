@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function (){
         const alertemail = document.getElementById("alerteemail");
 
         // Vérifie que l'email est un email étudiant valide
-        if (email.endsWith('@etu.univ-poitiers.fr')) {
+        if (email.endsWith('@etu.univ-poitiers.fr' ) || email.endsWith('@univ-poitiers.fr' )) {
             alertemail.style.display = 'none';
 
             // Affiche un message temporaire de traitement
