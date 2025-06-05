@@ -12,6 +12,14 @@
     <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="icon" type="image/png" href="https://www.univ-poitiers.fr/wp-content/themes/universite_poitiers/img/upwpa128.png">
+<<<<<<< HEAD
+=======
+
+    <!-- Script JavaScript principal -->
+    <script src="../JavaScript/mail_verif.js"></script>
+     <script type="module" src="../JavaScript/bundle.js"></script>
+
+>>>>>>> main
 </head>
 <body>
     <!-- Header avec logo et titre à gauche, boutons de navigation à droite -->
@@ -25,7 +33,11 @@
             <button id="btn_generator_page_mode1" onclick="window.open('https://upmail.univ-poitiers.fr/', '_blank')">Zimbra</button>
             <button id="btn_videotuto_page_mode1" onclick="location.href='tuto_video.html'">Vidéo tutorielle</button>
             <button id="btn_tutorial_page_mode1" onclick="location.href='tutorial.html'">Tutoriel</button>
+<<<<<<< HEAD
             <button id="btn_about_page_mode1" onclick="location.href='about.html'">À propos</button>
+=======
+             <a href="mailto:tuto@univ-poitiers.fr" class="btn" id="btn_contact">Nous contacter</a>
+>>>>>>> main
             <select id="language">
                 <option value="fr">&#x1F1EB;&#x1F1F7;</option>
                 <option value="en">&#x1F1FA;&#x1F1F8;</option>
@@ -34,6 +46,7 @@
     </div>
 
 
+<<<<<<< HEAD
     <!-- Section principale pour réafficher la signature générée -->
     <div class="main_signature">
         <h4 id="titre" style="font-size: 32px; text-align: center; display: none;">Voici votre signature générée :</h4>
@@ -48,13 +61,49 @@
     <div class="main_content">
 
         <h4 style="font-size: 32px; text-align: center; color: #3498DB;">Pour la vérification, veuillez mettre votre adresse mail étudiante.</h4>
+=======
+   
+
+    <!-- Section principale pour la vérification de la signature -->
+    <div class="main_content">
+        
+        <h4 id="verifmail" style="font-size: 32px; text-align: center; color: #3498DB;">1. Pour la vérification de votre signature suivez ces 2 étapes:</h4>
+
+        <br>
+        <br>
+
+        <h4 id="tutom1" style="font-size: 22px; text-align: left; color: #3498DB;">1 - Allez créer un nouveau message avec "Nouveau message".</h4>
+        <img src="../Images/verification.png" alt="Nouveau_message">
+
+
+        <h4 id="tutom2" style="font-size: 22px; text-align: left; color: #3498DB;">2 - Une fois sur la page, vous devriez voir votre signature.</h4>
+        <img src="../Images/verification 2.png" alt="Verification">
+
+        <br>
+        <br>
+
+        <h4 id="notgood" style="color: #3498DB;">Si la signature n'apparait pas dans le cadre de l'étape 2, revoyez les étapes de l'implémentation de la signature :</h4>
+        <button class=button id="implementation" onclick="history.back()">Retour implémentation signature</button>
+        <br>
+        <br>
+        <br>
+
+
+
+
+        <h4 id="step2" style="font-size: 32px; text-align: center; color: #3498DB;">2. Pour la vérification automatique, veuillez mettre votre adresse mail étudiante.</h4>
+>>>>>>> main
         <!-- Champ adresse mail (obligatoire) -->
         <label>
             <input type="text" id="email_etu" name="email_etu" class="textField" size="30" placeholder="prenom.nom@etu.univ-poitiers.fr">
         </label>
         <!-- Alerte email -->
         <div class="alert" style="display: none;" id="alerteemail">
+<<<<<<< HEAD
             <strong>Attention!</strong> L'adresse doit se terminer par @etu.univ-poitiers.fr !
+=======
+            <strong>Attention!</strong> L'adresse doit se terminer par @etu.univ-poitiers.fr ou @univ-poitiers.fr !
+>>>>>>> main
         </div>
 
         <br>
@@ -161,6 +210,7 @@
         </div>
     </footer>
 
+<<<<<<< HEAD
     <script>
         
         // Récupération du paramètre "signature" depuis l'URL
@@ -268,6 +318,9 @@
         });
     </script>
 
+=======
+    
+>>>>>>> main
 
 </body>
 </html>

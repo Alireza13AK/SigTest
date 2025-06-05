@@ -27,7 +27,11 @@ body {
 
 .alert {
     padding: 20px;
+<<<<<<< HEAD
     background-color: #f48300;
+=======
+    background-color: #ff00007d;
+>>>>>>> main
     color: white;
 }
 
@@ -140,6 +144,10 @@ input[type="radio"] {
     cursor: pointer;
     font-weight: 500;
     transition: var(--transition);
+<<<<<<< HEAD
+=======
+    margin: 5px;
+>>>>>>> main
 }
 
 .button:hover {
@@ -297,8 +305,13 @@ input[type="radio"] {
 }
 
 .button[type="reset"] {
+<<<<<<< HEAD
     background-color: var(--background-color);
     color: var(--text-color);
+=======
+    background-color: #ff00007d;
+     color: white;
+>>>>>>> main
 }
 
 .button[type="reset"]:hover {
@@ -466,3 +479,78 @@ body.dark-mode th {
     font-weight: bold;
   }
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+  .main-content {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.main-content h2 {
+  text-align: center;
+  color:  #3498DB;
+}
+
+.main-content p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.main-content .info {
+  background-color: #fff4f4;
+  border-left: 5px solid  #3498DB;
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-radius: 6px;
+}
+
+.main-content .cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.main-content .cta a {
+  text-decoration: none;
+  background-color:  #3498DB;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.main-content .cta a:hover {
+  background-color:  #3498DB;
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 12px 12px;
+  font-size: 12px;
+  font-weight: 300;
+  color: white;
+  background: linear-gradient(135deg, #4a90e2, #007bff);
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  box-shadow: 0 6px 14px rgba(0, 123, 255, 0.4);
+  transform: translateY(-2px);
+}
+>>>>>>> main
