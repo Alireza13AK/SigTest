@@ -66,6 +66,8 @@
   "sitetuto": "Automatic signature addition in Zimbra mail",
   "index_button" : "Back",
   "next_button": "Next Step",
+  "submit": "Next Step",
+
 
 
   
@@ -76,7 +78,7 @@
   "implementation": "Back to signature implementation",
   "step2": "2. For automatic verification, please enter your student email address.",
   "alerteemail": "The address must end with @etu.univ-poitiers.fr or @univ-poitiers.fr!",
-  "vetchSignature": "Verify"
+  "fetchSignature": "Verify"
    
 
 
