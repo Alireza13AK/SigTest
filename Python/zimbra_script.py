@@ -8,10 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import time
-<<<<<<< HEAD
-=======
 import platform
->>>>>>> main
 
 
 # Sépare les lignes et efface les espaces
@@ -72,21 +69,20 @@ def comparer_signatures(sig1, sig2):
 
 
 
-# On va prendre la signature et on va dire si ça coïncide avec 
+# On va prendre la signature et on va dire si ça coïncide
 def get_signature(signature,email):
     print("Signature attendue :\n", signature)
 
+    username = "test"  # Changez le nom d'utilisateur
+    password = "test"  # Changez le pot de passe
+
     zimbra_url = "https://cas.univ-poitiers.fr/cas/login?service=https%3A%2F%2Fzimbra-auth.univ-poitiers.fr%2Fcas#1"
-    username = "test"
-    password = "test"
 
     # Ouvre une nouvelle fenêtre sur Google Chrome
     driver = webdriver.Chrome()
     driver.maximize_window()
     wait = WebDriverWait(driver, 20)
     actions = ActionChains(driver)
-
-
 
     try:
         driver.get(zimbra_url)
@@ -123,11 +119,7 @@ def get_signature(signature,email):
         time.sleep(1)
         
         # Selon la plateforme (windows, linux, mac) faire "CTRL + A" ou "CMD + A" pour sélectionner le texte
-<<<<<<< HEAD
-        import platform
-=======
        
->>>>>>> main
         if platform.system() == 'Darwin':  # macOS
             actions.key_down(Keys.COMMAND).send_keys('a').key_up(Keys.COMMAND)
         else:  # Windows/Linux
@@ -148,7 +140,8 @@ def get_signature(signature,email):
         time.sleep(2)
 
         # Clic sur le premier mail de la liste
-        email_row = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[contains(@id, '__rw') and contains(@class, 'ZmRowDoubleHeader')]//span[text()='signature']/ancestor::div[contains(@id, '__rw')]")))
+        email_row = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[contains(@id, '__rw') and contains(@class, 'ZmRowDoubleHeader')]"
+                                                                     "//span[text()='signature']/ancestor::div[contains(@id, '__rw')]")))
         email_row.click()
         time.sleep(10)
 

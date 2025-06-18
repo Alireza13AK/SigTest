@@ -127,11 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Double mentions
             case "Double licence Droit-Philosophie – Poitiers":
             case "Double licence Droit-LEA – Poitiers":
-<<<<<<< HEAD
-                return 3; // A REVOIR CA
-=======
                 return 10; // A REVOIR CA
->>>>>>> main
 
             // Santé
             case "LAS Médecine – Poitiers":
@@ -164,10 +160,6 @@ document.addEventListener('DOMContentLoaded', function () {
             inputautreformation.style.display = 'block';
             titre_autreformation.style.display = 'block';
             inputcomposante.required = true;
-<<<<<<< HEAD
-            inputcomposante.selectedIndex = 0;
-=======
->>>>>>> main
             inputautreformation.required = true;
 
         } else {
@@ -284,11 +276,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else
 
         if (inputtelephone.value.trim() !== '') {
-<<<<<<< HEAD
             signature += `Tél. : ${inputtelephone.value}`;
-=======
-            signature += `Tél : ${inputtelephone.value}`;
->>>>>>> main
         }
 
         return signature;
@@ -327,11 +315,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const signature = generateSignature();
         const encodedSig = encodeURIComponent(signature);
-<<<<<<< HEAD
-        window.location.href = `HTML/tutorial.html?signature=${encodedSig}`;
-=======
         window.location.href = `tutorial.html?signature=${encodedSig}`;
->>>>>>> main
     });
 
 

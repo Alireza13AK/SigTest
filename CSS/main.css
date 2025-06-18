@@ -27,11 +27,7 @@ body {
 
 .alert {
     padding: 20px;
-<<<<<<< HEAD
-    background-color: #f48300;
-=======
     background-color: #ff00007d;
->>>>>>> main
     color: white;
 }
 
@@ -144,10 +140,7 @@ input[type="radio"] {
     cursor: pointer;
     font-weight: 500;
     transition: var(--transition);
-<<<<<<< HEAD
-=======
     margin: 5px;
->>>>>>> main
 }
 
 .button:hover {
@@ -305,13 +298,8 @@ input[type="radio"] {
 }
 
 .button[type="reset"] {
-<<<<<<< HEAD
-    background-color: var(--background-color);
-    color: var(--text-color);
-=======
     background-color: #ff00007d;
      color: white;
->>>>>>> main
 }
 
 .button[type="reset"]:hover {
@@ -479,8 +467,6 @@ body.dark-mode th {
     font-weight: bold;
   }
 
-<<<<<<< HEAD
-=======
 
 
 
@@ -553,4 +539,3 @@ body.dark-mode th {
   box-shadow: 0 6px 14px rgba(0, 123, 255, 0.4);
   transform: translateY(-2px);
 }
->>>>>>> main

@@ -99,3 +99,95 @@ Double-cliquez sur `index.html`, ou ouvrez un navigateur puis faites glisser `in
 
 ## Licence
 
+### 🔁 Processus de génération de signature électronique
+
+```mermaid
+sequenceDiagram
+    participant U as Utilisateur
+    participant HP as Page d'accueil (index.html)
+    participant FP as Page formulaire (formulaire.html)
+    participant JS as JavaScript (validation)
+    participant TP as Page tutoriel (tutorial.html)
+    participant VP as Page vérification (mail_verif.html)
+    participant Z as Zimbra (messagerie)
+
+    Note over U,Z: Processus de génération de signature électronique
+
+    U->>HP: Accède à la page d'accueil
+    HP-->>U: Affiche vidéo explicative et informations
+    
+    U->>HP: Clique sur "Commencer le formulaire"
+    HP->>FP: Redirection vers formulaire.html
+    
+    FP-->>U: Affiche le formulaire vide
+    
+    Note over U,FP: Saisie des informations obligatoires
+    U->>FP: Saisit prénom (*)
+    U->>FP: Saisit nom (*)
+    U->>FP: Saisit groupe TD (1-99) (*)
+    U->>FP: Sélectionne formation (*)
+    
+    alt Formation = "Autre formation"
+        FP-->>U: Affiche champ "Autre formation"
+        U->>FP: Saisit formation personnalisée (*)
+    end
+    
+    U->>FP: Sélectionne niveau d'études (*)
+    U->>FP: Sélectionne composante (*)
+    U->>FP: Saisit téléphone (optionnel)
+    
+    U->>FP: Clique sur "Étape suivante"
+    FP->>JS: Déclenche validation du formulaire
+    
+    alt Validation échoue
+        JS-->>FP: Affiche messages d'erreur
+        FP-->>U: Montre champs à corriger
+        Note over U,FP: L'utilisateur corrige les erreurs
+    else Validation réussit
+        JS->>TP: Redirection vers tutorial.html
+        JS->>TP: Transmet données pour génération signature
+    end
+    
+    TP-->>U: Affiche signature générée
+    TP-->>U: Affiche tutoriel vidéo et instructions
+    TP-->>U: Bouton "Copier" pour la signature
+    
+    Note over U,TP: Consultation du tutoriel
+    U->>TP: Visualise la vidéo tutorielle
+    U->>TP: Consulte les étapes d'implémentation
+    U->>TP: Copie la signature générée
+    
+    Note over U,Z: Implémentation dans Zimbra
+    U->>Z: Ouvre Zimbra (nouveau message)
+    U->>Z: Accède aux Préférences > Signatures
+    U->>Z: Colle la signature copiée
+    U->>Z: Configure l'utilisation de la signature
+    U->>Z: Enregistre les paramètres
+    
+    U->>TP: Clique sur "Étape suivante"
+    TP->>VP: Redirection vers mail_verif.html
+    
+    VP-->>U: Page de vérification avec instructions
+    
+    Note over U,VP: Vérification manuelle et automatique
+    U->>Z: Ouvre Zimbra (nouveau message)
+    Z-->>U: Interface de création message
+    U->>U: Vérifie présence de la signature
+    
+    alt Signature absente
+        U->>TP: Retour au tutoriel
+        Note over U,TP: Révision des étapes d'implémentation
+    else Signature présente
+        Note over U,VP: Vérification automatique
+        U->>VP: Saisit adresse email étudiante
+        U->>VP: Clique sur "Vérification"
+        VP->>VP: Valide format email (@etu.univ-poitiers.fr)
+        
+        alt Email invalide
+            VP-->>U: Affiche alerte format email
+        else Email valide
+            VP-->>U: Confirmation de la vérification
+        end
+    end
+    
+    Note over U,Z: Processus terminé - Signature active dans Zimbra
