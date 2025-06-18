@@ -18,7 +18,7 @@
     <script src="../JavaScript/index.js"></script>
     <script type="module" src="../JavaScript/bundle.js"></script>
 
-    <title>PoitiersSignGen</title>
+    <title>Formulaire</title>
 </head>
 <body>
     <!-- En-tête du site contenant logo et menu -->
@@ -27,7 +27,7 @@
             <!-- Logo de l'université -->
             <img src="../Images/logo-up.png" alt="test" width="100px">
 			<!-- Titre principal -->
-			<h2 id="subtitle_page_mode1">PoitiersSignGen</h2>
+			<h2 id="subtitle_page_mode1">Créer sa signature de mail</h2>
 		</div>
 		<div class="right-section">
             <!-- Boutons pour navigation vers Zimbra, tutoriel et page About -->
@@ -52,7 +52,7 @@
             <!-- Explications d'utilisation du site -->
             <h4 id="titre1" style="font-size: 32px; text-align: center;">Complétez ce formulaire pour créer votre signature électronique.</h4>
             <h4 id="titre2" style="font-size: 18px; text-align: center;">Ensuite, suivez les étapes du tutoriel pour mettre votre signature dans Zimbra une fois le formulaire fini.</h4>
-            <h4 id="titre3" style="font-size: 18px; text-align: center;">Enfin, vérifiez en appuyant sur le bouton "Étape suivante".</h4>
+            <h4 id="titre3" style="font-size: 18px; text-align: center;">Enfin, vérifiez en appuyant sur le bouton « Étape suivante ».</h4>
            
 
             <!-- Champ prénom (obligatoire) -->
@@ -70,7 +70,8 @@
             <!-- Champ groupe TD (obligatoire) avec restriction sur les chiffres entre 1 et 99 -->
             <h4 id="groupe_td">Groupe de TD<span class="obligatoire"> *</span></h4>
             <label>
-                <input type="text" pattern="[1-9][0-9]?" id="groupe_td_etu" name="groupe_td_etu" class="textField" placeholder="Entre 1 et 99" maxlength="2" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 2); if (this.value === '0') this.value = '';">
+                <input type="text" pattern="[1-9][0-9]?" id="groupe_td_etu" name="groupe_td_etu" class="textField" placeholder="Entre 1 et 99" maxlength="2"
+                       oninput="this.value = this.value.replace(/\D/g, '').slice(0, 2); if (this.value === '0') this.value = '';">
             </label>
             
             <!-- Sélecteur de formation (obligatoire) -->
@@ -211,7 +212,7 @@
 
 
             <!-- Champ pour saisir la composante de l'étudiant (obligatoire si "autre formation" choisie) -->
-            <h4 id="composante" style="display: block">Composantes<span class="obligatoire"> *</span></h4>
+            <h4 id="composante" style="display: block">Composante<span class="obligatoire"> *</span></h4>
             <label>
                 <select id="composante_etu" name="composante_etu" class="textField" style="display: block">
                     
@@ -220,10 +221,10 @@
                     <option value="Institut de Préparation à l'Administration Générale">Institut de Préparation à l'Administration Générale</option>
                     <option value="École Nationale Supérieure d’Ingénieurs de Poitiers">École Nationale Supérieure d’Ingénieurs de Poitiers</option>
                     <option value="Institut d'Administration des Entreprises">Institut d'Administration des Entreprises</option>
-                    <option value="Institut des Risques Industriels, Assurantiels et Financiers">Institut des Risques Industriels, Assurantiels et Financiers</option>
+                    <option value="École Nationale Supérieure des sciences Applicatives et du Risque">École Nationale Supérieure des sciences Applicatives et du Risque</option>
                     <option value="IUT DE Poitiers / Niort / Châtellerault">IUT DE Poitiers / Niort / Châtellerault</option>
                     <option value="IUT d’Angoulême">IUT d’Angoulême</option>
-                    <option value="UFR Sciences Fondamentales Appliquées">UFR Sciences Fondamentales Appliquées</option>
+                    <option value="UFR Sciences Fondamentales et Appliquées">UFR Sciences Fondamentales et Appliquées</option>
                     <option value="UFR sciences sport">UFR des sciences du sport</option>
                     <option value="UFR Droit et sciences sociales">UFR Droit et sciences sociales</option>
                     <option value="UFR Sciences Économiques">UFR Sciences Économiques</option>
@@ -260,95 +261,6 @@
            
         </div>
     </div>
-    
-
-
-    <!-- Footer réseaux sociaux -->
-    <footer id="social-footer" class="site-social-footer">
-
-
-        <div id="social-nav">
-
-
-            <ul>
-                <li>La vie étudiante continue sur les réseaux sociaux !</li>
-                <!-- Liens réseaux sociaux avec icônes -->
-                <li><a target="_blank" href="https://www.facebook.com/univpoitiers/" title="Notre compte Facebook"><i aria-hidden="true" class="fa-brands fa-facebook"></i></a></li>
-                <li><a target="_blank" href="https://www.instagram.com/univ_poitiers/" title="Notre compte Instagram"><i aria-hidden="true" class="fa-brands fa-instagram"></i></a></li>
-                <li><a target="_blank" href="https://twitter.com/#!/univpoitiers" title="Notre compte Twitter"><i aria-hidden="true" class="fa-brands fa-twitter"></i></a></li>
-                <li><a target="_blank" href="https://www.linkedin.com/school/45459/" title="Notre compte Linkedin"><i aria-hidden="true" class="fa-brands fa-linkedin"></i></a></li>
-                <li><a target="_blank" href="http://www.youtube.com/user/UniversitePoitiers" title="Notre compte Youtube"><i aria-hidden="true" class="fa-brands fa-youtube"></i></a></li>
-            </ul>
-
-
-        </div>
-
-    </footer>
-
-    <!-- Footer principal avec informations de contact, liens utiles et mentions légales -->
-    <footer id="main-footer" class="site-main-footer">
-
-        <div class="footer">
-            <div class="footer-left">
-                <div class="university-title">UNIVERSITÉ DE POITIERS</div>
-                <div class="address">
-                    Présidence et administration de l'université<br>
-                    15 rue de l'Hôtel Dieu<br>
-                    TSA 71117<br>
-                    86073 POITIERS Cedex 9, France
-                </div>
-                <div class="phone">
-                    <!-- Lien cliquable pour appeler -->
-                    <a href="tel:+33549453000">
-                        <!-- Icône téléphone SVG -->
-                        <svg class="phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                        (33) (0)5 49 45 30 00
-                    </a>
-                </div>
-                <div class="note">
-                    <!-- Note importante sur l'adresse -->
-                    Le "15 rue de l'Hôtel Dieu à Poitiers" correspond à l'administration de l'université. Aucun cours n'y est dispensé.
-                </div>
-            </div>
-            <!-- Liens utiles de l'Université de Poitiers -->
-            <div class="footer-right">
-                <div class="footer-column">
-                    <div class="column-title">ESPACES</div>
-                    <ul class="link-list">
-                        <li><a href="https://www.univ-poitiers.fr/souvrir-a-linternational/">International</a></li>
-                        <li><a href="https://www.univ-poitiers.fr/espace-lyceen-ne/">Lycéen·ne·s</a></li>
-                        <li><a href="https://www.univ-poitiers.fr/espace-etudiant-e-s/">Étudiant·e·s</a></li>
-                        <li><a href="https://www.univ-poitiers.fr/espaces-ancien-ne-s-up-alumnis/">Ancien·ne·s (UP alumni·s)</a></li>
-                        <li><a href="https://www.univ-poitiers.fr/espace-presse/">Presse</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <div class="column-title">ACCÈS DIRECTS</div>
-                    <ul class="link-list">
-                        <li><a href="https://ent.univ-poitiers.fr">ENT étudiant</a></li>
-                        <li><a href="https://iris.univ-poitiers.fr/">Iris</a></li>
-                        <li><a href="https://annuaire.appli.univ-poitiers.fr/">Annuaire</a></li>
-                        <li><a href="https://marches-publics.appli.univ-poitiers.fr/www">Marchés publics</a></li>
-                        <li><a href="https://www.univ-poitiers.fr/choisir-luniversite/decouvrir-luniversite-de-poitiers/plans-dacces/">Plans d'accès</a></li>
-                        <li><a href="https://www.univ-poitiers.fr/choisir-luniversite/recrutement/">Recrutement</a></li>
-                        <li><a href="https://www.univ-poitiers.fr/flux-rss/">Flux RSS</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <div class="column-title">INFORMATIONS LÉGALES</div>
-                    <ul class="link-list">
-                        <li><a href="https://www.univ-poitiers.fr/mentions-legales/">Mentions légales</a></li>
-                        <li><a href="https://www.univ-poitiers.fr/donnees-personnelles/">Données personnelles</a></li>
-                        <li><a href="https://www.univ-poitiers.fr/accessibilite/">Accessibilité</a></li>
-                        <li><a href="https://www.univ-poitiers.fr/plan-du-site/">Plan du site</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </footer>
 
 
 

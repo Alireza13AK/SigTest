@@ -1,5 +1,5 @@
 {
-  "subtitle_page_mode1": "PoitiersSignGen",
+  "subtitle_page_mode1": "Create your mail signature",
   "btn_generator_page_mode1": "Zimbra",
   "btn_videotuto_page_mode1": "Video Tutorial",
   "btn_tutorial_page_mode1": "Tutorial",
@@ -8,7 +8,7 @@
   "section_title_interface": "What is this interface for?",
   "section_intro_text": "This interface has been designed to help you generate your standardized email signature and easily integrate it into Zimbra, the email system used at the University of Poitiers.",
   "section_instructions_html": "Fill out the form to create your email signature.<br>You must fill in the required fields marked with an *:<br>First Name, Last Name, TD Group (between 1 and 99), Program, Level of study, Department.<br>If you select \"Other program,\" you must also fill in the corresponding field.<br>The Phone field is optional.<br><br>Then follow the steps in the tutorial to integrate your signature into Zimbra after completing the form.<br>Finally, check by pressing the <strong>“Verification”</strong> button.<br><br><strong>Fields marked with an * are mandatory.</strong><br><em>No data will be stored.</em>",
-  "section_final_note": "This tool ensures visual consistency of signatures within the university, while making integration easier for all staff and students.",
+  "section_final_note": "This tool ensures visual consistency of signatures within the university, while making integration easier for all students.",
   "btn_start_form": "Start the form",
   "info_part1": "Fill out the form to create your email signature.",
   "info_part2": "You must fill in the required fields marked with an *:",
