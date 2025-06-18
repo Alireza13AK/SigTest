@@ -1,0 +1,90 @@
+{
+  "subtitle_page_mode1": "Create your mail signature",
+  "btn_generator_page_mode1": "Zimbra",
+  "btn_videotuto_page_mode1": "Video Tutorial",
+  "btn_tutorial_page_mode1": "Tutorial",
+  "btn_contact_page_mode1": "Contact Us",
+  "video_unsupported_text": "Your browser does not support HTML5 video.",
+  "section_title_interface": "What is this interface for?",
+  "section_intro_text": "This interface has been designed to help you generate your standardized email signature and easily integrate it into Zimbra, the email system used at the University of Poitiers.",
+  "section_instructions_html": "Fill out the form to create your email signature.<br>You must fill in the required fields marked with an *:<br>First Name, Last Name, TD Group (between 1 and 99), Program, Level of study, Department.<br>If you select \"Other program,\" you must also fill in the corresponding field.<br>The Phone field is optional.<br><br>Then follow the steps in the tutorial to integrate your signature into Zimbra after completing the form.<br>Finally, check by pressing the <strong>“Verification”</strong> button.<br><br><strong>Fields marked with an * are mandatory.</strong><br><em>No data will be stored.</em>",
+  "section_final_note": "This tool ensures visual consistency of signatures within the university, while making integration easier for all students.",
+  "btn_start_form": "Start the form",
+  "info_part1": "Fill out the form to create your email signature.",
+  "info_part2": "You must fill in the required fields marked with an *:",
+  "info_part3": "First Name, Last Name, TD Group (between 1 and 99), Program, Level of study, Department.",
+  "info_part4": "If you select \"Other program,\" you must also complete the corresponding field.",
+  "info_part5": "The Phone field is optional.",
+  "info_part6": "Then, follow the tutorial steps to integrate your signature into Zimbra after completing the form.",
+  "info_part7": "Finally, verify by clicking the “Verification”button.",
+  "info_part8": "<strong>Fields marked with an * are mandatory.",
+  "info_part9": "No data will be stored.",
+  "btn_contact": "Contact us",
+
+
+
+
+  
+  "btn_home_page_mode1": "Home",
+  "titre1": "Fill out this form to create your email signature.",
+  "titre2": "Then, follow the tutorial steps to insert your signature into Zimbra once the form is completed.",
+  "titre3": "Finally, verify by clicking the \"Next step\" button.",
+  "prenom": "First Name",
+  "nom": "Last Name",
+  "groupe_td": "TD Group",
+  "formation": "Program",
+  "autre_formation": "Other Program",
+  "alerteautre": "You must complete this field!",
+  "diplome": "Level of Study",
+  "composante" :"Faculties",
+  "telephone": "Phone Number",
+  "reset": "Reset",
+  "back": "Back",
+  "next_step": "Next Step",
+
+
+
+  "titre": "Here is your generated signature:",
+
+  "copy_button": "Copy",
+  "copy_message": "Text has been copied!",
+  "add_signature_title": "Add a signature to your emails in Zimbra",
+  "tutoriel": "Full tutorial here:",
+  "open_pdf": "Open PDF",
+  "zimbra_signature_tutorial_title": "Tutorial for implementing your signature in Zimbra:",
+  "tuto1": "1 - Click on Zimbra on this web page.",
+  "tuto2": "2 - Log in using your username and password.",
+  "tuto3": "3 - Once logged in, click on 'Preferences' at the top of the page.",
+  "tuto4": "4 - Then click on 'Signatures' on the left side of the page.",
+  "tuto5": "5 - If your current signature is filled but not satisfactory, click 'New Signature' at the bottom of the 'Signatures' section.",
+  "tuto6": "6 - In the 'Name' field, give a name to your signature.",
+  "tuto7": "7 - Paste your generated signature in the box below the signature name.",
+  "tuto8": "8 - In 'Signature usage', select your signature name in both categories under 'Primary account'.",
+  "tuto9": "9 - Choose one of the two options for 'Signature placement' (we recommend 'Above included messages').",
+  "tuto10": "10 - Don’t forget to save your signature with the 'Save' button at the top left of the web page.",
+  "more_info": "See additional information :",
+  "sitetuto": "Automatic signature addition in Zimbra mail",
+  "index_button" : "Back",
+  "next_button": "Next Step",
+  "submit": "Next Step",
+
+
+
+  
+  "verifmail": "1. To verify your signature, follow these 2 steps:",
+  "tutom1": "1 - Create a new message by clicking \"New Message\".",
+  "tutom2": "2 - On the new message page, you should see your signature.",
+  "notgood": "If the signature does not appear in step 2, please review the signature implementation steps:",
+  "implementation": "Back to signature implementation",
+  "step2": "2. For automatic verification, please enter your student email address.",
+  "alerteemail": "The address must end with @etu.univ-poitiers.fr or @univ-poitiers.fr!",
+  "fetchSignature": "Verify"
+   
+
+
+  
+
+
+
+
+}
