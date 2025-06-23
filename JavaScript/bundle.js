@@ -41,11 +41,20 @@ function applyTranslations(translations) {
 
         if (element instanceof HTMLInputElement) {
             element.value = value;
-        } else {
-            const children = Array.from(element.childNodes).filter(node => node.nodeType !== Node.TEXT_NODE);
-            element.innerHTML = ''; // vide
-            element.appendChild(document.createTextNode(value + ' '));
-            children.forEach(child => element.appendChild(child));
+        } else{
+            // Cas spécial : l'élément contient des balises (ex: span)
+            // On remplace uniquement le texte principal
+            const span = element.querySelector('span');
+            if (span) {
+                // Supprime tout le contenu
+                element.innerHTML = '';
+                // Ajoute le texte traduit
+                element.appendChild(document.createTextNode(value + ' '));
+                // Réinsère le span (ex: l'étoile rouge)
+                element.appendChild(span);
+            } else {
+                element.textContent = value;
+            }
         }
     });
 }
