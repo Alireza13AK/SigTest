@@ -42,7 +42,10 @@ function applyTranslations(translations) {
         if (element instanceof HTMLInputElement) {
             element.value = value;
         } else {
-            element.textContent = value;
+            const children = Array.from(element.childNodes).filter(node => node.nodeType !== Node.TEXT_NODE);
+            element.innerHTML = ''; // vide
+            element.appendChild(document.createTextNode(value + ' '));
+            children.forEach(child => element.appendChild(child));
         }
     });
 }
