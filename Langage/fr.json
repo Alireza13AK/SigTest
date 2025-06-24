@@ -62,12 +62,9 @@
   "index_button": "Retour",
   "next_button": "Étape suivante",
   
-  "verifmail": "1. Pour la vérification de votre signature suivez ces 2 étapes :",
-  "tutom1": "I - Allez créer un nouveau message avec « Nouveau message ».",
-  "tutom2": "II - Une fois sur la page, vous devriez voir votre signature.",
+  "verifmail": "Pour la vérification de votre signature suivez ces 2 étapes :",
+  "tutom1": "1 - Allez créer un nouveau message avec « Nouveau message ».",
+  "tutom2": "2 - Une fois sur la page, vous devriez voir votre signature.",
   "notgood": "Si la signature n'apparaît pas dans le cadre de l'étape 2, revoyez les étapes de l'implémentation de la signature :",
-  "implementation": "Retour implémentation signature",
-  "step2": "2. Pour la vérification automatique, veuillez mettre votre adresse mail étudiante.",
-  "alerteemail": "L'adresse doit se terminer par @etu.univ-poitiers.fr ou @univ-poitiers.fr !",
-  "fetchSignature": "Vérification"
+  "implementation": "Retour implémentation signature"
 }

@@ -71,15 +71,11 @@
 
 
   
-  "verifmail": "1. To verify your signature, follow these 2 steps:",
+  "verifmail": "To verify your signature, follow these 2 steps:",
   "tutom1": "1 - Create a new message by clicking \"New Message\".",
   "tutom2": "2 - On the new message page, you should see your signature.",
   "notgood": "If the signature does not appear in step 2, please review the signature implementation steps:",
-  "implementation": "Back to signature implementation",
-  "step2": "2. For automatic verification, please enter your student email address.",
-  "alerteemail": "The address must end with @etu.univ-poitiers.fr or @univ-poitiers.fr!",
-  "fetchSignature": "Verify"
-   
+  "implementation": "Back to signature implementation"
 
 
   
