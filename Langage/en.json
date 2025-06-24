@@ -77,7 +77,7 @@
   "notgood": "If the signature does not appear in step 2, please review the signature implementation steps:",
   "implementation": "Back to signature implementation",
   "step2": "2. For automatic verification, please enter your student email address.",
-  "alerteemail": "The address must end with @etu.univ-poitiers.fr or @univ-poitiers.fr!",
+  "alerteemail": "The address must end with @etu.univ-poitiers.fr !",
   "fetchSignature": "Verify"
    
 

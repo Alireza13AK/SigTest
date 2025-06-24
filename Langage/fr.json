@@ -68,6 +68,6 @@
   "notgood": "Si la signature n'apparaît pas dans le cadre de l'étape 2, revoyez les étapes de l'implémentation de la signature :",
   "implementation": "Retour implémentation signature",
   "step2": "2. Pour la vérification automatique, veuillez mettre votre adresse mail étudiante.",
-  "alerteemail": "L'adresse doit se terminer par @etu.univ-poitiers.fr ou @univ-poitiers.fr !",
+  "alerteemail": "L'adresse doit se terminer par @etu.univ-poitiers.fr !",
   "fetchSignature": "Vérification"
 }
